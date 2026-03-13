@@ -75,5 +75,57 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 00573726d2bebf84ba926464dc83c048, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4471570880833234003}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 00573726d2bebf84ba926464dc83c048, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1079236364597266922}
   m_SourcePrefab: {fileID: 100100000, guid: 00573726d2bebf84ba926464dc83c048, type: 3}
+--- !u!1 &3993432955234754756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 00573726d2bebf84ba926464dc83c048, type: 3}
+  m_PrefabInstance: {fileID: 4299512456936824213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-4471570880833234003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993432955234754756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45f06b3c7df71943b28ac4ce4c26220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Footstep
+  wanderRadius: 10
+  idleTime: 3
+  detectionRange: 5
+  player: {fileID: 0}
+--- !u!143 &1079236364597266922
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993432955234754756}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}

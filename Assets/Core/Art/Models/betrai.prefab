@@ -52,8 +52,68 @@ PrefabInstance:
       propertyPath: m_Name
       value: betrai
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e09233c86f0659347b8b58cf76224f24, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 246f04d8d77a7eb42b8b2c73a0a1593f, type: 2}
+    - target: {fileID: 5866666021909216657, guid: e09233c86f0659347b8b58cf76224f24, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e09233c86f0659347b8b58cf76224f24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6959278986804570832}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e09233c86f0659347b8b58cf76224f24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 75660118719469360}
   m_SourcePrefab: {fileID: 100100000, guid: e09233c86f0659347b8b58cf76224f24, type: 3}
+--- !u!1 &2275665161406608812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e09233c86f0659347b8b58cf76224f24, type: 3}
+  m_PrefabInstance: {fileID: 1393196378876954877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6959278986804570832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275665161406608812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45f06b3c7df71943b28ac4ce4c26220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Footstep
+  wanderRadius: 10
+  idleTime: 3
+  detectionRange: 5
+  player: {fileID: 0}
+--- !u!143 &75660118719469360
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275665161406608812}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}

@@ -23,7 +23,14 @@ namespace Blocks.Gameplay.Core
     public abstract class HitProcessor : NetworkBehaviour, IHittable
     {
         #region IHittable Implementation
+        public void TakeDamage(float amount)
+        {
+            // Tạo ra HitInfo tạm thời để tương thích với logic cũ của HitProcessor
+            HitInfo info = new HitInfo { amount = amount };
 
+            // Gọi hàm HandleHit (là hàm abstract/protected bạn đang dùng)
+            HandleHit(info);
+        }
         /// <summary>
         /// Public entry point called when this object is hit by something on a client.
         /// This method takes the hit information and forwards it to the authority via an RPC for validation and processing.

@@ -55,6 +55,8 @@ GameObject:
   - component: {fileID: 4793561241459142953}
   - component: {fileID: 833835622841128185}
   - component: {fileID: 4018038430707533442}
+  - component: {fileID: 6384945509804896416}
+  - component: {fileID: 4904918026925883166}
   m_Layer: 3
   m_Name: '[BB] ThanhGiong'
   m_TagString: Player
@@ -418,6 +420,39 @@ MonoBehaviour:
   soundDefPlayerEliminated: {fileID: 11400000, guid: f94375e27624be640bcec5f9f675346c, type: 2}
   useRagdollOnElimination: 0
   ragdollRoot: {fileID: 0}
+--- !u!114 &6384945509804896416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2622534151233238710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640adce74492c774b95e393762e7ec25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::PlayerCombat
+  attackRange: 2.5
+  damageAmount: 20
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  comboCount: 0
+  lastClickTime: 0
+  comboDelay: 1
+--- !u!114 &4904918026925883166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2622534151233238710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca4134c5ebb0e2a419d31f994f43eb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.PlayerHitReceiver
+  ShowTopMostFoldoutHeaderGroup: 1
 --- !u!1001 &911147796710848660
 PrefabInstance:
   m_ObjectHideFlags: 0

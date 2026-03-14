@@ -119,6 +119,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12467600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5431339004017311249, guid: d50fe3bca0610a646b709dd4695decdc, type: 3}
+  m_PrefabInstance: {fileID: 2100622869887449226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &12467601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12467600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0002df47d6bc0dd419e842e7732afdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.VillagerNPC
+  villagerName: "Thanh Ni\xEAn"
+  dialogueData: {fileID: 11400000, guid: d4c2410bf4450f943881651ff1be522a, type: 2}
+  questStep: 0
+  interactionRadius: 5
+  questMarker: {fileID: 0}
+  completedMarker: {fileID: 0}
 --- !u!1 &44340993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7029948723529949830, guid: fad6a854911ed80488227fc18f3a19aa, type: 3}
@@ -178,6 +201,132 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 4e8d17d703e92ee41ad3936c68569f41, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &71624188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 71624190}
+  - component: {fileID: 71624189}
+  m_Layer: 0
+  m_Name: --- VillageQuestManager ---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &71624189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71624188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e02093967baac4d8873b2bbad936ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.VillageQuestManager
+  allVillagers:
+  - {fileID: 12467601}
+  - {fileID: 470942288}
+  - {fileID: 1461387344}
+  - {fileID: 170120273}
+  - {fileID: 2039992759}
+  battleSceneName: Map1
+  transformationDuration: 4
+  questTrackerUIDocument: {fileID: 1205794378}
+  winScreenUIDocument: {fileID: 941400139}
+  dialogueUI: {fileID: 688952438}
+--- !u!4 &71624190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71624188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1205794379}
+  - {fileID: 941400140}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &170120272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1014538907474035641, guid: 2d07233aa29e2a64982c4d8064ce6742, type: 3}
+  m_PrefabInstance: {fileID: 8140143878052644281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &170120273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170120272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0002df47d6bc0dd419e842e7732afdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.VillagerNPC
+  villagerName: "B\xE9 G\xE1i"
+  dialogueData: {fileID: 11400000, guid: 4f2cca38b06d3da4b8d3a0a2c620ffec, type: 2}
+  questStep: 3
+  interactionRadius: 5
+  questMarker: {fileID: 0}
+  completedMarker: {fileID: 0}
+--- !u!1 &181993390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181993392}
+  - component: {fileID: 181993391}
+  m_Layer: 0
+  m_Name: --- DialogueSystem ---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &181993391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181993390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfaafbed1c7b5a48b56d00bc9e3ee3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueSystem
+  typewriterSpeed: 0.03
+  useTypewriterEffect: 1
+--- !u!4 &181993392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181993390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &259628540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,6 +410,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2275665161406608812, guid: 3a3e7ed10e522a44593ae67e2d60bd28, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2039992758}
+    - targetCorrespondingSourceObject: {fileID: 2275665161406608812, guid: 3a3e7ed10e522a44593ae67e2d60bd28, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2039992759}
   m_SourcePrefab: {fileID: 100100000, guid: 3a3e7ed10e522a44593ae67e2d60bd28, type: 3}
 --- !u!1 &292540971
 GameObject:
@@ -455,6 +607,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
   m_PrefabInstance: {fileID: 422813930}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &470942287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3973481978764010052, guid: e7620de63de0a7b45ab91fc031473b2b, type: 3}
+  m_PrefabInstance: {fileID: 2006433564837915801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &470942288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470942287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0002df47d6bc0dd419e842e7732afdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.VillagerNPC
+  villagerName: "Gi\xE0 L\xE0ng"
+  dialogueData: {fileID: 11400000, guid: ce0435f6af577d241b14fc62a805d4ab, type: 2}
+  questStep: 1
+  interactionRadius: 5
+  questMarker: {fileID: 0}
+  completedMarker: {fileID: 0}
 --- !u!1001 &511369026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -523,6 +698,78 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 44340998}
   m_SourcePrefab: {fileID: 100100000, guid: fad6a854911ed80488227fc18f3a19aa, type: 3}
+--- !u!1 &688952437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688952440}
+  - component: {fileID: 688952439}
+  - component: {fileID: 688952438}
+  m_Layer: 0
+  m_Name: --- DialogueUI ---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &688952438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688952437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd06179032b95f458b5bfb80c15e4c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueUI
+  npcNameColor: {r: 0.95, g: 0.75, b: 0.2, a: 1}
+  playerNameColor: {r: 0.3, g: 0.85, b: 0.55, a: 1}
+  dialogueTextColor: {r: 1, g: 1, b: 1, a: 1}
+  backgroundOpacity: 0.85
+--- !u!114 &688952439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688952437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 078617a76b5fb4433800df5984ca3db2, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &688952440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688952437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &709435882
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +920,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fad6a854911ed80488227fc18f3a19aa, type: 3}
   m_PrefabInstance: {fileID: 511369026}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &941400138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941400140}
+  - component: {fileID: 941400139}
+  m_Layer: 0
+  m_Name: TransformationScreenUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &941400139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941400138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 078617a76b5fb4433800df5984ca3db2, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &941400140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941400138}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71624190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &947761597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -750,6 +1052,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30cdca7a8c9b40d9835b82c86542a4e, type: 3}
+--- !u!1 &1205794377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1205794379}
+  - component: {fileID: 1205794378}
+  m_Layer: 0
+  m_Name: QuestTrackerUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1205794378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205794377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 078617a76b5fb4433800df5984ca3db2, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &1205794379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205794377}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71624190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314394354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1366,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51238ec1086bd4d9abf55bc190cdfd1a, type: 3}
+--- !u!1 &1461387343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8516126976291007927, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
+  m_PrefabInstance: {fileID: 9199348473433161654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1461387344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461387343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0002df47d6bc0dd419e842e7732afdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.VillagerNPC
+  villagerName: "B\xE0 L\xE3o"
+  dialogueData: {fileID: 11400000, guid: 2d52f6cf458c9564e9c899d306201bd5, type: 2}
+  questStep: 2
+  interactionRadius: 5
+  questMarker: {fileID: 0}
+  completedMarker: {fileID: 0}
 --- !u!1 &1533933497
 GameObject:
   m_ObjectHideFlags: 1
@@ -1231,6 +1611,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2039992759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039992757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0002df47d6bc0dd419e842e7732afdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.VillagerNPC
+  villagerName: "B\xE9 Trai"
+  dialogueData: {fileID: 11400000, guid: 56c8c892f840a70489be79b02ccc1710, type: 2}
+  questStep: 4
+  interactionRadius: 5
+  questMarker: {fileID: 0}
+  completedMarker: {fileID: 0}
 --- !u!1 &2054135953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,7 +1831,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3973481978764010052, guid: e7620de63de0a7b45ab91fc031473b2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 470942288}
   m_SourcePrefab: {fileID: 100100000, guid: e7620de63de0a7b45ab91fc031473b2b, type: 3}
 --- !u!1001 &2100622869887449226
 PrefabInstance:
@@ -1490,7 +1891,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5431339004017311249, guid: d50fe3bca0610a646b709dd4695decdc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 12467601}
   m_SourcePrefab: {fileID: 100100000, guid: d50fe3bca0610a646b709dd4695decdc, type: 3}
 --- !u!1001 &8140143878052644281
 PrefabInstance:
@@ -1547,7 +1951,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1014538907474035641, guid: 2d07233aa29e2a64982c4d8064ce6742, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 170120273}
   m_SourcePrefab: {fileID: 100100000, guid: 2d07233aa29e2a64982c4d8064ce6742, type: 3}
 --- !u!1001 &9199348473433161654
 PrefabInstance:
@@ -1604,7 +2011,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8516126976291007927, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1461387344}
   m_SourcePrefab: {fileID: 100100000, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1625,3 +2035,6 @@ SceneRoots:
   - {fileID: 2100622869887449226}
   - {fileID: 2006433564837915801}
   - {fileID: 9199348473433161654}
+  - {fileID: 181993392}
+  - {fileID: 688952440}
+  - {fileID: 71624190}

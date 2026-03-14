@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ca0117a1b6e3543bef1aafb3cfcec5, type: 3}
+  m_Name: Dialogue_GiaLang
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
+  npcName: "Gi\xE0 L\xE0ng"
+  lines:
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "\u1ED2, c\xF3 ai \u0111\u1EBFn t\xECm ta? Con l\xE0 ai v\u1EADy?"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Th\u01B0a \xF4ng, con l\xE0 Gi\xF3ng. Con nghe tin gi\u1EB7c \xC2n s\u1EAFp
+      \u0111\u1EBFn."
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "\u0110\xFAng v\u1EADy con \u1EA1. Gi\u1EB7c \xC2n hung t\xE0n l\u1EAFm,
+      c\u1EA3 n\u01B0\u1EDBc \u0111ang lo l\u1EAFng."
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "\xD4ng \u01A1i, xin \xF4ng h\xE3y t\xE2u v\u1EDBi nh\xE0 vua r\u1EB1ng
+      con s\u1EBD \u0111\xE1nh gi\u1EB7c!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "Con... con n\xF3i th\u1EADt \u0111\xF3 sao? Con c\xF2n nh\u1ECF th\u1EBF
+      n\xE0y..."
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Con n\xF3i th\u1EADt! Nh\u01B0ng con c\u1EA7n nh\xE0 vua chu\u1EA9n b\u1ECB
+      cho con: m\u1ED9t con ng\u1EF1a s\u1EAFt, m\u1ED9t c\xE2y roi s\u1EAFt, v\xE0
+      m\u1ED9t b\u1ED9 \xE1o gi\xE1p s\u1EAFt!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "Ng\u1EF1a s\u1EAFt? Roi s\u1EAFt? \xC1o gi\xE1p s\u1EAFt? Con b\xE9 nh\u1ECF
+      th\u1EBF n\xE0y m\xE0 \u0111\xF2i nh\u1EEFng th\u1EE9 \u0111\xF3?"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Xin \xF4ng h\xE3y tin con! H\xE3y t\xE2u v\u1EDBi vua v\xE0 b\u1EA3o d\xE2n
+      l\xE0ng mang c\u01A1m g\u1EA1o \u0111\u1EBFn cho con. Con c\u1EA7n \u0103n
+      th\u1EADt nhi\u1EC1u \u0111\u1EC3 c\xF3 s\u1EE9c \u0111\xE1nh gi\u1EB7c!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "Ta... ta th\u1EA5y trong m\u1EAFt con c\xF3 m\u1ED9t ng\u1ECDn l\u1EEDa
+      kh\xE1c th\u01B0\u1EDDng. \u0110\u01B0\u1EE3c r\u1ED3i, ta s\u1EBD t\xE2u v\u1EDBi
+      vua ngay!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "C\xF2n con, h\xE3y \u0111i g\u1EB7p b\xE0 con trong l\xE0ng. M\u1ECDi
+      ng\u01B0\u1EDDi s\u1EBD mang c\u01A1m g\u1EA1o \u0111\u1EBFn cho con!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Con c\u1EA3m \u01A1n \xF4ng! Con s\u1EBD kh\xF4ng ph\u1EE5 l\xF2ng d\xE2n
+      l\xE0ng!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  playOnce: 1

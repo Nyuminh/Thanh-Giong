@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ca0117a1b6e3543bef1aafb3cfcec5, type: 3}
+  m_Name: Dialogue_BeTrai
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
+  npcName: "B\xE9 Trai"
+  lines:
+  - speakerName: "B\xE9 Trai"
+    text: "Anh Gi\xF3ng! Anh Gi\xF3ng! Em c\u0169ng mang c\u01A1m \u0111\u1EBFn cho
+      anh n\xE8!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "C\u1EA3m \u01A1n em! M\u1ECDi ng\u01B0\u1EDDi trong l\xE0ng t\u1ED1t qu\xE1!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 Trai"
+    text: "Ba em n\xF3i anh \u0103n bao nhi\xEAu c\u0169ng h\u1EBFt, c\u1EA3 l\xE0ng
+      gom c\u01A1m g\u1EA1o l\u1EA1i cho anh lu\xF4n \u0111\xF3!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "T\xF4i s\u1EBD kh\xF4ng bao gi\u1EDD qu\xEAn t\u1EA5m l\xF2ng c\u1EE7a
+      d\xE2n l\xE0ng!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 Trai"
+    text: "Em nghe n\xF3i vua \u0111\xE3 cho th\u1EE3 r\xE8n l\xE0m ng\u1EF1a s\u1EAFt
+      v\xE0 roi s\u1EAFt cho anh r\u1ED3i! S\u1EAFp \u0111em t\u1EDBi r\u1ED3i!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Th\u1EADt sao?! V\u1EADy th\xEC... t\xF4i \u0111\xE3 s\u1EB5n s\xE0ng!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 Trai"
+    text: "K\xECa! C\xF3 \u0111o\xE0n ng\u01B0\u1EDDi c\u1EE7a nh\xE0 vua \u0111ang
+      \u0111i t\u1EDBi! H\u1ECD mang theo ng\u1EF1a s\u1EAFt v\xE0 \xE1o gi\xE1p
+      k\xECa!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "\u0110\xE3 \u0111\u1EBFn l\xFAc r\u1ED3i... T\xF4i c\u1EA3m th\u1EA5y
+      s\u1EE9c m\u1EA1nh \u0111ang d\xE2ng tr\xE0o trong ng\u01B0\u1EDDi!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  playOnce: 1

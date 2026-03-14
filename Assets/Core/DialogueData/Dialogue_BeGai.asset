@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ca0117a1b6e3543bef1aafb3cfcec5, type: 3}
+  m_Name: Dialogue_BeGai
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
+  npcName: "B\xE9 G\xE1i"
+  lines:
+  - speakerName: "B\xE9 G\xE1i"
+    text: "Anh Gi\xF3ng \u01A1i! Em mang khoai lang v\xE0 b\u1EAFp ng\xF4 \u0111\u1EBFn
+      cho anh n\xE8!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "\u1ED2, c\u1EA3m \u01A1n em! Em mang nhi\u1EC1u qu\xE1!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 G\xE1i"
+    text: "M\u1EB9 em b\u1EA3o ph\u1EA3i mang th\u1EADt nhi\u1EC1u cho anh \u0103n.
+      Anh \u0103n bao nhi\xEAu c\u0169ng kh\xF4ng \u0111\u1EE7 ph\u1EA3i kh\xF4ng?"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "\u0110\xFAng r\u1ED3i! T\xF4i c\u1EA7n \u0103n th\u1EADt nhi\u1EC1u \u0111\u1EC3
+      l\u1EDBn nhanh \u0111\xE1nh gi\u1EB7c!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 G\xE1i"
+    text: "Em s\u1EE3 gi\u1EB7c l\u1EAFm... Anh \u0111\xE1nh th\u1EAFng gi\u1EB7c
+      r\u1ED3i quay v\u1EC1 nha!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Em y\xEAn t\xE2m! T\xF4i h\u1EE9a s\u1EBD \u0111u\u1ED5i h\u1EBFt gi\u1EB7c
+      \xC2n ra kh\u1ECFi n\u01B0\u1EDBc ta!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  playOnce: 1

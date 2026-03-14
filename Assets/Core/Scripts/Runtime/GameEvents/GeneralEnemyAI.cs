@@ -7,16 +7,18 @@ public class GeneralEnemyAI : MonoBehaviour
     private Transform player;
     public float alertRange = 10f;
     public float attackRange = 2f;
-
+    public GameObject finishZone;
     [Header("Combat Settings")]
     public float damageAmount = 15f;
     public float attackRate = 1.5f;
     private float nextAttackTime = 0f;
-
+    [Header("Music Settings")]
+    public AudioSource combatMusic;
     private NavMeshAgent agent;
     private Animator anim;
     private GeneralHitReceiver hitReceiver; // Thêm biến để tham chiếu trạng thái sống/chết
-
+    public AudioSource enemyAudioSource; // Kéo AudioSource của tướng địch vào đây
+    public AudioClip attackSound;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -29,7 +31,18 @@ public class GeneralEnemyAI : MonoBehaviour
         // BƯỚC QUAN TRỌNG: Nếu sư tử đã chết, dừng mọi logic và thoát hàm
         if (hitReceiver != null && hitReceiver.isDead)
         {
+
             if (agent.enabled) agent.isStopped = true; // Dừng di chuyển hẳn
+            if (combatMusic != null)
+            {
+                combatMusic.Stop();
+                // Hoặc dùng combatMusic.Pause(); nếu bạn muốn nhạc dừng tạm thời
+            }                // Kích hoạt vùng hoàn thành
+            if (finishZone != null)
+            {
+                finishZone.SetActive(true);
+                Debug.Log("Tướng địch đã chết! Cổng về đích đã xuất hiện.");
+            }
             return;
         }
 
@@ -79,6 +92,10 @@ public class GeneralEnemyAI : MonoBehaviour
         if (hittable != null)
         {
             Debug.Log("<color=red>general đã đánh trúng Player!</color>");
+            if (enemyAudioSource != null && attackSound != null)
+            {
+                enemyAudioSource.PlayOneShot(attackSound);
+            }
             HitInfo info = new HitInfo
             {
                 amount = damageAmount,

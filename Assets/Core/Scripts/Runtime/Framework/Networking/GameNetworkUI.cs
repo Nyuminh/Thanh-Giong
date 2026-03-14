@@ -72,10 +72,15 @@ namespace Blocks.Gameplay.Core
 
             CreateUI();
         }
-
-        /// <summary>
-        /// Updates the UI state each frame to reflect the current network connection state.
-        /// </summary>
+        private void Start()
+        {
+            // T? ð?ng g?i Start Host ngay khi ?ng d?ng b?t ð?u
+            if (Manager != null)
+            {
+                Debug.Log("Auto-starting Host...");
+                Manager.StartHostConnection();
+            }
+        }
         private void Update()
         {
             // Ensure all required components are valid before updating

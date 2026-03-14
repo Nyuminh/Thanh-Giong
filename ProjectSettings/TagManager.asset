@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - CinemachineTarget
+  - NPC
+  - begai
+  - betrai
   layers:
   - Default
   - TransparentFX

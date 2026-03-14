@@ -7,7 +7,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 2.5f;
     public float damageAmount = 20f;
     public LayerMask enemyLayer;
-
+    public AudioSource attackAudioSource;
+    public AudioClip attackSound;
     [Header("Combo Settings")]
     public int comboCount = 0;
     public float lastClickTime = 0f;
@@ -58,6 +59,7 @@ public class PlayerCombat : MonoBehaviour
         Vector3 scanPosition = transform.position + transform.forward + Vector3.up;
         Collider[] hitEnemies = Physics.OverlapSphere(scanPosition, attackRange, enemyLayer);
 
+        
         foreach (Collider enemy in hitEnemies)
         {
             var networkObj = enemy.GetComponent<Unity.Netcode.NetworkObject>();
@@ -71,6 +73,10 @@ public class PlayerCombat : MonoBehaviour
                 {
                     HitInfo info = new HitInfo { amount = currentDamage, attackerId = 0 };
                     hittable.OnHit(info);
+                    if (attackAudioSource != null && attackSound != null)
+                    {
+                        attackAudioSource.PlayOneShot(attackSound);
+                    }
                     Debug.Log($"Combo {comboCount} trúng đích! Sát thương: {currentDamage}");
                 }
             }

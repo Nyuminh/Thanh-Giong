@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Blocks.Gameplay.Core
@@ -74,13 +74,16 @@ namespace Blocks.Gameplay.Core
         }
         private void Start()
         {
-            // T? �?ng g?i Start Host ngay khi ?ng d?ng b?t �?u
+            // Tự động gọi Start Host ngay khi ứng dụng bắt đầu
             if (Manager != null)
             {
                 Debug.Log("Auto-starting Host...");
                 Manager.StartHostConnection();
             }
         }
+        /// <summary>
+        /// Updates the UI state each frame to reflect the current network connection state.
+        /// </summary>
         private void Update()
         {
             // Ensure all required components are valid before updating

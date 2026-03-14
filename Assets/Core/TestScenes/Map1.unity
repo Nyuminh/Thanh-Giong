@@ -25392,6 +25392,36 @@ Transform:
   - {fileID: 56192008}
   m_Father: {fileID: 1163263760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1522299254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4721176513809684379, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+  m_PrefabInstance: {fileID: 5284953260413966795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1522299262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522299254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 1584736151
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1001 &1522448504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32407,6 +32437,70 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1549431047095804266, guid: eca7aa4c26c28454bb4dd3ae0b13c487, type: 3}
   m_PrefabInstance: {fileID: 2137702531}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5284953260413966795
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4721176513809684379, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_Name
+      value: TuongDich1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 43.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390577487576780065, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780003453100574699, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 7391649451580710504, guid: 95f8bd355d92ee64e9147a6631e4db51, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4721176513809684379, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1522299262}
+  m_SourcePrefab: {fileID: 100100000, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -32423,3 +32517,4 @@ SceneRoots:
   - {fileID: 947761597}
   - {fileID: 1257441357}
   - {fileID: 1886106679}
+  - {fileID: 5284953260413966795}

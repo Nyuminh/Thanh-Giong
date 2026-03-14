@@ -19,6 +19,7 @@ namespace Blocks.Gameplay.Core
         /// </summary>
         /// <param name="info">A struct containing all relevant data about the hit (damage, position, attacker, etc.).</param>
         void OnHit(HitInfo info);
+        void TakeDamage(float amount);
 
         /// <summary>
         /// A server-bound RPC (Remote Procedure Call) that transmits the hit information.

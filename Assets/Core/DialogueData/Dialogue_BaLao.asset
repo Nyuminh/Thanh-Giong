@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ca0117a1b6e3543bef1aafb3cfcec5, type: 3}
+  m_Name: Dialogue_BaLao
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
+  npcName: "B\xE0 L\xE3o"
+  lines:
+  - speakerName: "B\xE0 L\xE3o"
+    text: "Con \u01A1i! Ta nghe gi\xE0 l\xE0ng n\xF3i r\u1ED3i. Con l\xE0 c\u1EADu
+      b\xE9 mu\u1ED1n \u0111\xE1nh gi\u1EB7c ph\u1EA3i kh\xF4ng?"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "D\u1EA1 th\u01B0a b\xE0, \u0111\xFAng \u1EA1. Con c\u1EA7n \u0103n th\u1EADt
+      nhi\u1EC1u \u0111\u1EC3 c\xF3 s\u1EE9c chi\u1EBFn \u0111\u1EA5u!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE0 L\xE3o"
+    text: "T\u1ED9i nghi\u1EC7p con! Ta n\u1EA5u s\u1EB5n n\u1ED3i c\u01A1m n\u1EBFp
+      \u0111\xE2y r\u1ED3i. Con \u0103n \u0111i cho ch\xF3ng l\u1EDBn!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE0 L\xE3o"
+    text: "Ta g\xF3p h\u1EBFt m\u1EA5y g\xE1nh g\u1EA1o nh\xE0 ta. C\xF3 bao nhi\xEAu
+      \u0111em cho con h\u1EBFt!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Con c\u1EA3m \u01A1n b\xE0! C\u01A1m n\u1EBFp c\u1EE7a b\xE0 th\u01A1m
+      qu\xE1!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE0 L\xE3o"
+    text: "\u0102n \u0111i con, \u0103n cho no v\xE0o! M\u1EA5y \u0111\u1EE9a nh\u1ECF
+      trong x\xF3m c\u0169ng \u0111ang mang \u0111\u1ED3 \u0103n \u0111\u1EBFn cho
+      con \u0111\xF3!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  playOnce: 1

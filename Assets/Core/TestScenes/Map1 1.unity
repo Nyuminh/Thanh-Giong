@@ -917,7 +917,7 @@ MonoBehaviour:
   - {fileID: 12467601}
   - {fileID: 170120273}
   - {fileID: 2039992759}
-  battleSceneName: Map1
+  battleSceneName: Loading
   transformationDuration: 4
   questTrackerUIDocument: {fileID: 1205794378}
   winScreenUIDocument: {fileID: 941400139}

@@ -1,105 +1,109 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement; // B?T BU?C th�m d?ng n�y �? d�ng l?nh chuy?n Scene
+﻿using UnityEngine;
+using UnityEngine.Video; // BẮT BUỘC để dùng VideoPlayer
+using UnityEngine.SceneManagement;
 using Unity.Netcode;
 using System.Collections;
-public class ImageGallery : MonoBehaviour
+
+public class VideoGallery : MonoBehaviour
 {
-    [Header("ImageDisplay")]
-    public Image displayImage;
+    [Header("Video Display")]
+    public VideoPlayer videoPlayer; // Kéo VideoPlayer vào đây
 
-    [Header("ListImage")]
-    public Sprite[] imageList;
+    [Header("List Video Clips")]
+    public VideoClip[] videoList;
 
-    [Header("LoadScene")]
-    public string nextSceneName = "Map1"; // �?t t�n Scene b?n mu?n chuy?n qua ? ��y
+    [Header("Load Scene")]
+    public string nextSceneName = "Map1";
 
     private int currentIndex = 0;
 
     void Start()
     {
-        // 1. M? kh�a chu?t (tr�nh vi?c chu?t b? k?t ? gi?a m�n h?nh)
+        // 1. Mở khóa chuột
         Cursor.lockState = CursorLockMode.None;
-
-        // 2. Hi?n th? chu?t l�n
         Cursor.visible = true;
-        UpdateDisplay();
+
+        if (videoPlayer != null)
+        {
+            // Đăng ký sự kiện: Khi video chạy hết thì gọi hàm OnVideoFinished
+            videoPlayer.loopPointReached += OnVideoFinished;
+            PlayCurrentVideo();
+        }
     }
 
-    // H�m g?i khi b?m n�t Next (Ti?n)
-    public void NextImage()
+    // Hàm này tự động gọi khi video chạy đến giây cuối cùng
+    private void OnVideoFinished(VideoPlayer source)
+    {
+        NextVideo();
+    }
+
+    public void NextVideo()
     {
         currentIndex++;
 
-        // Ki?m tra xem �? xem qua h?nh cu?i c�ng ch�a
-        if (currentIndex >= imageList.Length)
+        if (currentIndex >= videoList.Length)
         {
-            // �? xem h?t -> Load qua Scene Map 1
+            // Đã xem hết toàn bộ video -> Chuyển Map
             LoadNextScene();
         }
         else
         {
-            // Ch�a h?t -> C?p nh?t hi?n th? h?nh ti?p theo
-            UpdateDisplay();
+            PlayCurrentVideo();
         }
     }
 
- 
-
-    // C?p nh?t h?nh ?nh l�n m�n h?nh
-    private void UpdateDisplay()
+    private void PlayCurrentVideo()
     {
-        if (imageList.Length > 0 && currentIndex < imageList.Length)
+        if (videoList.Length > 0 && currentIndex < videoList.Length)
         {
-            displayImage.sprite = imageList[currentIndex];
+            videoPlayer.clip = videoList[currentIndex];
+            videoPlayer.Play();
         }
     }
 
-    // H�m x? l? chuy?n Scene
     private void LoadNextScene()
     {
-        Debug.Log("B?t �?u ti?n tr?nh ng?t m?ng v� Reset an to�n...");
-        // Kh?i ch?y ti?n tr?nh Reset c� �? tr?
+        Debug.Log("Kết thúc Cutscene, đang dọn dẹp để vào Map chiến đấu...");
         StartCoroutine(ResetAndLoadRoutine());
     }
 
     private IEnumerator ResetAndLoadRoutine()
     {
-        // 1. NG?T M?NG AN TO�N
+        // 1. Ngắt kết nối Network an toàn (Tránh lỗi Respawn ở Map cũ)
         if (NetworkManager.Singleton != null)
         {
             NetworkManager.Singleton.Shutdown();
-
-            // QUAN TR?NG NH?T: �?i 2 khung h?nh �? h? th?ng Netcode ng?m d?n d?p xong
             yield return null;
             yield return null;
 
-            // Sau khi Netcode d?n xong, ta m?i ph� h?y t�n t�ch c?a n�
             if (NetworkManager.Singleton != null && NetworkManager.Singleton.gameObject != null)
             {
                 Destroy(NetworkManager.Singleton.gameObject);
             }
         }
 
-        // 2. D?N D?P GAME MANAGER C?A MAP 1-1
+        // 2. Xóa các Manager cũ để Map mới tự khởi tạo lại từ đầu
         DestroyOldManager("GameManager");
         DestroyOldManager("GameNetworkManager");
 
-        // �?i th�m 1 khung h?nh n?a cho ch?c ch?n m?i th? �? b? x�a s?ch kh?i b? nh?
         yield return null;
 
-        // 3. T?I MAP 1 (Gi�ng L?n xu?t hi?n)
-        Debug.Log("�? d?n d?p xong! �ang t?i Scene: " + nextSceneName);
+        // 3. Tải Map mới
         SceneManager.LoadScene(nextSceneName);
     }
 
-    // H�m h? tr? t?m v� x�a Manager c?
     private void DestroyOldManager(string objectName)
     {
         GameObject obj = GameObject.Find(objectName);
-        if (obj != null)
+        if (obj != null) Destroy(obj);
+    }
+
+    // Hủy đăng ký sự kiện khi Object bị xóa để tránh lỗi bộ nhớ
+    private void OnDestroy()
+    {
+        if (videoPlayer != null)
         {
-            Destroy(obj);
+            videoPlayer.loopPointReached -= OnVideoFinished;
         }
     }
 }

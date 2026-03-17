@@ -21118,7 +21118,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -25249,6 +25249,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 717694607558871522, guid: d50fe3bca0610a646b709dd4695decdc, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4617366785637524651, guid: d50fe3bca0610a646b709dd4695decdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -69.4549
@@ -25369,6 +25373,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4019639664773738217, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8516126976291007927, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
       propertyPath: m_Name
       value: Balao

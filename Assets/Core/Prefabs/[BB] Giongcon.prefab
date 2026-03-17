@@ -218,7 +218,7 @@ MonoBehaviour:
   speedChangeRate: 15
   forceDecayRate: 5
   gravity: -15
-  jumpHeight: 3
+  jumpHeight: 2
   groundedOffset: -0.14
   groundedRadius: 0.28
   groundLayers:

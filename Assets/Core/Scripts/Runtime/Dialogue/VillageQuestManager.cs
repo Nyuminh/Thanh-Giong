@@ -52,9 +52,10 @@ namespace Blocks.Gameplay.Core
         // Quest step descriptions
         private string[] m_StepDescriptions = new string[]
         {
-            "Nói chuyện với Thanh Niên",
-            "Tìm gặp Già Làng",
-            "Gặp Bà Lão nhận cơm",
+            "Nói chuyện với Mẹ",
+            "Nói chuyện với Sứ Giả",
+            "Tìm gặp Thầy Ông Nội",
+            "Gặp Anh Thanh niên nhận cơm",
             "Gặp Bé Gái nhận đồ ăn",
             "Gặp Bé Trai nhận đồ ăn",
         };
@@ -185,39 +186,18 @@ namespace Blocks.Gameplay.Core
         private IEnumerator TransformationSequence()
         {
             m_QuestCompleted = true;
-            Debug.Log("[QuestManager] ★ QUEST COMPLETED! Starting transformation...");
-
             yield return new WaitForSeconds(1.5f);
 
-            // Unlock cursor
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-
-            // Show transformation screen
+            // Hiện màn hình thông báo biến hình
             if (winScreenUIDocument != null)
             {
                 BuildTransformationUI();
             }
 
-            // Wait for the transformation duration
             yield return new WaitForSeconds(transformationDuration);
 
-            // Try to trigger growth animation on the player
-            var player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                var animator = player.GetComponentInChildren<Animator>();
-                if (animator != null)
-                {
-                    // Try triggering growth/transform animation
-                    animator.SetTrigger("Transform");
-                }
-            }
-
-            yield return new WaitForSeconds(2f);
-
-            // Load battle scene
-            Debug.Log($"[QuestManager] Loading battle scene: {battleSceneName}");
+            // Chuyển sang Map1 (Unity sẽ tự xóa sạch Object Map cũ)
+            Debug.Log($"[QuestManager] Đang nạp Map mới: {battleSceneName}");
             SceneManager.LoadScene(battleSceneName);
         }
 
@@ -235,7 +215,25 @@ namespace Blocks.Gameplay.Core
                 BuildQuestTrackerUI();
             }
         }
+        public void RefreshQuestUI()
+        {
+            if (m_QuestTrackerRoot == null && questTrackerUIDocument != null)
+            {
+                m_QuestTrackerRoot = questTrackerUIDocument.rootVisualElement;
+            }
 
+            if (m_QuestTrackerRoot != null)
+            {
+                // Xóa cái cũ đi để vẽ cái mới, tránh bị chồng đè
+                m_QuestTrackerRoot.Clear();
+                m_StepRows.Clear();
+                m_StepIcons.Clear();
+                m_StepLabels.Clear();
+
+                BuildQuestTrackerUI();
+                Debug.Log("[QuestManager] HUD nhiệm vụ đã được vẽ lại!");
+            }
+        }
         private void BuildQuestTrackerUI()
         {
             if (m_QuestTrackerRoot == null) return;

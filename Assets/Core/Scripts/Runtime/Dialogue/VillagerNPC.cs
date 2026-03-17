@@ -161,7 +161,12 @@ namespace Blocks.Gameplay.Core
         {
             if (DialogueSystem.Instance == null || dialogueData == null) yield break;
             if (DialogueSystem.Instance.IsDialoguePlaying) yield break;
-
+            AudioSource audio = GetComponent<AudioSource>();
+            if (audio != null && audio.isPlaying)
+            {
+                audio.Stop();
+                Debug.Log($"[VillagerNPC] Stopped background audio for {villagerName}");
+            }
             m_IsInDialogue = true;
 
             // Hide E prompt

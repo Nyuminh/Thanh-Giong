@@ -96,9 +96,8 @@ namespace Blocks.Gameplay.Core
             // Enforce singleton pattern
             if (Instance != null && Instance != this)
             {
-                Debug.LogWarning("[GameManager] Duplicate GameManager instance detected. Destroying self.");
-                Destroy(gameObject);
-                return;
+                Debug.LogWarning("[GameManager] Ð? sang Map m?i. Phá h?y GameManager c? ð? dùng thi?t l?p m?i.");
+                Destroy(Instance.gameObject); // <-- Chú ?: Ð?i t? gameObject thành Instance.gameObject
             }
 
             Instance = this;

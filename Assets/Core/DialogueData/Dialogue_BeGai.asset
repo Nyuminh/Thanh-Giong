@@ -29,18 +29,34 @@ MonoBehaviour:
     isPlayerLine: 0
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
-    text: "\u0110\xFAng r\u1ED3i! T\xF4i c\u1EA7n \u0103n th\u1EADt nhi\u1EC1u \u0111\u1EC3
-      l\u1EDBn nhanh \u0111\xE1nh gi\u1EB7c!"
+    text: "\u0110\xFAng r\u1ED3i! Anh c\u1EA3m \u01A1n em nhi\u1EC1u nha. V\u1EDBi
+      l\u1EA1i m\u1ECDi ng\u01B0\u1EDDi c\u0169ng \u0111i s\u01A1 t\xE1n r\u1ED3i,
+      em quay v\u1EC1 v\u1EDBi m\u1EB9 r\u1ED3i \u0111\u1EBFn n\u01A1i an to\xE0n
+      ha."
     isPlayerLine: 1
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 G\xE1i"
-    text: "Em s\u1EE3 gi\u1EB7c l\u1EAFm... Anh \u0111\xE1nh th\u1EAFng gi\u1EB7c
-      r\u1ED3i quay v\u1EC1 nha!"
+    text: "Anh Gi\xF3ng \u01A1i, gi\u1EB7c \xC2n s\u1EAFp \u0111\u1EBFn l\xE0ng m\xECnh
+      ph\u1EA3i kh\xF4ng?"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 G\xE1i"
+    text: "M\u1EB9 em b\u1EA3o ch\xFAng n\xF3 hung d\u1EEF l\u1EAFm, s\u1EBD \u0111\u1ED1t
+      h\u1EBFt nh\xE0 c\u1EEDa, ru\u1ED9ng v\u01B0\u1EDDn... Em s\u1EE3 l\u1EAFm!
+      Ch\xF3 m\u1EF1c nh\xE0 em c\u0169ng ch\u1EA1y \u0111i m\u1EA5t r\u1ED3i."
     isPlayerLine: 0
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
-    text: "Em y\xEAn t\xE2m! T\xF4i h\u1EE9a s\u1EBD \u0111u\u1ED5i h\u1EBFt gi\u1EB7c
-      \xC2n ra kh\u1ECFi n\u01B0\u1EDBc ta!"
+    text: "Em \u0111\u1EEBng s\u1EE3. S\u1EE9 gi\u1EA3 \u0111ang mang v\u0169 kh\xED
+      \u0111\u1EBFn cho anh r\u1ED3i. Kh\u1EAFp ng\u01B0\u1EDDi anh s\u1EBD m\u1EB7c
+      \xE1o gi\xE1p s\u1EAFt, anh s\u1EBD \u0111\u1EE9ng ch\u1EAFn ngang c\u1ED5ng
+      l\xE0ng, kh\xF4ng t\xEAn gi\u1EB7c n\xE0o qua \u0111\u01B0\u1EE3c \u0111\xE2u."
     isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 G\xE1i"
+    text: "V\u1EADy... v\u1EADy anh \u0103n cho th\u1EADt kh\u1ECFe m\u1EA1nh \u0111\u1EC3
+      \u0111u\u1ED5i ng\u01B0\u1EDDi x\u1EA5u \u0111i nh\xE9, \u0111\u1EC3 em c\xF2n
+      \u0111\u01B0\u1EE3c ra \u0111\u1ED3ng b\u1EAFt b\u01B0\u1EDBm n\u1EEFa."
+    isPlayerLine: 0
     delayBeforeNext: 0.5
   playOnce: 1

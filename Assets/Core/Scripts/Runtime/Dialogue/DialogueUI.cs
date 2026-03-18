@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections;
@@ -30,6 +31,13 @@ namespace Blocks.Gameplay.Core
         [Range(0f, 1f)]
         [SerializeField] private float backgroundOpacity = 0.85f;
 
+        [Header("Avatar Portraits (kéo ảnh vào đây nếu muốn thay thế)")]
+        [Tooltip("Portrait Thánh Gióng. Để trống = tự load từ Resources/Portraits/Thanhgiong.")]
+        [SerializeField] private Texture2D playerPortraitOverride;
+
+        [Tooltip("Danh sách portrait NPC. Để trống = tự load từ Resources/Portraits/.")]
+        [SerializeField] private List<AvatarEntry> npcPortraitOverrides = new List<AvatarEntry>();
+
         private UIDocument m_UIDocument;
         private VisualElement m_Root;
         private VisualElement m_DialogueContainer;
@@ -47,13 +55,96 @@ namespace Blocks.Gameplay.Core
         private Coroutine m_QuestNotificationCoroutine;
         private Coroutine m_InteractPromptBlinkCoroutine;
 
+        // Avatar system - được kéo trực tiếp từ Inspector
+        private Texture2D m_PlayerPortrait;
+        private Dictionary<string, Texture2D> m_AvatarLookup = new Dictionary<string, Texture2D>();
+
+        /// <summary>
+        /// Ánh xạ tên speaker sang portrait texture. Dùng cho Inspector override.
+        /// </summary>
+        [Serializable]
+        public class AvatarEntry
+        {
+            [Tooltip("Tên speaker chính xác như trong DialogueData (VD: 'Mẹ', 'Sứ Giả', 'Già Làng').")]
+            public string speakerName;
+            [Tooltip("Ảnh portrait.")]
+            public Texture2D portrait;
+        }
+
         #endregion
 
         #region Unity Lifecycle
 
+#if UNITY_EDITOR
+        /// <summary>
+        /// Hàm này tự động chạy trong Editor khi cậu click vào GameObject hoặc Script được compile lại.
+        /// Nó sẽ tự động "gán" các ảnh từ thư mục Art cho cậu.
+        /// </summary>
+        private void OnValidate()
+        {
+            string basePath = "Assets/Core/Art/Image/";
+            
+            // Tự gán ảnh cho Gióng
+            if (playerPortraitOverride == null)
+            {
+                playerPortraitOverride = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(basePath + "Thanhgiong.png");
+            }
+
+            // Tự gán ảnh cho các NPC nếu danh sách đang trống
+            if (npcPortraitOverrides == null || npcPortraitOverrides.Count == 0)
+            {
+                npcPortraitOverrides = new List<AvatarEntry>();
+                
+                // Danh sách tên và file tương ứng
+                var mapping = new Dictionary<string, string>
+                {
+                    { "Mẹ", "me.png" },
+                    { "Bà Lão", "me.png" },
+                    { "Sứ Giả", "Sugia.png" },
+                    { "Sứ giả", "Sugia.png" },
+                    { "Già Làng", "gialang.png" },
+                    { "Già làng", "gialang.png" },
+                    { "Thanh Niên", "Thanhnien.png" },
+                    { "Bé Gái", "begai.png" },
+                    { "Bé Trai", "betrai.png" }
+                };
+
+                foreach (var pair in mapping)
+                {
+                    var tex = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(basePath + pair.Value);
+                    if (tex != null)
+                    {
+                        npcPortraitOverrides.Add(new AvatarEntry { speakerName = pair.Key, portrait = tex });
+                    }
+                }
+            }
+        }
+#endif
+
         private void Awake()
         {
             m_UIDocument = GetComponent<UIDocument>();
+            BuildAvatarLookup();
+        }
+
+        /// <summary>
+        /// Xây dựng từ điển tra cứu từ danh sách cậu đã kéo trong Inspector.
+        /// </summary>
+        private void BuildAvatarLookup()
+        {
+            m_AvatarLookup.Clear();
+            m_PlayerPortrait = playerPortraitOverride;
+
+            if (npcPortraitOverrides != null)
+            {
+                foreach (var entry in npcPortraitOverrides)
+                {
+                    if (!string.IsNullOrEmpty(entry.speakerName) && entry.portrait != null)
+                    {
+                        m_AvatarLookup[entry.speakerName] = entry.portrait;
+                    }
+                }
+            }
         }
 
         private void OnEnable()
@@ -162,12 +253,13 @@ namespace Blocks.Gameplay.Core
             m_PortraitContainer.style.borderRightColor = new Color(0.85f, 0.65f, 0.2f, 0.5f);
             m_PortraitContainer.style.justifyContent = Justify.Center;
             m_PortraitContainer.style.alignItems = Align.Center;
+            m_PortraitContainer.style.overflow = Overflow.Hidden;
 
-            // Speaker icon (placeholder - a simple icon character)
+            // Speaker avatar image (fills the entire portrait circle)
             m_SpeakerIcon = new VisualElement();
             m_SpeakerIcon.name = "speaker-icon";
-            m_SpeakerIcon.style.width = 50;
-            m_SpeakerIcon.style.height = 50;
+            m_SpeakerIcon.style.width = Length.Percent(100);
+            m_SpeakerIcon.style.height = Length.Percent(100);
             m_PortraitContainer.Add(m_SpeakerIcon);
 
             m_DialogueBox.Add(m_PortraitContainer);
@@ -346,6 +438,9 @@ namespace Blocks.Gameplay.Core
             m_SpeakerNameLabel.style.color = npcNameColor;
             m_DialogueTextLabel.text = "...";
             HideContinuePrompt();
+
+            // Set initial NPC portrait
+            UpdatePortrait(npcName, false);
         }
 
         private void HandleDialogueLineShown(string speakerName, string text, bool isPlayerLine)
@@ -354,7 +449,10 @@ namespace Blocks.Gameplay.Core
             m_SpeakerNameLabel.style.color = isPlayerLine ? playerNameColor : npcNameColor;
             m_DialogueTextLabel.text = text;
 
-            // Change portrait background based on speaker
+            // Update portrait avatar based on current speaker
+            UpdatePortrait(speakerName, isPlayerLine);
+
+            // Change portrait border color based on speaker
             if (isPlayerLine)
             {
                 m_PortraitContainer.style.borderTopColor = new Color(0.3f, 0.85f, 0.55f, 0.5f);
@@ -368,6 +466,35 @@ namespace Blocks.Gameplay.Core
                 m_PortraitContainer.style.borderBottomColor = new Color(0.85f, 0.65f, 0.2f, 0.5f);
                 m_PortraitContainer.style.borderLeftColor = new Color(0.85f, 0.65f, 0.2f, 0.5f);
                 m_PortraitContainer.style.borderRightColor = new Color(0.85f, 0.65f, 0.2f, 0.5f);
+            }
+        }
+
+        /// <summary>
+        /// Updates the portrait circle with the appropriate avatar texture.
+        /// </summary>
+        private void UpdatePortrait(string speakerName, bool isPlayerLine)
+        {
+            if (m_SpeakerIcon == null) return;
+
+            Texture2D portrait = null;
+
+            if (isPlayerLine)
+            {
+                portrait = m_PlayerPortrait;
+            }
+            else if (!string.IsNullOrEmpty(speakerName))
+            {
+                m_AvatarLookup.TryGetValue(speakerName, out portrait);
+            }
+
+            if (portrait != null)
+            {
+                m_SpeakerIcon.style.backgroundImage = new StyleBackground(portrait);
+                m_SpeakerIcon.style.unityBackgroundScaleMode = ScaleMode.ScaleAndCrop;
+            }
+            else
+            {
+                m_SpeakerIcon.style.backgroundImage = StyleKeyword.None;
             }
         }
 

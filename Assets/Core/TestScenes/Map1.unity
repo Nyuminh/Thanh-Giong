@@ -476,7 +476,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1288599835}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &20259997
 PrefabInstance:
@@ -1607,7 +1610,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1171735731}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1 &100897236
 GameObject:
@@ -2299,6 +2305,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &138873510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 2405087613730766001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &138873530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138873510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &147693477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2511,6 +2539,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7205803496000270999, guid: 29235bcbfe366ed46bd2f40c40560b4e, type: 3}
+--- !u!1 &159145990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 518857370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &159146010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159145990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &161525076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3059,6 +3109,28 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &220285303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1869405720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &220285323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220285303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &240640837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9967,7 +10039,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 651487193}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &331150467
 PrefabInstance:
@@ -10588,6 +10663,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7205803496000270999, guid: 29235bcbfe366ed46bd2f40c40560b4e, type: 3}
+--- !u!1 &358286292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1139868138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &358286312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358286292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1 &362051344
 GameObject:
   m_ObjectHideFlags: 0
@@ -11002,7 +11099,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1144009898}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &368826512
 PrefabInstance:
@@ -11695,7 +11795,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1628330781}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &382205042
 PrefabInstance:
@@ -12227,7 +12330,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 704548826}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &397459407
 PrefabInstance:
@@ -13961,7 +14067,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1691691414}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &482492181
 PrefabInstance:
@@ -14412,6 +14521,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2350851583351028058, guid: 28c633cf6cf20bf4ba6404c849600f89, type: 3}
+--- !u!1 &497688686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1434412158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &497688706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497688686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &513412969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14612,6 +14743,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8241033448237046563, guid: 9a4045a35d63a64469b42d815f8802ac, type: 3}
+--- !u!1 &516805026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1700293786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &516805046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516805026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &518857370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14899,7 +15052,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 159146010}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &522072134
 PrefabInstance:
@@ -15718,6 +15874,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &556847189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1222000072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &556847209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556847189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &558078231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16175,7 +16353,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 904080338}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &588584751
 PrefabInstance:
@@ -16676,6 +16857,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8458325180166084207, guid: 55d0cf9201b2ac8418490124e17fb500, type: 3}
   m_PrefabInstance: {fileID: 609274245}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &651487173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 316603788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &651487193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651487173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &653047374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17365,6 +17568,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5244752296032871743, guid: 110ab91f45d8a214a8062042ed7b6841, type: 3}
   m_PrefabInstance: {fileID: 676631534}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &704548806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 390965257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &704548826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704548806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1 &709435882
 GameObject:
   m_ObjectHideFlags: 0
@@ -17649,6 +17874,28 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &713392735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 2080367474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &713392755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713392735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &715335057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19322,6 +19569,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2801830790269995757, guid: 63604ffa829797541a1b80fbdf2dd245, type: 3}
+--- !u!1 &820074122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1233153922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &820074142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820074122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &821098081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19609,7 +19878,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1193841111}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &822335354
 PrefabInstance:
@@ -20198,7 +20470,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1282414792}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &847234056
 PrefabInstance:
@@ -21170,6 +21445,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7380316703631338807, guid: e6b9a23c4f6af8c40a119cd681396688, type: 3}
+--- !u!1 &904080318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 581232469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &904080338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904080318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &907967211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21657,7 +21954,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1176784143}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1 &926847577
 GameObject:
@@ -22786,7 +23086,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1613303718}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &979815092
 PrefabInstance:
@@ -24459,7 +24762,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1131553429}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1072871434
 PrefabInstance:
@@ -25369,7 +25675,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1433606901}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1122197194
 PrefabInstance:
@@ -25683,6 +25992,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7205803496000270999, guid: 29235bcbfe366ed46bd2f40c40560b4e, type: 3}
+--- !u!1 &1131553409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1063761887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1131553429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131553409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1131732267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26036,7 +26367,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 358286312}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1 &1143391349
 GameObject:
@@ -26164,6 +26498,28 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 8694a0c218a654246b863f80ee765b39, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &1144009878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 362492226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1144009898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144009878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1146908451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26533,7 +26889,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829143948}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1 &1163263759
 GameObject:
@@ -26673,6 +27032,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8241033448237046563, guid: 9a4045a35d63a64469b42d815f8802ac, type: 3}
+--- !u!1 &1171735711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 100641889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1171735731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171735711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+--- !u!1 &1176784123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 913921385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1176784143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176784123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1176832164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26955,6 +27358,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 911688388327614160, guid: 13afadd54bde8a942bb24b50241ea933, type: 3}
+--- !u!1 &1193841091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 821098081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1193841111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193841091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1197628504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28056,7 +28481,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 556847209}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1225976342
 PrefabInstance:
@@ -28345,7 +28773,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1741129066}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1233153922
 PrefabInstance:
@@ -28634,7 +29065,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 820074142}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1238764746
 PrefabInstance:
@@ -29103,6 +29537,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4038032455121194777, guid: 9554a5d64f2221f4f8bb366ce430e6cb, type: 3}
+--- !u!1 &1282414772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 841459711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1282414792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282414772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1284465992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29303,6 +29759,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1795864850539624072, guid: a6e2f7d1c66696948a83b03cf03fe9a0, type: 3}
+--- !u!1 &1288599815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 18449377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1288599835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288599815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1 &1297148926
 GameObject:
   m_ObjectHideFlags: 0
@@ -30099,7 +30577,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1954467601}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1330301204
 PrefabInstance:
@@ -30519,6 +31000,10 @@ PrefabInstance:
       propertyPath: health
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 943856879381115728, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      propertyPath: isDead
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1267713411995090632, guid: ee0b402661870d14096ae20c78380438, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -30782,7 +31267,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1828596743}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1398729971
 PrefabInstance:
@@ -31270,6 +31758,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6899781153407400490, guid: 9753f860076a70942b7417f548ddde2a, type: 3}
   m_PrefabInstance: {fileID: 1433020956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1433606881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1107194539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1433606901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433606881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1434412158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31557,7 +32067,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 497688706}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1441142074
 PrefabInstance:
@@ -31874,6 +32387,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2801830790269995757, guid: 63604ffa829797541a1b80fbdf2dd245, type: 3}
+--- !u!1 &1457716806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1643886719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1457716826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457716806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1457817854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32161,7 +32696,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1941102019}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1481072623
 PrefabInstance:
@@ -32761,6 +33299,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1522299286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522299254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ad565bb1845e14c99bb3bf184e382f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::BossHealthBar
+  bossDisplayName: "T\u01AF\u1EDANG GI\u1EB6C \xC2N"
+  showDistance: 15
+  barWidthPercent: 0.4
+  barHeight: 28
+  topMargin: 25
+  fillColor: {r: 0.95, g: 0.6, b: 0.1, a: 1}
+  trailColor: {r: 0.6, g: 0.2, b: 0.05, a: 1}
+  bgColor: {r: 0.12, g: 0.12, b: 0.12, a: 0.92}
+  trailSpeed: 0.35
 --- !u!1001 &1522448504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33011,6 +33570,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1550109964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1703639627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1550109984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550109964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1557665177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33398,7 +33979,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1687982347}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1564107691
 PrefabInstance:
@@ -33778,6 +34362,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1540718353728251848, guid: e28bdfb0f19492f4c90a654d5d281c24, type: 3}
+--- !u!1 &1610943068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 2099784625}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1610943088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610943068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+--- !u!1 &1613303698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 977662447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1613303718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613303698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1615049096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34065,7 +34693,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1857034217}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1615451070
 PrefabInstance:
@@ -34546,6 +35177,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7406525828576929298, guid: 52d1f7f2ddd19f247911c64c34e43d58, type: 3}
   m_PrefabInstance: {fileID: 1624513345}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1628330761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 382010796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1628330781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628330761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1631341402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35057,7 +35710,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1457716826}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1647388936
 PrefabInstance:
@@ -35856,6 +36512,28 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &1687982327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1559412615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1687982347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687982327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1689538502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35956,6 +36634,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3000137356877554780, guid: 94561dd00b778b342a121e47d76917c0, type: 3}
+--- !u!1 &1691691394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 479051341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1691691414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691691394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1691740813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36243,7 +36943,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1995154514}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1696277313
 PrefabInstance:
@@ -36532,7 +37235,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1704706221}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1700293786
 PrefabInstance:
@@ -36821,7 +37527,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 516805046}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1703639627
 PrefabInstance:
@@ -37110,7 +37819,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1550109984}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1703661310
 PrefabInstance:
@@ -37182,6 +37894,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5721738668029866486, guid: 26ff2760dcd37464996eaee30729de1b, type: 3}
   m_PrefabInstance: {fileID: 1703661310}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1704706201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1696277313}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1704706221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704706201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1708306152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37579,6 +38313,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2350851583351028058, guid: 28c633cf6cf20bf4ba6404c849600f89, type: 3}
+--- !u!1 &1741129046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1225976342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1741129066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741129046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1 &1742414665
 GameObject:
   m_ObjectHideFlags: 0
@@ -39005,7 +39761,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2134268080}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1818093042
 PrefabInstance:
@@ -39192,6 +39951,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5721738668029866486, guid: 26ff2760dcd37464996eaee30729de1b, type: 3}
   m_PrefabInstance: {fileID: 1824725968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1828596723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1391432317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1828596743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828596723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+--- !u!1 &1829143928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1160896162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1829143948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829143928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1831934482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39619,6 +40422,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1795864850539624072, guid: a6e2f7d1c66696948a83b03cf03fe9a0, type: 3}
+--- !u!1 &1857034197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1615049096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1857034217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857034197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1859959926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40025,7 +40850,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 220285323}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &1877224510
 PrefabInstance:
@@ -41132,6 +41960,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6752004322219791194, guid: c9b74702095ba894289cb1666e1dfc50, type: 3}
+--- !u!1 &1941101999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1457817854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941102019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941101999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1948965845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41244,6 +42094,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7380316703631338807, guid: e6b9a23c4f6af8c40a119cd681396688, type: 3}
+--- !u!1 &1954467581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1330104404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1954467601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954467581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &1955221122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41423,6 +42295,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1995154494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1691740813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1995154514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995154494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &2008487193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41810,7 +42704,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2063101716}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &2023069728
 PrefabInstance:
@@ -42617,6 +43514,28 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &2063101696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 2019512139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2063101716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063101696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &2072962422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43004,7 +43923,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713392755}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &2088056760
 PrefabInstance:
@@ -43405,7 +44327,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1610943088}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &2114548752
 PrefabInstance:
@@ -43507,6 +44432,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7205803496000270999, guid: 29235bcbfe366ed46bd2f40c40560b4e, type: 3}
+--- !u!1 &2134268060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 1810070017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2134268080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134268060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517998f1065d9814cab9c48197d37f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::MinionHealthBar
+  heightOffset: 2.2
+  barWidth: 1
+  barHeight: 0.08
+  fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
+  bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1001 &2137702531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43639,7 +44586,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5143818875517225251, guid: ee0b402661870d14096ae20c78380438, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 138873530}
   m_SourcePrefab: {fileID: 100100000, guid: ee0b402661870d14096ae20c78380438, type: 3}
 --- !u!1001 &5284953260413966795
 PrefabInstance:
@@ -43719,6 +44669,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4721176513809684379, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1522299270}
+    - targetCorrespondingSourceObject: {fileID: 4721176513809684379, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1522299286}
   m_SourcePrefab: {fileID: 100100000, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

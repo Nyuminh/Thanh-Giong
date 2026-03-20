@@ -1,24 +1,24 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.SceneManagement; // Th? vi?n ?? chuy?n c?nh
 
 public class MainMenu : MonoBehaviour
 {
-    // H‡m n‡y s? ch?y khi ng??i d˘ng nh?n n˙t "B?T ??U"
+    // H√†m n√†y s? ch?y khi ng??i d√πng nh?n n√∫t "B?T ??U"
     public void BatDauGame()
     {
-        // Chuy?n sang c?nh ti?p theo (th??ng l‡ Level 1 ho?c Intro)
-        // B?n c?n ??m b?o ?? thÍm Scene v‡o Build Settings
+
         SceneManager.LoadScene("Intro");
+
         Debug.Log("?ang t?i tr? ch?i...");
     }
 
-    // H‡m n‡y s? ch?y khi ng??i d˘ng nh?n n˙t "THO¡T"
+    // H√†m n√†y s? ch?y khi ng??i d√πng nh?n n√∫t "THO√ÅT"
     public void ThoatGame()
     {
-        // Tho·t ?ng d?ng
+        // Tho√°t ?ng d?ng
         Application.Quit();
 
-        // D?ng n‡y ch? ?? ki?m tra trong mÙi tr??ng ph·t tri?n (Editor)
-        Debug.Log("?? tho·t game!");
+        // D?ng n√†y ch? ?? ki?m tra trong m√¥i tr??ng ph√°t tri?n (Editor)
+        Debug.Log("?? tho√°t game!");
     }
 }

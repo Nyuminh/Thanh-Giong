@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     {
         // Chuy?n sang c?nh ti?p theo (th??ng là Level 1 ho?c Intro)
         // B?n c?n ??m b?o ?? thêm Scene vào Build Settings
-        SceneManager.LoadScene("Map1 1");
+        SceneManager.LoadScene("Intro");
         Debug.Log("?ang t?i tr? ch?i...");
     }
 

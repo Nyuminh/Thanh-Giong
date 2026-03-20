@@ -6,32 +6,38 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Core/TestScenes/Map1.unity
-    guid: 5492879da6a8a4759a6862bcc1e31e6e
+    path: Assets/Core/TestScenes/MainMenu.unity
+    guid: 1673ee90a41650b43ae96df496d3a392
   - enabled: 1
-    path: Assets/Core/TestScenes/[BB] Core MultiplayerSession.unity
-    guid: e51f9a6c5c03e4afd816dfab25b341e2
-  - enabled: 1
-    path: Assets/Platformer/TestScenes/[BB] Platformer.unity
-    guid: 4e44aede820bc4317a6a9afc9a194aea
-  - enabled: 1
-    path: Assets/Platformer/TestScenes/[BB] Platformer MultiplayerSession.unity
-    guid: 46163feafa167ab45826fb15439b5e0d
-  - enabled: 1
-    path: Assets/Shooter/TestScenes/[BB] Shooter.unity
-    guid: ca11eb50b69e04df28644ca096307470
-  - enabled: 1
-    path: Assets/Shooter/TestScenes/[BB] Shooter MultiplayerSession.unity
-    guid: 7d42b85864099114e8d3c5e25250b013
-  - enabled: 1
-    path: Assets/Core/TestScenes/Map2.unity
-    guid: 13ad37e22a13def4b85e1f45ea9b3b16
+    path: Assets/Core/TestScenes/Intro.unity
+    guid: c814c426ecd814146a995f46a43bdf75
   - enabled: 1
     path: Assets/Core/TestScenes/Map1 1.unity
     guid: 61778e5592a8ace4c8c9bcdce4275df6
   - enabled: 1
-    path: Assets/Core/TestScenes/MainMenu.unity
-    guid: 1673ee90a41650b43ae96df496d3a392
+    path: Assets/Core/TestScenes/Loading.unity
+    guid: a70c34bec01d0b84ea60c860c58fff2e
+  - enabled: 1
+    path: Assets/Core/TestScenes/Map1.unity
+    guid: 5492879da6a8a4759a6862bcc1e31e6e
+  - enabled: 0
+    path: Assets/Core/TestScenes/[BB] Core MultiplayerSession.unity
+    guid: e51f9a6c5c03e4afd816dfab25b341e2
+  - enabled: 0
+    path: Assets/Platformer/TestScenes/[BB] Platformer.unity
+    guid: 4e44aede820bc4317a6a9afc9a194aea
+  - enabled: 0
+    path: Assets/Platformer/TestScenes/[BB] Platformer MultiplayerSession.unity
+    guid: 46163feafa167ab45826fb15439b5e0d
+  - enabled: 0
+    path: Assets/Shooter/TestScenes/[BB] Shooter.unity
+    guid: ca11eb50b69e04df28644ca096307470
+  - enabled: 0
+    path: Assets/Shooter/TestScenes/[BB] Shooter MultiplayerSession.unity
+    guid: 7d42b85864099114e8d3c5e25250b013
+  - enabled: 0
+    path: Assets/Core/TestScenes/Map2.unity
+    guid: 13ad37e22a13def4b85e1f45ea9b3b16
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

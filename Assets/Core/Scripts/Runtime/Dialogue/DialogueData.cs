@@ -20,6 +20,9 @@ namespace Blocks.Gameplay.Core
         [Tooltip("If true, this line is spoken by the player (Thánh Gióng).")]
         public bool isPlayerLine;
 
+        [Tooltip("Âm thanh lồng tiếng cho câu này.")]
+        public AudioClip voiceClip;
+
         [Tooltip("Optional delay before showing next line (seconds).")]
         public float delayBeforeNext = 0.5f;
     }

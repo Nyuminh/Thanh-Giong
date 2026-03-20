@@ -18,54 +18,53 @@ MonoBehaviour:
     text: "Ch\xE0o s\u1EE9 gi\u1EA3! Ta nghe tin nh\xE0 vua \u0111ang c\u1EA7u ng\u01B0\u1EDDi
       t\xE0i \u0111\xE1nh gi\u1EB7c."
     isPlayerLine: 1
+    voiceClip: {fileID: 0}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 gi\u1EA3"
     text: "M\u1ED9t \u0111\u1EE9a tr\u1EBB v\u1EAFt m\u0169i ch\u01B0a s\u1EA1ch
       m\xE0 c\u0169ng quan t\xE2m vi\u1EC7c qu\xE2n c\u01A1 sao?"
     isPlayerLine: 1
+    voiceClip: {fileID: 8300000, guid: 4b9ee49e325843946836d66684f9101f, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 Gi\u1EA3"
     text: "Gi\u1EB7c \xC2n \u0111ang k\xE9o \u0111\u1EA1i qu\xE2n t\u1EEB ph\u01B0\u01A1ng
-      B\u1EAFc xu\u1ED1ng!"
+      B\u1EAFc xu\u1ED1ng! Qu\xE2n ch\xFAng \u0111\xF4ng, binh m\xE3 h\xE0ng v\u1EA1n...
+      N\u01B0\u1EDBc ta ch\u1EB3ng c\xF3 ng\u01B0\u1EDDi t\xE0i n\xE0o \u0111\u1EE7
+      s\u1EE9c ch\u1ED1ng \u0111\u1EE1."
     isPlayerLine: 0
-    delayBeforeNext: 0.5
-  - speakerName: "S\u1EE9 Gi\u1EA3"
-    text: "Qu\xE2n ch\xFAng \u0111\xF4ng, binh m\xE3 h\xE0ng v\u1EA1n... N\u01B0\u1EDBc
-      ta ch\u1EB3ng c\xF3 ng\u01B0\u1EDDi t\xE0i n\xE0o \u0111\u1EE7 s\u1EE9c ch\u1ED1ng
-      \u0111\u1EE1."
-    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: dbf0ca4ccb8ed5d4a95d794c3b4e4ed5, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 Gi\u1EA3"
     text: "Gi\u1EB7c \xC2n th\u1EBF m\u1EA1nh nh\u01B0 ch\u1EBB tre, s\xE1t kh\xED
       \u0111\u1EB1ng \u0111\u1EB1ng, kh\xF4ng ph\u1EA3i tr\xF2 \u0111\xF9a \u0111\xE2u
       c\u1EADu b\xE9. Ng\u01B0\u01A1i mau v\u1EC1 nh\xE0 \u0111i."
     isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: 78f1cfdb0ce1db34e8d554d9f2ea29d3, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
     text: "\xD4ng \u0111\u1EEBng v\u1ED9i khinh th\u01B0\u1EDDng!!"
     isPlayerLine: 1
-    delayBeforeNext: 0.5
-  - speakerName: "S\u1EE9 Gi\u1EA3"
-    text: "**Kinh ng\u1EA1c l\xF9i l\u1EA1i m\u1ED9t b\u01B0\u1EDBc tr\u01B0\u1EDBc
-      uy l\u1EF1c c\u1EE7a Gi\xF3ng**"
-    isPlayerLine: 0
+    voiceClip: {fileID: 0}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 Gi\u1EA3"
     text: "Nh\u01B0ng m\xE0... c\u1EADu b\xE9 nh\u1ECF th\u1EBF n\xE0y \u0111\u1ECBnh
       l\xE0m g\xEC? \u0110\xE1nh gi\u1EB7c kh\xF4ng ph\u1EA3i chuy\u1EC7n \u0111\xF9a
       \u0111\xE2u!"
     isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: ab61539b01f25634db4c9f6461a8a450, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
     text: "H\xE3y v\u1EC1 t\xE2u v\u1EDBi \u0111\u1EE9c vua, \u0111\xFAc cho ta m\u1ED9t
       con ng\u1EF1a s\u1EAFt, m\u1ED9t c\xE1i roi s\u1EAFt, v\xE0 m\u1ED9t t\u1EA5m
       \xE1o gi\xE1p s\u1EAFt. Ta s\u1EBD ph\xE1 tan l\u0169 gi\u1EB7c n\xE0y!!"
     isPlayerLine: 1
+    voiceClip: {fileID: 0}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 gi\u1EA3"
     text: "Kh\xED ph\xE1ch phi ph\xE0m, l\u1EDDi n\xF3i vang nh\u01B0 s\u1EA5m s\xE9t!
       Qu\u1EA3 l\xE0 tr\u1EDDi ban th\u1EA7n t\u01B0\u1EDBng c\u1EE9u nguy! Ta s\u1EBD
       l\u1EADp t\u1EE9c phi ng\u1EF1a v\u1EC1 kinh b\u1EA9m b\xE1o!"
     isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: e1879aca79847194eacd9c7197ca3e74, type: 3}
     delayBeforeNext: 0.5
   playOnce: 1

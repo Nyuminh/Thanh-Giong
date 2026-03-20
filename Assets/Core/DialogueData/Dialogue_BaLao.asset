@@ -18,36 +18,39 @@ MonoBehaviour:
     text: "M\u1EB9 \u01A1i! Ti\u1EBFng g\xEC ngo\xE0i l\xE0ng m\xE0 \u1EA7m \u0129
       v\u1EADy m\u1EB9?"
     isPlayerLine: 1
+    voiceClip: {fileID: 0}
     delayBeforeNext: 0.5
   - speakerName: "M\u1EB9"
     text: "Gi\xF3ng... Gi\xF3ng c\u1EE7a m\u1EB9! Ba n\u0103m nay con kh\xF4ng n\xF3i
       kh\xF4ng c\u01B0\u1EDDi, nay con t\u1EF1 \u0111i l\u1EA1i, t\u1EF1 bi\u1EBFt
       n\xF3i r\u1ED3i sao?"
     isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: 78e7c86a73952c14dafdefbe09771979, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
     text: "V\xE2ng m\u1EB9."
     isPlayerLine: 1
+    voiceClip: {fileID: 0}
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
     text: "C\xF3 chuy\u1EC7n g\xEC m\xE0 x\xF3m l\xE0ng x\xF4n xao th\u1EBF \u1EA1?"
     isPlayerLine: 1
+    voiceClip: {fileID: 0}
     delayBeforeNext: 0.5
   - speakerName: "M\u1EB9"
-    text: "Ti\u1EBFng c\u1EE7a s\u1EE9 gi\u1EA3 nh\xE0 vua \u0111\u1EA5y con \u1EA1."
-    isPlayerLine: 0
-    delayBeforeNext: 0.5
-  - speakerName: "M\u1EB9"
-    text: "Gi\u1EB7c \xC2n \u0111ang tr\xE0n xu\u1ED1ng, \u0111i \u0111\u1EBFn \u0111\xE2u
+    text: "Ti\u1EBFng c\u1EE7a s\u1EE9 gi\u1EA3 nh\xE0 vua \u0111\u1EA5y con \u1EA1.
+      Gi\u1EB7c \xC2n \u0111ang tr\xE0n xu\u1ED1ng, \u0111i \u0111\u1EBFn \u0111\xE2u
       l\xE0 c\u1ECF c\xE2y x\u01A1 x\xE1c \u0111\u1EBFn \u0111\xF3, n\u01B0\u1EDBc
       ta nguy c\u1EA5p l\u1EAFm r\u1ED3i!!"
     isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: 08349cc8797c13748b75581b97c9add8, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
     text: "N\u01B0\u1EDBc nh\xE0 c\xF3 bi\u1EBFn, m\u1EB9 h\xE3y ch\u1EC9 \u0111\u01B0\u1EDDng
       cho con ra \u0111\xECnh g\u1EB7p s\u1EE9 gi\u1EA3. Con s\u1EBD xin \u0111i
       \u0111\xE1nh gi\u1EB7c c\u1EE9u n\u01B0\u1EDBc!"
     isPlayerLine: 1
+    voiceClip: {fileID: 0}
     delayBeforeNext: 0.5
   - speakerName: "M\u1EB9"
     text: "S\u1EE9 gi\u1EA3 c\u1EE7a nh\xE0 vua \u0111ang \u0111\u1EE9ng ngo\xE0i
@@ -55,5 +58,6 @@ MonoBehaviour:
       t\xFAc, kh\xF4ng \u0111\xF9a \u0111\u01B0\u1EE3c \u0111\xE2u \u0111\u1EA5y
       con trai!!"
     isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: 851e0bf0359c74b45bfdba12c12415b1, type: 3}
     delayBeforeNext: 0.5
   playOnce: 1

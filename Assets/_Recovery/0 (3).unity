@@ -874,8 +874,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 948081759}
-        m_TargetAssemblyTypeName: VideoGallery, Blocks.Gameplay.Core
-        m_MethodName: NextVideo
+        m_TargetAssemblyTypeName: ImageGallery, Blocks.Gameplay.Core
+        m_MethodName: NextImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

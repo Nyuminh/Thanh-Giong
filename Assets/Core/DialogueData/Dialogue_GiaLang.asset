@@ -23,7 +23,7 @@ MonoBehaviour:
     text: "Th\u01B0a \xF4ng, ch\xE1u l\xE0 Gi\xF3ng. Con nghe tin gi\u1EB7c \xC2n
       s\u1EAFp \u0111\u1EBFn."
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 26b054525d4e2884ba32f8385cd0592c, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Gi\xE0 L\xE0ng"
     text: "Ch\xE1u Gi\xF3ng \u0111\u1EA5y \u01B0? L\u1EDBn nhanh nh\u01B0 th\u1ED5i
@@ -42,7 +42,7 @@ MonoBehaviour:
       v\u1EC1 kinh chu\u1EA9n b\u1ECB binh kh\xED cho ch\xE1u chu\u1EA9n b\u1ECB
       ra tr\u1EADn \u0111\xE1nh gi\u1EB7c r\u1ED3i."
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 992919f476568eb41beb498d85277c4f, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
     text: "Nh\u01B0ng \u0111\u1EC3 c\xF3 s\u1EE9c l\u1EDBn nhanh ra tr\u1EADn, ch\xE1u

@@ -49,7 +49,7 @@ namespace Blocks.Gameplay.Core
 
         private void Start()
         {
-            if (questMarker != null) questMarker.SetActive(false);
+            if (questMarker != null) questMarker.SetActive(true);
             if (completedMarker != null) completedMarker.SetActive(false);
         }
 

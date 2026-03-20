@@ -1,8 +1,9 @@
-using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 
 namespace Blocks.Gameplay.Core
@@ -45,6 +46,7 @@ namespace Blocks.Gameplay.Core
         [SerializeField] private DialogueUI dialogueUI;
 
         // Internal tracking
+        private bool m_IsTrackerVisible = false;
         private int m_CurrentQuestStep = 0;
         private HashSet<string> m_CompletedVillagers = new HashSet<string>();
         private bool m_QuestCompleted;
@@ -119,7 +121,28 @@ namespace Blocks.Gameplay.Core
 
             StartCoroutine(InitializeUI());
         }
+      
 
+private void Update()
+    {
+        // Kiểm tra nếu phím Tab đang được GIỮ (Hold)
+        if (Keyboard.current != null && Keyboard.current.tabKey.isPressed)
+        {
+            if (m_QuestTrackerContainer != null && m_QuestTrackerContainer.style.display == DisplayStyle.None)
+            {
+                m_QuestTrackerContainer.style.display = DisplayStyle.Flex;
+                UpdateQuestTrackerUI();
+            }
+        }
+        else // Nếu KHÔNG nhấn hoặc THẢ ra
+        {
+            if (m_QuestTrackerContainer != null && m_QuestTrackerContainer.style.display == DisplayStyle.Flex)
+            {
+                m_QuestTrackerContainer.style.display = DisplayStyle.None;
+            }
+        }
+    }
+    
         #endregion
 
         #region Public Methods
@@ -216,6 +239,13 @@ namespace Blocks.Gameplay.Core
             {
                 m_QuestTrackerRoot = questTrackerUIDocument.rootVisualElement;
                 BuildQuestTrackerUI();
+
+                // Sau khi build xong, ẩn nó đi luôn
+                if (m_QuestTrackerContainer != null)
+                {
+                    m_QuestTrackerContainer.style.display = DisplayStyle.None;
+                    m_IsTrackerVisible = false;
+                }
             }
         }
         public void RefreshQuestUI()

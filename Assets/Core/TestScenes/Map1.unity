@@ -2327,6 +2327,11 @@ MonoBehaviour:
   barHeight: 0.08
   fillColor: {r: 1, g: 0.9, b: 0.1, a: 1}
   bgColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+--- !u!82 &138873531 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 413852461150548151, guid: ee0b402661870d14096ae20c78380438, type: 3}
+  m_PrefabInstance: {fileID: 2405087613730766001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &147693477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12804,15 +12809,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 101.9
+      value: 140.37
       objectReference: {fileID: 0}
     - target: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.3
+      value: 34.59
       objectReference: {fileID: 0}
     - target: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: -94.4
       objectReference: {fileID: 0}
     - target: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33315,7 +33320,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c2b6876bfe6f8fc4aa394faa7892b322, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.21
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -34298,15 +34303,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 101.9
+      value: 140.37
       objectReference: {fileID: 0}
     - target: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.3
+      value: 34.59
       objectReference: {fileID: 0}
     - target: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: -94.4
       objectReference: {fileID: 0}
     - target: {fileID: 6210442453835750401, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_LocalRotation.w
@@ -41418,8 +41423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18af5d8f65866da49b34a37b015c47a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Blocks.Gameplay.Core::FinishLine
-  victoryVideo: {fileID: 1786866987}
-  victoryUI: {fileID: 1786866983}
+  afterCreditSceneName: Ending
   victorySound: {fileID: 1887355994}
 --- !u!64 &1887355996
 MeshCollider:
@@ -41550,8 +41554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18af5d8f65866da49b34a37b015c47a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  victoryVideo: {fileID: 0}
-  victoryUI: {fileID: 131935487}
+  afterCreditSceneName: AfterCrediit
   victorySound: {fileID: 1887355994}
 --- !u!66 &1892749073
 CompositeCollider2D:
@@ -44756,9 +44759,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1887355991}
     - target: {fileID: 5780003453100574699, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e26e00e6da52778428b11a5f96f6f695, type: 3}
+    - target: {fileID: 5780003453100574699, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
       propertyPath: combatMusic
       value: 
       objectReference: {fileID: 1522299270}
+    - target: {fileID: 5780003453100574699, guid: 1e6a9128bcd67444891132a17e9e86e6, type: 3}
+      propertyPath: enemyAudioSource
+      value: 
+      objectReference: {fileID: 138873531}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

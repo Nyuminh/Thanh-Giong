@@ -45,7 +45,11 @@ MonoBehaviour:
       nh\xE0 con th\xEC kh\xF4ng \u0111\u1EE7..."
     isPlayerLine: 1
     delayBeforeNext: 0.5
+<<<<<<< Updated upstream
   - speakerName: "Gi\xE0 l\xE0ng"
+=======
+  - speakerName: "Gi\xE0 L\xE0ng"
+>>>>>>> Stashed changes
     text: "Ch\xE1u y\xEAn t\xE2m! D\u1EABu l\xE0ng ta c\xF3 ngh\xE8o, b\xE0 con c\u0169ng
       s\u1EB5n s\xE0ng d\u1ED1c c\u1EA1n b\u1ED3 th\xF3c, m\u1ED5 n\u1ED1t con l\u1EE3n,
       con tr\xE2u \u0111\u1EC3 gom g\xF3p cho ch\xE1u v\xE1c n\u1EB7ng \u0111\xE1nh

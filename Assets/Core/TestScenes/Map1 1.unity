@@ -3413,7 +3413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2275665161406608812, guid: 3a3e7ed10e522a44593ae67e2d60bd28, type: 3}
       propertyPath: m_Name
-      value: betrai
+      value: "B\xE9 Trai"
       objectReference: {fileID: 0}
     - target: {fileID: 3369158522528845446, guid: 3a3e7ed10e522a44593ae67e2d60bd28, type: 3}
       propertyPath: m_Height
@@ -18904,7 +18904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 872309936868693828, guid: 4dd9127b7f1a9d442acb733e3f645b5f, type: 3}
       propertyPath: m_Name
-      value: sugiaaa
+      value: "S\u1EE9 Gi\u1EA3"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25110,7 +25110,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3973481978764010052, guid: e7620de63de0a7b45ab91fc031473b2b, type: 3}
       propertyPath: m_Name
-      value: ong gia
+      value: "Gi\xE0 L\xE0ng"
       objectReference: {fileID: 0}
     - target: {fileID: 4354827329803221246, guid: e7620de63de0a7b45ab91fc031473b2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25217,7 +25217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5431339004017311249, guid: d50fe3bca0610a646b709dd4695decdc, type: 3}
       propertyPath: m_Name
-      value: Thanhnien1
+      value: "Thanh Ni\xEAn"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25277,7 +25277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014538907474035641, guid: 2d07233aa29e2a64982c4d8064ce6742, type: 3}
       propertyPath: m_Name
-      value: begai
+      value: "B\xE9 G\xE1i"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25301,7 +25301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8516126976291007927, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
       propertyPath: m_Name
-      value: Balao
+      value: "M\u1EB9"
       objectReference: {fileID: 0}
     - target: {fileID: 9035501722503624461, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
       propertyPath: m_LocalPosition.x

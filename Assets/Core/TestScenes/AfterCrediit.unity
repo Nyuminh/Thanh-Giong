@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 724207582}
   - component: {fileID: 724207581}
   - component: {fileID: 724207580}
+  - component: {fileID: 724207584}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -410,6 +411,103 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!82 &724207584
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724207579}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: fb61d66d9c2cf444ba9bad01fd4d00b6, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.63
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &990280487
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 78, y: -735}
+  m_AnchoredPosition: {x: 78, y: -582}
   m_SizeDelta: {x: 863.4667, y: 68.3312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990280489
@@ -673,7 +771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 85, y: -1031.6406}
+  m_AnchoredPosition: {x: 85, y: -1695}
   m_SizeDelta: {x: 1218.0492, y: 277.8116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033308354
@@ -709,8 +807,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0110o\xE0n L\xFD H\u1ED3ng Minh (Leader)\n\u0110\u1ED7 \u0110\xECnh
-    Ph\xFA\nTr\u1EA7n H\u1ED3ng D\u01B0\u01A1ng\nNguy\u1EC5n Ph\xFAc L\xE2m\n"
+  m_text: "CORE DEVELOPMENT TEAM\nTeam 2 FGU\n\n3D Design & Environment:\nTr\u1EA7n
+    H\u1ED3ng D\u01B0\u01A1ng\nNguy\u1EC5n Ph\xFAc L\xE2m\n\nLead Programming & Systems:\n\u0110o\xE0n
+    L\xFD H\u1ED3ng Minh\n\u0110\u1ED7 \u0110\xECnh Ph\xFA\n\nSTORY & SCREENPLAY\n\u0110o\xE0n
+    L\xFD H\u1ED3ng Minh\n\u0110\u1ED7 \u0110\xECnh Ph\xFA\nTr\u1EA7n H\u1ED3ng D\u01B0\u01A1ng\nNguy\u1EC5n
+    Ph\xFAc L\xE2m\n\nART & ANIMATION\n3D Character & Environment Modeling:\nTencent
+    3D\nTripo 3D\n\nCharacter Animation :\nAdobe Mixamo\n\nAUDIO & MUSIC\nOriginal
+    Soundtrack & Sound Effects:\nSunoAI\n\nCINEMATICS & FOOTAGE\nCutscene Source:\nYanTV
+    (YouTube Channel)\nAll visual copyrights belong to their respective owners.\n\nTECHNICAL
+    STACK\nGame Engine: Unity\n3D Modeling: Blender\nScripting Environment: C# /
+    Visual Studio\n\nC\u1EA2M \u01A0N B\u1EA0N\n\u0111\xE3 tr\u1EA3i nghi\u1EC7m
+    tr\xF2 ch\u01A1i n\xE0y \u0111\u1EBFn nh\u1EEFng gi\xE2y cu\u1ED1i c\xF9ng. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -737,8 +844,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54
-  m_fontSizeBase: 54
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

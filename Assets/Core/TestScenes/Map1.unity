@@ -41318,8 +41318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18af5d8f65866da49b34a37b015c47a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Blocks.Gameplay.Core::FinishLine
-  victoryVideo: {fileID: 1786866987}
-  victoryUI: {fileID: 1786866983}
+  afterCreditSceneName: Ending
   victorySound: {fileID: 1887355994}
 --- !u!64 &1887355996
 MeshCollider:
@@ -41450,8 +41449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18af5d8f65866da49b34a37b015c47a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  victoryVideo: {fileID: 0}
-  victoryUI: {fileID: 131935487}
+  afterCreditSceneName: AfterCrediit
   victorySound: {fileID: 1887355994}
 --- !u!66 &1892749073
 CompositeCollider2D:

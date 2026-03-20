@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 078617a76b5fb4433800df5984ca3db2, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: c0abc88e32f234dd9969699ab3c6aa07, type: 3}
+  sourceAsset: {fileID: 0}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -432,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 3445610771387245263}
     - target: {fileID: 2656973359550393950, guid: 5bfae2ca273003f45852333359387eb7, type: 3}
       propertyPath: m_Name
-      value: giongcon 1
+      value: "Gi\xF3ng"
       objectReference: {fileID: 0}
     - target: {fileID: 3428549512897836260, guid: 5bfae2ca273003f45852333359387eb7, type: 3}
       propertyPath: m_LocalScale.x

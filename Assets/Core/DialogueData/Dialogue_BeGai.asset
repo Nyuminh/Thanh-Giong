@@ -23,7 +23,7 @@ MonoBehaviour:
   - speakerName: "Gi\xF3ng"
     text: "\u1ED2, c\u1EA3m \u01A1n em! Em mang nhi\u1EC1u qu\xE1!"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 603c4b7d3022fcc4989d83d2609cf81c, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 G\xE1i"
     text: "M\u1EB9 em b\u1EA3o ph\u1EA3i mang th\u1EADt nhi\u1EC1u cho anh \u0103n.
@@ -37,7 +37,7 @@ MonoBehaviour:
       em quay v\u1EC1 v\u1EDBi m\u1EB9 r\u1ED3i \u0111\u1EBFn n\u01A1i an to\xE0n
       ha."
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: a384e7edeafb9154f846f7bbbc5ae307, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 G\xE1i"
     text: "Anh Gi\xF3ng \u01A1i, gi\u1EB7c \xC2n s\u1EAFp \u0111\u1EBFn l\xE0ng m\xECnh
@@ -58,7 +58,7 @@ MonoBehaviour:
       \xE1o gi\xE1p s\u1EAFt, anh s\u1EBD \u0111\u1EE9ng ch\u1EAFn ngang c\u1ED5ng
       l\xE0ng, kh\xF4ng t\xEAn gi\u1EB7c n\xE0o qua \u0111\u01B0\u1EE3c \u0111\xE2u."
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: a5d4b94246786054e9eb6631d770f183, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 G\xE1i"
     text: "V\u1EADy... v\u1EADy anh \u0103n cho th\u1EADt kh\u1ECFe m\u1EA1nh \u0111\u1EC3

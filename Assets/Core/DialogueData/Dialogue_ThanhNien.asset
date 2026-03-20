@@ -23,7 +23,7 @@ MonoBehaviour:
   - speakerName: "Gi\xF3ng"
     text: "T\xF4i l\xE0 Gi\xF3ng \u0111\xE2y! "
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: a66e96fe678e8e54fa66a5e047f4064f, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Thanh Ni\xEAn"
     text: "Gi\xF3ng! C\u1EADu to l\u1EDBn qu\xE1, t\xF4i nh\xECn m\xE0 kh\xF4ng nh\u1EADn
@@ -40,7 +40,7 @@ MonoBehaviour:
   - speakerName: "Gi\xF3ng"
     text: "T\xECnh h\xECnh l\u0169 gi\u1EB7c ngo\xE0i kia sao r\u1ED3i huynh?"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 666d1e7bd878d654582f8ad065342d24, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Thanh Ni\xEAn"
     text: "B\u1ECDn gi\u1EB7c \xC2n hung h\xE3n l\u1EAFm, nghe n\xF3i ch\xFAng \u0111\xF4ng
@@ -62,6 +62,6 @@ MonoBehaviour:
       c\u1ED5ng l\xE0ng. Vi\u1EC7c \u0111\xE1nh gi\u1EB7c c\u1EE9 \u0111\u1EC3 \u0111\u1EC7
       lo!"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 9c5f4bb071bc1c74c942d21e90296dee, type: 3}
     delayBeforeNext: 0.5
   playOnce: 1

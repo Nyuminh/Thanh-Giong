@@ -23,7 +23,7 @@ MonoBehaviour:
   - speakerName: "Gi\xF3ng"
     text: "C\u1EA3m \u01A1n em! M\u1ECDi ng\u01B0\u1EDDi trong l\xE0ng t\u1ED1t qu\xE1!"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: fcb1a51078797824f96e29d26bea67cc, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 Trai"
     text: "Ba em n\xF3i anh \u0103n bao nhi\xEAu c\u0169ng h\u1EBFt, c\u1EA3 l\xE0ng
@@ -35,7 +35,7 @@ MonoBehaviour:
     text: "T\xF4i s\u1EBD kh\xF4ng bao gi\u1EDD qu\xEAn t\u1EA5m l\xF2ng c\u1EE7a
       d\xE2n l\xE0ng!"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: aaf6ec3df3aa12d418e2aabe41541502, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 Trai"
     text: "V\xE2ng! .....Anh Gi\xF3ng to l\u1EDBn oai phong qu\xE1!  Em c\u0169ng
@@ -49,7 +49,7 @@ MonoBehaviour:
     text: "Ch\xED kh\xED l\u1EAFm! V\u0103n Lang ta r\u1EA5t c\u1EA7n nh\u1EEFng
       nam nhi d\u0169ng c\u1EA3m nh\u01B0 em."
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 7cfb52cb8352ef24dbbc92e9876741f7, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 Trai"
     text: "Anh cho em \u0111i theo v\u1EDBi nh\xE9? Em s\u1EBD c\u1EA7m g\u1EADy
@@ -64,7 +64,7 @@ MonoBehaviour:
       l\u1EDBn b\u1EB1ng anh r\u1ED3i th\xEC tha h\u1ED3 m\xE0 b\u1EA3o v\u1EC7 x\xF3m
       l\xE0ng nh\xE9!"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 075ba27fb6ae3ee4897b5055a658d240, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 Trai"
     text: "V\xE2ng \u1EA1!!.."
@@ -82,6 +82,6 @@ MonoBehaviour:
     text: "\u0110\xE3 \u0111\u1EBFn l\xFAc r\u1ED3i... T\xF4i c\u1EA3m th\u1EA5y
       s\u1EE9c m\u1EA1nh \u0111ang d\xE2ng tr\xE0o trong ng\u01B0\u1EDDi!"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 559afd821c517414bb39aa3998c67520, type: 3}
     delayBeforeNext: 0.5
   playOnce: 1

@@ -18,12 +18,12 @@ MonoBehaviour:
     text: "Ch\xE0o s\u1EE9 gi\u1EA3! Ta nghe tin nh\xE0 vua \u0111ang c\u1EA7u ng\u01B0\u1EDDi
       t\xE0i \u0111\xE1nh gi\u1EB7c."
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 88cbe0956f049fc4a8cc2bbe4030863a, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 Gi\u1EA3"
     text: "M\u1ED9t \u0111\u1EE9a tr\u1EBB v\u1EAFt m\u0169i ch\u01B0a s\u1EA1ch
       m\xE0 c\u0169ng quan t\xE2m vi\u1EC7c qu\xE2n c\u01A1 sao?"
-    isPlayerLine: 1
+    isPlayerLine: 0
     voiceClip: {fileID: 8300000, guid: 94c2fee6ec860d74d877072b07969e0d, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 Gi\u1EA3"
@@ -44,7 +44,7 @@ MonoBehaviour:
   - speakerName: "Gi\xF3ng"
     text: "\xD4ng \u0111\u1EEBng v\u1ED9i khinh th\u01B0\u1EDDng!!"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: 31381dfbb31a644449f36405b3e2fd97, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 Gi\u1EA3"
     text: "Nh\u01B0ng m\xE0... c\u1EADu b\xE9 nh\u1ECF th\u1EBF n\xE0y \u0111\u1ECBnh
@@ -58,7 +58,7 @@ MonoBehaviour:
       con ng\u1EF1a s\u1EAFt, m\u1ED9t c\xE1i roi s\u1EAFt, v\xE0 m\u1ED9t t\u1EA5m
       \xE1o gi\xE1p s\u1EAFt. Ta s\u1EBD ph\xE1 tan l\u0169 gi\u1EB7c n\xE0y!!"
     isPlayerLine: 1
-    voiceClip: {fileID: 0}
+    voiceClip: {fileID: 8300000, guid: c0f19bebe333913488e9d548fd3c254d, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "S\u1EE9 Gi\u1EA3"
     text: "Kh\xED ph\xE1ch phi ph\xE0m, l\u1EDDi n\xF3i vang nh\u01B0 s\u1EA5m s\xE9t!

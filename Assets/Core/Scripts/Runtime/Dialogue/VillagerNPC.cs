@@ -49,7 +49,7 @@ namespace Blocks.Gameplay.Core
 
         private void Start()
         {
-            if (questMarker != null) questMarker.SetActive(true);
+            if (questMarker != null) questMarker.SetActive(false);
             if (completedMarker != null) completedMarker.SetActive(false);
         }
 
@@ -60,7 +60,16 @@ namespace Blocks.Gameplay.Core
             // Check if this NPC's quest step is the current step
             if (VillageQuestManager.Instance == null) return;
             int currentStep = VillageQuestManager.Instance.GetCurrentQuestStep();
-
+            if (currentStep == questStep)
+            {
+                if (questMarker != null && !questMarker.activeSelf)
+                    questMarker.SetActive(true);
+            }
+            else
+            {
+                if (questMarker != null && questMarker.activeSelf)
+                    questMarker.SetActive(false);
+            }
             if (currentStep != questStep)
             {
                 // Not our turn

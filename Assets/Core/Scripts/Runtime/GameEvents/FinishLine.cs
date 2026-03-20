@@ -1,29 +1,24 @@
 ﻿using UnityEngine;
-using UnityEngine.Video; // Thêm thư viện này để điều khiển Video
+using UnityEngine.SceneManagement; // Thêm thư viện này để quản lý chuyển cảnh
 using UnityEngine.UIElements;
+
 public class FinishLine : MonoBehaviour
 {
     [Header("Setup")]
-    public VideoPlayer victoryVideo; // Kéo Object có Video Player vào đây
-    public GameObject victoryUI;     // (Tùy chọn) Hiện UI sau khi video chạy xong
+    // Tạo một biến để bạn có thể gõ tên Scene trực tiếp trên Inspector (rất tiện để sửa lỗi chính tả)
+    public string afterCreditSceneName = "AfterCrediit";
     public AudioSource victorySound;
+
     private UIDocument m_GameplayUXML;
     private bool isFinished = false;
 
     private void Start()
     {
-        // Đảm bảo video không tự phát lúc bắt đầu
-        if (victoryVideo != null)
-        {
-            victoryVideo.Stop();
-            // Đăng ký sự kiện: Khi video chạy xong thì hiện UI chúc mừng
-            victoryVideo.loopPointReached += OnVideoFinished;
-        }
-       
+        // Đã xóa bỏ các thiết lập liên quan đến VideoPlayer
     }
+
     private void FindPlayerUI()
     {
-        // Cách 1: Tìm theo Tag "Player" (Cách nhanh nhất)
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
@@ -39,6 +34,7 @@ public class FinishLine : MonoBehaviour
             Debug.LogError("[FinishLine] Không tìm thấy Object nào có Tag 'Player' trong Scene!");
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !isFinished)
@@ -51,30 +47,21 @@ public class FinishLine : MonoBehaviour
     void CompleteGame()
     {
         FindPlayerUI();
-        Debug.Log("Về đích! Đang phát video...");
+        Debug.Log("Về đích! Đang chuyển qua scene After Credit...");
+
+        // 1. Tắt giao diện UI của người chơi lúc đang chạy
         if (m_GameplayUXML != null)
         {
             m_GameplayUXML.enabled = false;
         }
-        // 1. Phát Video
-        if (victoryVideo != null)
+
+        // 2. Phát nhạc chiến thắng (nếu có)
+        if (victorySound != null)
         {
-            // Bật Object chứa video nếu nó đang bị tắt
-            victoryVideo.gameObject.SetActive(true);
-            victoryVideo.Play();
+            victorySound.Play();
         }
 
-        // 2. Phát nhạc (nếu có)
-        if (victorySound != null) victorySound.Play();
-
-        // 3. Khóa điều khiển nhân vật (tùy chọn)
-        // other.GetComponent<CoreMovement>().enabled = false;
-    }
-
-    // Hàm này tự động gọi khi video kết thúc
-    void OnVideoFinished(VideoPlayer source)
-    {
-        if (victoryUI != null) victoryUI.SetActive(true);
-        Debug.Log("Video kết thúc, hiện bảng điểm/nút chơi lại.");
+        // 3. Chuyển cảnh sang After Credit
+        SceneManager.LoadScene(afterCreditSceneName);
     }
 }

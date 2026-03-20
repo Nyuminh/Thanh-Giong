@@ -401,41 +401,41 @@ namespace Blocks.Gameplay.Core
             contentBox.style.paddingLeft = 60;
             contentBox.style.paddingRight = 60;
 
-            // Star
-            var star = new Label("★");
-            star.style.fontSize = 60;
-            star.style.color = new Color(0.95f, 0.75f, 0.2f);
-            star.style.marginBottom = 20;
-            contentBox.Add(star);
+            //// Star
+            //var star = new Label("★");
+            //star.style.fontSize = 60;
+            //star.style.color = new Color(0.95f, 0.75f, 0.2f);
+            //star.style.marginBottom = 20;
+            //contentBox.Add(star);
 
-            // Title
-            var title = new Label("GIÓNG VƯƠN MÌNH!");
-            title.style.fontSize = 40;
-            title.style.color = new Color(0.95f, 0.75f, 0.2f);
-            title.style.unityFontStyleAndWeight = FontStyle.Bold;
-            title.style.marginBottom = 15;
-            title.style.letterSpacing = 4;
-            contentBox.Add(title);
+            //// Title
+            //var title = new Label("GIÓNG VƯƠN MÌNH!");
+            //title.style.fontSize = 40;
+            //title.style.color = new Color(0.95f, 0.75f, 0.2f);
+            //title.style.unityFontStyleAndWeight = FontStyle.Bold;
+            //title.style.marginBottom = 15;
+            //title.style.letterSpacing = 4;
+            //contentBox.Add(title);
 
-            // Description
-            var desc = new Label(
-                "Nhà vua đã gửi đến ngựa sắt, roi sắt và áo giáp sắt.\n" +
-                "Gióng ăn hết thóc gạo của dân làng,\n" + 
-                "vươn mình trở thành tráng sĩ oai phong!\n\n" +
-                "Giờ là lúc ra trận đánh giặc Ân!");
-            desc.style.fontSize = 18;
-            desc.style.color = new Color(0.9f, 0.9f, 0.9f);
-            desc.style.unityTextAlign = TextAnchor.MiddleCenter;
-            desc.style.marginBottom = 25;
-            desc.style.whiteSpace = WhiteSpace.Normal;
-            contentBox.Add(desc);
+            //// Description
+            //var desc = new Label(
+            //    "Nhà vua đã gửi đến ngựa sắt, roi sắt và áo giáp sắt.\n" +
+            //    "Gióng ăn hết thóc gạo của dân làng,\n" + 
+            //    "vươn mình trở thành tráng sĩ oai phong!\n\n" +
+            //    "Giờ là lúc ra trận đánh giặc Ân!");
+            //desc.style.fontSize = 18;
+            //desc.style.color = new Color(0.9f, 0.9f, 0.9f);
+            //desc.style.unityTextAlign = TextAnchor.MiddleCenter;
+            //desc.style.marginBottom = 25;
+            //desc.style.whiteSpace = WhiteSpace.Normal;
+            //contentBox.Add(desc);
 
-            // Loading text
-            var loading = new Label("Đang chuẩn bị chiến trường...");
-            loading.style.fontSize = 14;
-            loading.style.color = new Color(0.5f, 0.85f, 1f);
-            loading.style.unityFontStyleAndWeight = FontStyle.Italic;
-            contentBox.Add(loading);
+            //// Loading text
+            //var loading = new Label("Đang chuẩn bị chiến trường...");
+            //loading.style.fontSize = 14;
+            //loading.style.color = new Color(0.5f, 0.85f, 1f);
+            //loading.style.unityFontStyleAndWeight = FontStyle.Italic;
+            //contentBox.Add(loading);
 
             overlay.Add(contentBox);
             m_WinScreenRoot.Add(overlay);

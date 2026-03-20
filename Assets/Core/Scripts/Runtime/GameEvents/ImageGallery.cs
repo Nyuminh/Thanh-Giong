@@ -2,6 +2,7 @@
 using UnityEngine.Video; // BẮT BUỘC để dùng VideoPlayer
 using UnityEngine.SceneManagement;
 using Unity.Netcode;
+using UnityEngine.InputSystem;
 using System.Collections;
 
 public class VideoGallery : MonoBehaviour
@@ -30,7 +31,13 @@ public class VideoGallery : MonoBehaviour
             PlayCurrentVideo();
         }
     }
-
+    void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            NextVideo();
+        }
+    }
     // Hàm này tự động gọi khi video chạy đến giây cuối cùng
     private void OnVideoFinished(VideoPlayer source)
     {
@@ -99,7 +106,7 @@ public class VideoGallery : MonoBehaviour
     }
 
     // Hủy đăng ký sự kiện khi Object bị xóa để tránh lỗi bộ nhớ
-    private void OnDestroy()
+    private void OnDestroy()    
     {
         if (videoPlayer != null)
         {

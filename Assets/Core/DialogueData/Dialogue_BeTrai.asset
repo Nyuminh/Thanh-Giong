@@ -34,12 +34,32 @@ MonoBehaviour:
     isPlayerLine: 1
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 Trai"
-    text: "Em nghe n\xF3i vua \u0111\xE3 cho th\u1EE3 r\xE8n l\xE0m ng\u1EF1a s\u1EAFt
-      v\xE0 roi s\u1EAFt cho anh r\u1ED3i! S\u1EAFp \u0111em t\u1EDBi r\u1ED3i!"
+    text: "V\xE2ng! .....Anh Gi\xF3ng to l\u1EDBn oai phong qu\xE1!  Em c\u0169ng
+      mu\u1ED1n \u0111\u01B0\u1EE3c \u0111i \u0111\xE1nh gi\u1EB7c \xC2n gi\u1ED1ng
+      anh! Nghe n\xF3i b\u1ECDn ch\xFAng c\u01B0\u1EE1i voi to l\u1EAFm, nh\u01B0ng
+      em kh\xF4ng s\u1EE3 \u0111\xE2u!"
     isPlayerLine: 0
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
-    text: "Th\u1EADt sao?! V\u1EADy th\xEC... t\xF4i \u0111\xE3 s\u1EB5n s\xE0ng!"
+    text: "Ch\xED kh\xED l\u1EAFm! V\u0103n Lang ta r\u1EA5t c\u1EA7n nh\u1EEFng
+      nam nhi d\u0169ng c\u1EA3m nh\u01B0 em."
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 Trai"
+    text: "Anh cho em \u0111i theo v\u1EDBi nh\xE9? Em s\u1EBD c\u1EA7m g\u1EADy
+      \u0111\u1EADp v\xE0o ch\xE2n voi c\u1EE7a \u0111\u1ECBch!"
+    isPlayerLine: 0
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Ch\u01B0a \u0111\u01B0\u1EE3c \u0111\xE2u. Nhi\u1EC7m v\u1EE5 c\u1EE7a
+      em b\xE2y gi\u1EDD l\xE0 \u1EDF l\u1EA1i tr\xF4ng ch\u1EEBng m\u1EB9 v\xE0
+      em g\xE1i. Nh\u1EDB \u0103n th\u1EADt ngoan, ch\xF3ng l\u1EDBn, sau n\xE0y
+      l\u1EDBn b\u1EB1ng anh r\u1ED3i th\xEC tha h\u1ED3 m\xE0 b\u1EA3o v\u1EC7 x\xF3m
+      l\xE0ng nh\xE9!"
+    isPlayerLine: 1
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 Trai"
+    text: "V\xE2ng \u1EA1!!.."
     isPlayerLine: 1
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 Trai"

@@ -7186,11 +7186,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: e5e01be7eef69ce4cbd3a19aae380f42, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.48
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -15728,11 +15728,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 1b2f636c3fbc2474982afa65ff7837c4, type: 3}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -18904,7 +18904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 872309936868693828, guid: 4dd9127b7f1a9d442acb733e3f645b5f, type: 3}
       propertyPath: m_Name
-      value: sugiaaa
+      value: "S\u1EE9 Gi\u1EA3"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25301,7 +25301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8516126976291007927, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
       propertyPath: m_Name
-      value: Balao
+      value: "M\u1EB9"
       objectReference: {fileID: 0}
     - target: {fileID: 9035501722503624461, guid: 41b7243fcbcf242478c5c304c011b3e9, type: 3}
       propertyPath: m_LocalPosition.x

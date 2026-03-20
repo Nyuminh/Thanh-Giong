@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using System.Collections;
@@ -217,7 +217,22 @@ namespace Blocks.Gameplay.Core
 
             var line = m_CurrentDialogue.lines[m_CurrentLineIndex];
             m_FullCurrentText = line.text;
-
+            // --- THÊM LOGIC PHÁT VOICE TẠI ĐÂY ---
+            if (line.voiceClip != null)
+            {
+                // Tìm Object của người đang nói (NPC hoặc Player) trong Scene
+                GameObject speaker = GameObject.Find(line.speakerName);
+                if (speaker != null)
+                {
+                    AudioSource source = speaker.GetComponent<AudioSource>();
+                    if (source != null)
+                    {
+                        source.Stop(); // Dừng câu cũ nếu người chơi bấm qua nhanh
+                        source.PlayOneShot(line.voiceClip); // Phát câu mới
+                    }
+                }
+            }
+            // ------------------------------------
             if (useTypewriterEffect)
             {
                 if (m_TypewriterCoroutine != null)

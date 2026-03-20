@@ -14,7 +14,8 @@ public class VideoCutsceneController : MonoBehaviour
         // 1. Khóa mọi thứ khi bắt đầu phát video
         playerObject.SetActive(false);
         gameplayUI.SetActive(false);
-        
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
         // 2. Đăng ký sự kiện: Khi video chạy đến khung hình cuối cùng
         videoPlayer.loopPointReached += OnVideoFinished;
     }
@@ -44,6 +45,8 @@ public class VideoCutsceneController : MonoBehaviour
             characterAudio.Play();
         }
         // 3. Mở khóa nhân vật và UI
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
         playerObject.SetActive(true);
         gameplayUI.SetActive(true);
         if (VillageQuestManager.Instance != null)

@@ -13,7 +13,7 @@ public class VideoGallery : MonoBehaviour
     public VideoClip[] videoList;
 
     [Header("Load Scene")]
-    public string nextSceneName = "Map1";
+    public string nextSceneName ;
 
     private int currentIndex = 0;
 

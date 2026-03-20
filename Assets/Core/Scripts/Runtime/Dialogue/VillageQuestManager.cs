@@ -167,7 +167,10 @@ namespace Blocks.Gameplay.Core
                             3f);
                     }
                 }
-
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.RestoreBGMWithDelay();
+                }
                 // Check if all steps done
                 if (m_CurrentQuestStep >= TotalSteps)
                 {

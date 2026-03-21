@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio; // Thêm thư viện này để điều khiển Mixer
-using UnityEngine.UI;    // Thêm thư viện này để làm việc với UI Slider
+using UnityEngine.Audio;
+using UnityEngine.UI;
+using Blocks.Gameplay.Core; // Để dùng PauseMenuController
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public AudioMixer mainMixer; // Kéo file Audio Mixer vào đây
     public GameObject settingsPanel; // Kéo cái Panel Cài Đặt vào đây
     public Slider volumeSlider;
+    public Button continueButton; // Kéo nút "Tiếp Tục" vào đây trong Inspector
     // --- CÁC HÀM CŨ CỦA BẠN ---
 
     void Start()
@@ -19,13 +21,27 @@ public class MainMenu : MonoBehaviour
         {
             volumeSlider.value = savedVolume;
         }
+        if (continueButton != null)
+        {
+            continueButton.interactable = PauseMenuController.HasSaveData();
+        }
     }
     public void BatDauGame()
     {
         SceneManager.LoadScene("Intro");
         Debug.Log("Đang tải trò chơi...");
     }
-
+    public void TiepTucGame()
+    {
+        if (PauseMenuController.HasSaveData())
+        {
+            PauseMenuController.LoadSavedGame();
+        }
+        else
+        {
+            Debug.Log("Chưa có dữ liệu lưu!");
+        }
+    }
     public void ThoatGame()
     {
         Application.Quit();

@@ -1,0 +1,129 @@
+/* ============================
+   PAUSE MENU - Thanh Giong
+   Style phù hợp với theme cổ trang Việt Nam
+   ============================ */
+
+/* Overlay phủ toàn màn hình */
+.pause-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    /* Ẩn mặc định, hiện khi pause */
+    display: none;
+}
+
+/* Panel chính */
+.pause-panel {
+    background-color: rgba(30, 15, 5, 0.92);
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: rgba(180, 120, 40, 0.8);
+    padding: 30px 50px;
+    min-width: 320px;
+    max-width: 420px;
+    align-items: center;
+}
+
+/* Tiêu đề */
+.pause-title {
+    font-size: 36px;
+    color: rgb(255, 210, 100);
+    -unity-font-style: bold;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Đường kẻ ngang */
+.pause-divider {
+    width: 80%;
+    height: 2px;
+    background-color: rgba(180, 120, 40, 0.6);
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+/* Container chứa các nút */
+.pause-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Style chung cho các nút */
+.pause-button {
+    width: 260px;
+    height: 48px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border-width: 1px;
+    font-size: 18px;
+    -unity-font-style: bold;
+    cursor: link;
+    transition-property: background-color, scale;
+    transition-duration: 0.15s;
+}
+
+/* Nút Tiếp Tục - Vàng */
+.pause-button--resume {
+    background-color: rgba(180, 120, 20, 0.85);
+    border-color: rgba(220, 170, 60, 0.9);
+    color: rgb(255, 250, 230);
+}
+
+.pause-button--resume:hover {
+    background-color: rgba(220, 160, 30, 0.95);
+    scale: 1.03;
+}
+
+.pause-button--resume:active {
+    background-color: rgba(150, 100, 15, 0.95);
+    scale: 0.97;
+}
+
+/* Nút Lưu Game - Xanh lá */
+.pause-button--save {
+    background-color: rgba(40, 110, 50, 0.85);
+    border-color: rgba(80, 170, 80, 0.9);
+    color: rgb(230, 255, 230);
+}
+
+.pause-button--save:hover {
+    background-color: rgba(60, 140, 60, 0.95);
+    scale: 1.03;
+}
+
+.pause-button--save:active {
+    background-color: rgba(30, 80, 35, 0.95);
+    scale: 0.97;
+}
+
+/* Nút Về Menu Chính - Đỏ */
+.pause-button--menu {
+    background-color: rgba(140, 30, 20, 0.85);
+    border-color: rgba(200, 60, 40, 0.9);
+    color: rgb(255, 230, 225);
+}
+
+.pause-button--menu:hover {
+    background-color: rgba(180, 45, 30, 0.95);
+    scale: 1.03;
+}
+
+.pause-button--menu:active {
+    background-color: rgba(100, 20, 15, 0.95);
+    scale: 0.97;
+}
+
+/* Label trạng thái lưu game */
+.save-status {
+    font-size: 14px;
+    color: rgba(200, 255, 200, 0.9);
+    -unity-font-style: italic;
+    margin-top: 5px;
+    min-height: 20px;
+    -unity-text-align: middle-center;
+}

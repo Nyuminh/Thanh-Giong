@@ -71,10 +71,10 @@ namespace Blocks.Gameplay.Core
 
         private void Awake()
         {
-            // Enforce singleton pattern
+            // Enforce singleton pattern - giữ instance CŨ, hủy instance MỚI
             if (Instance != null && Instance != this)
             {
-                Debug.LogWarning("Duplicate GameNetworkManager instance detected. Destroying self.");
+                Debug.LogWarning("[GameNetworkManager] Đã có instance tồn tại (DontDestroyOnLoad). Hủy instance mới từ Scene này.");
                 Destroy(gameObject);
                 return;
             }
@@ -84,13 +84,33 @@ namespace Blocks.Gameplay.Core
 
             NetworkState = new NetworkStateViewModel();
             SetFrameRate(targetFrameRate, enableVSync);
-        }
 
-        private void Start()
-        {
+            // Đăng ký callbacks NGAY trong Awake, TRƯỚC khi bất kỳ StartHost nào được gọi
+            // Nếu để trong Start(), có thể bị race condition:
+            // GameNetworkUI.Start() gọi StartHost() trước GameNetworkManager.Start() đăng ký callbacks
             OnClientConnectedCallback += HandleClientConnected;
             OnClientDisconnectCallback += HandleClientDisconnect;
             OnServerStarted += HandleServerStarted;
+        }
+
+        /// <summary>
+        /// Safety polling: kiểm tra thực tế có đang connected không.
+        /// Phòng trường hợp callback bị miss do thứ tự Start() khác nhau.
+        /// </summary>
+        private void Update()
+        {
+            if (NetworkState == null) return;
+
+            // Nếu đang kẹt ở Connecting nhưng thực tế đã connected → sync lại state
+            if (NetworkState.ConnectionState == ConnectionStates.Connecting)
+            {
+                if ((IsHost || IsConnectedClient) && IsListening)
+                {
+                    Debug.Log("[GameNetworkManager] Phát hiện đã Connected nhưng state vẫn Connecting. Sync lại.");
+                    NetworkState.ConnectionState = ConnectionStates.Connected;
+                    UpdateViewModel();
+                }
+            }
         }
 
         private void OnDestroy()
@@ -291,7 +311,10 @@ namespace Blocks.Gameplay.Core
         private void UpdateViewModel()
         {
             if (NetworkState == null) return;
-
+            if (IsClient && IsConnectedClient && NetworkState.ConnectionState != ConnectionStates.Connected)
+            {
+                NetworkState.ConnectionState = ConnectionStates.Connected;
+            }
             string status = "Offline";
             if (IsHost) status = "Host";
             else if (IsServer) status = "Server";

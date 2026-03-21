@@ -2,6 +2,7 @@ using UnityEngine;
 using Unity.Netcode;
 using System.Collections;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 using Blocks.Sessions.Common;
 using Unity.Services.Multiplayer;
 using System.Collections.Generic;
@@ -71,11 +72,14 @@ namespace Blocks.Gameplay.Core
         /// </summary>
         private void OnDestroy()
         {
+            // Cleanup SceneManager callback
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+
             // Cleanup NetworkManager callbacks
-            if (NetworkManager.Singleton != null)
+            if (GameNetworkManager.Instance != null)
             {
-                NetworkManager.Singleton.OnClientConnectedCallback -= ClientConnected;
-                NetworkManager.Singleton.OnClientDisconnectCallback -= ClientDisconnected;
+                GameNetworkManager.Instance.OnClientConnectedCallback -= ClientConnected;
+                GameNetworkManager.Instance.OnClientDisconnectCallback -= ClientDisconnected;
             }
 
             // Cleanup SessionObserver
@@ -93,15 +97,24 @@ namespace Blocks.Gameplay.Core
         /// </summary>
         private void Awake()
         {
-            // Enforce singleton pattern
+            // Enforce singleton pattern - Instance CŨ được giữ lại, instance MỚI tự hủy
             if (Instance != null && Instance != this)
             {
-                Debug.LogWarning("[GameManager] �? sang Map m?i. Ph� h?y GameManager c? �? d�ng thi?t l?p m?i.");
-                Destroy(Instance.gameObject); // <-- Ch� ?: �?i t? gameObject th�nh Instance.gameObject
+                Debug.LogWarning("[GameManager] Đã có GameManager tồn tại. Hủy instance mới, giữ instance cũ.");
+                // Copy sessionUI reference từ Scene mới sang Instance cũ nếu có
+                if (sessionUI != null)
+                {
+                    Instance.sessionUI = sessionUI;
+                }
+                Destroy(gameObject);
+                return;
             }
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Đăng ký sự kiện chuyển scene
+            SceneManager.sceneLoaded += OnSceneLoaded;
 
             // Validate required references
             if (sessionUI == null)
@@ -133,14 +146,98 @@ namespace Blocks.Gameplay.Core
         {
             if (isUsingMultiplayerServices) return;
 
-            if (NetworkManager.Singleton == null)
+            // Dùng coroutine để đợi NetworkManager sẵn sàng
+            StartCoroutine(WaitAndSubscribeCallbacks());
+        }
+
+        /// <summary>
+        /// Coroutine đợi NetworkManager có sẵn rồi đăng ký callbacks.
+        /// Dùng GameNetworkManager.Instance thay vì NetworkManager.Singleton
+        /// (vì GameNetworkManager che khuất Awake() nên Singleton có thể null).
+        /// </summary>
+        private IEnumerator WaitAndSubscribeCallbacks()
+        {
+            // Đợi cho đến khi có GameNetworkManager instance
+            while (GameNetworkManager.Instance == null)
             {
-                Debug.LogError("[GameManager] NetworkManager.Singleton is null. Cannot subscribe to network callbacks.", this);
-                return;
+                yield return null;
             }
 
-            NetworkManager.Singleton.OnClientConnectedCallback += ClientConnected;
-            NetworkManager.Singleton.OnClientDisconnectCallback += ClientDisconnected;
+            var netManager = GameNetworkManager.Instance;
+
+            netManager.OnClientConnectedCallback += ClientConnected;
+            netManager.OnClientDisconnectCallback += ClientDisconnected;
+
+            Debug.Log("[GameManager] Đã đăng ký callbacks với GameNetworkManager.");
+
+            // Nếu đã connected rồi (callback bị miss), gọi ClientConnected thủ công
+            if (netManager.IsConnectedClient && netManager.LocalClient != null)
+            {
+                Debug.Log("[GameManager] Đã connected rồi. Gọi ClientConnected thủ công.");
+                ClientConnected(netManager.LocalClientId);
+            }
+        }
+
+        /// <summary>
+        /// Khi Scene mới được load, cập nhật spawn points và re-teleport local player.
+        /// </summary>
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            Debug.Log($"[GameManager] Scene loaded: {scene.name}. Cập nhật spawn points.");
+
+            // Cập nhật spawn points từ Scene mới
+            UpdateSpawnPoints();
+
+            // Nếu đã connected, re-teleport player đến spawn point mới
+            if (!isUsingMultiplayerServices &&
+                NetworkManager.Singleton != null &&
+                NetworkManager.Singleton.IsConnectedClient &&
+                NetworkManager.Singleton.LocalClient != null &&
+                NetworkManager.Singleton.LocalClient.PlayerObject != null)
+            {
+                StartCoroutine(ReTeleportPlayerAfterSceneLoad());
+            }
+        }
+
+        /// <summary>
+        /// Coroutine đợi 1 frame rồi teleport player đến spawn point mới.
+        /// </summary>
+        private IEnumerator ReTeleportPlayerAfterSceneLoad()
+        {
+            // Đợi vài frame để scene ổn định
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
+
+            if (NetworkManager.Singleton == null || NetworkManager.Singleton.LocalClient == null)
+                yield break;
+
+            var localPlayer = NetworkManager.Singleton.LocalClient.PlayerObject;
+            if (localPlayer == null) yield break;
+
+            ulong clientId = NetworkManager.Singleton.LocalClientId;
+
+            if (localPlayer.TryGetComponent<CoreMovement>(out var movement))
+            {
+                // Tạm tắt vật lý
+                if (localPlayer.TryGetComponent<Rigidbody>(out var rb))
+                    rb.isKinematic = true;
+
+                Vector3 spawnPos = GetSpawnPosition(clientId);
+                int index = GetSpawnIndex(clientId);
+
+                if (index >= 0 && spawnPoints != null && spawnPoints.Count > index)
+                    movement.transform.rotation = spawnPoints[index].rotation;
+
+                movement.SetPosition(spawnPos + Vector3.up * 0.5f);
+                movement.ResetMovementForces();
+
+                yield return new WaitForFixedUpdate();
+
+                if (rb != null)
+                    rb.isKinematic = false;
+
+                Debug.Log($"[GameManager] Re-teleported player to spawn position: {spawnPos}");
+            }
         }
 
         #endregion
@@ -171,77 +268,64 @@ namespace Blocks.Gameplay.Core
         /// <param name="clientId">The ID of the client that connected.</param>
         private void ClientConnected(ulong clientId)
         {
-            // Only process when the local client connects
+            // Chỉ xử lý khi local client kết nối
             if (clientId != NetworkManager.Singleton.LocalClientId) return;
 
-            // Register for stat depletion events (e.g., player death)
+            // Chạy Coroutine để thiết lập nhân vật an toàn
+            StartCoroutine(SetupPlayerRoutine(clientId));
+        }
+        private IEnumerator SetupPlayerRoutine(ulong clientId)
+        {
+            // 1. Đăng ký sự kiện (giữ nguyên logic cũ)
             if (onStatDepleted != null)
-            {
                 onStatDepleted.RegisterListener(HandleStatDepleted);
-            }
 
-            // Hide session UI and lock cursor for gameplay
+            // 2. UI và Cursor
             StartCoroutine(FadeOutAndDisable());
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            // Generate and assign player name based on client ID
-            string playerPrefix = "Player";
-            string playerNumber = NetworkManager.Singleton.LocalClient.ClientId.ToString();
-            string playerName = playerPrefix + playerNumber;
+            // Đợi 2 frame để đảm bảo map và vật lý đã sẵn sàng
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
 
-            if (NetworkManager.Singleton != null && NetworkManager.Singleton.LocalClient != null &&
-                NetworkManager.Singleton.LocalClient.PlayerObject != null)
+            if (NetworkManager.Singleton == null || NetworkManager.Singleton.LocalClient == null) yield break;
+
+            var localPlayer = NetworkManager.Singleton.LocalClient.PlayerObject;
+            if (localPlayer == null) yield break;
+
+            // 3. Đặt tên (giữ nguyên logic cũ)
+            var playerState = localPlayer.GetComponent<CorePlayerState>();
+            if (playerState != null)
+                playerState.SetPlayerName("Player" + clientId);
+
+            // 4. THIẾT LẬP VỊ TRÍ AN TOÀN (Sửa lỗi rơi map ở đây)
+            if (localPlayer.TryGetComponent<CoreMovement>(out var movement))
             {
-                var playerState = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<CorePlayerState>();
-                if (playerState != null)
-                {
-                    playerState.SetPlayerName(playerName);
-                }
-                else
-                {
-                    Debug.LogWarning("[GameManager] CorePlayerState component not found on local player. Cannot set player name.", this);
-                }
+                // Tạm thời tắt vật lý để dịch chuyển không bị lỗi
+                if (localPlayer.TryGetComponent<Rigidbody>(out var rb))
+                    rb.isKinematic = true;
+
+                Vector3 spawnPos = GetSpawnPosition(clientId);
+                int index = GetSpawnIndex(clientId);
+
+                if (index >= 0 && spawnPoints != null && spawnPoints.Count > index)
+                    movement.transform.rotation = spawnPoints[index].rotation;
+
+                // Đưa nhân vật lên cao hơn điểm spawn 0.5m để tránh dính vào sàn
+                movement.SetPosition(spawnPos + Vector3.up * 0.5f);
+                movement.ResetMovementForces();
+
+                // Đợi thêm 1 frame vật lý nữa rồi mới bật lại trọng lực
+                yield return new WaitForFixedUpdate();
+
+                if (rb != null)
+                    rb.isKinematic = false;
             }
 
-            // Setup player spawn position and health
-            if (NetworkManager.Singleton != null && NetworkManager.Singleton.LocalClient != null)
-            {
-                var localPlayer = NetworkManager.Singleton.LocalClient.PlayerObject;
-                if (localPlayer == null)
-                {
-                    Debug.LogWarning("[GameManager] LocalClient.PlayerObject is null. Cannot setup player.", this);
-                    return;
-                }
-
-                // Set spawn position and rotation based on client ID
-                if (localPlayer.TryGetComponent<CoreMovement>(out var movement))
-                {
-                    Vector3 spawnPos = GetSpawnPosition(NetworkManager.Singleton.LocalClientId);
-                    int index = GetSpawnIndex(NetworkManager.Singleton.LocalClientId);
-                    if (index >= 0 && spawnPoints != null && spawnPoints.Count > index)
-                    {
-                        movement.transform.rotation = spawnPoints[index].rotation;
-                    }
-
-                    movement.SetPosition(spawnPos);
-                    movement.ResetMovementForces();
-                }
-                else
-                {
-                    Debug.LogWarning("[GameManager] CoreMovement component not found on local player. Cannot set spawn position.", this);
-                }
-
-                // Restore full health on spawn
-                if (localPlayer.TryGetComponent<CoreStatsHandler>(out var coreStats))
-                {
-                    coreStats.ModifyStat(StatKeys.Health, 100, NetworkManager.Singleton.LocalClientId, ModificationSource.Regeneration);
-                }
-                else
-                {
-                    Debug.LogWarning("[GameManager] CoreStatsHandler component not found on local player. Cannot restore health.", this);
-                }
-            }
+            // 5. Hồi máu (giữ nguyên logic cũ)
+            if (localPlayer.TryGetComponent<CoreStatsHandler>(out var coreStats))
+                coreStats.ModifyStat(StatKeys.Health, 100, clientId, ModificationSource.Regeneration);
         }
 
         #endregion
@@ -522,6 +606,7 @@ namespace Blocks.Gameplay.Core
         /// <returns>The world position of the assigned spawn point.</returns>
         private Vector3 GetSpawnPosition(ulong clientId)
         {
+            UpdateSpawnPoints();
             int index = GetSpawnIndex(clientId);
             if (index == -1)
             {
@@ -537,7 +622,16 @@ namespace Blocks.Gameplay.Core
 
             return spawnPoints[index].position;
         }
-
+        private void UpdateSpawnPoints()
+        {
+            // Tìm tất cả các object có Tag là "SpawnPoint" trong Scene hiện tại
+            var points = GameObject.FindGameObjectsWithTag("SpawnPoint");
+            spawnPoints.Clear();
+            foreach (var p in points)
+            {
+                spawnPoints.Add(p.transform);
+            }
+        }
         /// <summary>
         /// Sets up the local player's name from the Multiplayer Services session properties.
         /// Retrieves the player name from session data and assigns it to <see cref="CorePlayerState"/>.

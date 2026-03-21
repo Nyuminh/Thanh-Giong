@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UIElements;
+using System.Collections;
 
 namespace Blocks.Gameplay.Core
 {
@@ -22,6 +23,7 @@ namespace Blocks.Gameplay.Core
         private Button m_ClientButton;
 
         private GameNetworkManager m_CachedManager;
+        private bool m_UIHidden = false;
 
         /// <summary>
         /// Gets the GameNetworkManager instance, lazily cached for performance.
@@ -72,22 +74,55 @@ namespace Blocks.Gameplay.Core
 
             CreateUI();
         }
+
         private void Start()
         {
-            // Tự động gọi Start Host ngay khi ứng dụng bắt đầu
-            if (Manager != null)
+            // Dùng coroutine để đợi 1 frame, đảm bảo GameNetworkManager.Awake()
+            // đã chạy và callbacks đã đăng ký xong trước khi gọi StartHost
+            StartCoroutine(AutoStartHostRoutine());
+        }
+
+        private IEnumerator AutoStartHostRoutine()
+        {
+            // Đợi 1 frame cho tất cả Awake() chạy xong
+            yield return null;
+
+            if (Manager == null)
             {
-                Debug.Log("Auto-starting Host...");
+                Debug.LogError("[GameNetworkUI] GameNetworkManager.Instance is null after waiting.");
+                yield break;
+            }
+
+            // Nếu đã connected rồi (do DontDestroyOnLoad từ Scene trước)
+            if (Manager.NetworkState.ConnectionState == GameNetworkManager.ConnectionStates.Connected)
+            {
+                Debug.Log("[GameNetworkUI] Đã connected từ Scene trước. Ẩn connection UI.");
+                HideConnectionUI();
+            }
+            else
+            {
+                Debug.Log("[GameNetworkUI] Auto-starting Host...");
                 Manager.StartHostConnection();
             }
         }
+
         /// <summary>
         /// Updates the UI state each frame to reflect the current network connection state.
         /// </summary>
         private void Update()
         {
-            // Ensure all required components are valid before updating
-            if (m_Root != null && m_ConnectionPanel != null && Manager != null)
+            if (Manager == null) return;
+
+            // Safety: nếu đã connected nhưng UI vẫn hiện → ẩn đi
+            if (!m_UIHidden &&
+                Manager.NetworkState != null &&
+                Manager.NetworkState.ConnectionState == GameNetworkManager.ConnectionStates.Connected)
+            {
+                HideConnectionUI();
+            }
+
+            // Cập nhật UI bình thường
+            if (m_Root != null && m_ConnectionPanel != null && !m_UIHidden)
             {
                 UpdateUI();
             }
@@ -186,6 +221,25 @@ namespace Blocks.Gameplay.Core
                 bool showClientButton = canChangeSettings;
                 m_ClientButton.SetEnabled(showClientButton);
                 m_ClientButton.style.display = showClientButton ? DisplayStyle.Flex : DisplayStyle.None;
+            }
+        }
+
+        /// <summary>
+        /// Ẩn toàn bộ connection UI khi đã connected thành công.
+        /// </summary>
+        private void HideConnectionUI()
+        {
+            m_UIHidden = true;
+            Debug.Log("[GameNetworkUI] Ẩn connection UI - đã connected.");
+
+            if (m_ConnectionPanel != null)
+            {
+                m_ConnectionPanel.style.display = DisplayStyle.None;
+            }
+            if (m_Root != null)
+            {
+                m_Root.style.opacity = 0f;
+                m_Root.style.display = DisplayStyle.None;
             }
         }
 

@@ -5517,6 +5517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pfb_SpawnPad
       objectReference: {fileID: 0}
+    - target: {fileID: 6729569909255358139, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8281106281804465078, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
@@ -17890,6 +17894,10 @@ PrefabInstance:
     - target: {fileID: 6729569909255358139, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
       propertyPath: m_Name
       value: Pfb_SpawnPad (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729569909255358139, guid: d89a425fed1e99b4d8c83ff16d8dc789, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

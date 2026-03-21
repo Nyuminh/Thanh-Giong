@@ -65,9 +65,12 @@ namespace Blocks.Gameplay.Core
         // UI elements
         private VisualElement m_QuestTrackerRoot;
         private VisualElement m_QuestTrackerContainer;
+        private VisualElement m_FullDetailsContainer; // Thêm container chi tiết
         private Label m_QuestTitleLabel;
         private Label m_QuestStepLabel;
         private Label m_QuestProgressLabel;
+        private Label m_DistanceLabel; // Hiển thị khoảng cách
+        private Label m_DirectionArrow; // Mũi tên chỉ hướng
         private VisualElement m_StepListContainer;
         private List<VisualElement> m_StepRows = new List<VisualElement>();
         private List<Label> m_StepIcons = new List<Label>();
@@ -123,23 +126,66 @@ namespace Blocks.Gameplay.Core
         }
       
 
-private void Update()
+    private void Update()
     {
+        // Cập nhật la bàn / chỉ đường
+        UpdateNavigationArrow();
+
         // Kiểm tra nếu phím Tab đang được GIỮ (Hold)
         if (Keyboard.current != null && Keyboard.current.tabKey.isPressed)
         {
-            if (m_QuestTrackerContainer != null && m_QuestTrackerContainer.style.display == DisplayStyle.None)
+            if (m_FullDetailsContainer != null && m_FullDetailsContainer.style.display == DisplayStyle.None)
             {
-                m_QuestTrackerContainer.style.display = DisplayStyle.Flex;
+                m_FullDetailsContainer.style.display = DisplayStyle.Flex;
                 UpdateQuestTrackerUI();
             }
         }
         else // Nếu KHÔNG nhấn hoặc THẢ ra
         {
-            if (m_QuestTrackerContainer != null && m_QuestTrackerContainer.style.display == DisplayStyle.Flex)
+            if (m_FullDetailsContainer != null && m_FullDetailsContainer.style.display == DisplayStyle.Flex)
             {
-                m_QuestTrackerContainer.style.display = DisplayStyle.None;
+                m_FullDetailsContainer.style.display = DisplayStyle.None;
             }
+        }
+    }
+
+    private void UpdateNavigationArrow()
+    {
+        if (m_DirectionArrow == null || m_DistanceLabel == null || m_QuestCompleted) return;
+
+        if (m_CurrentQuestStep < allVillagers.Count)
+        {
+            var targetNPC = allVillagers[m_CurrentQuestStep];
+            if (targetNPC == null) return;
+
+            var player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null) return;
+
+            Vector3 targetPos = targetNPC.transform.position;
+            Vector3 playerPos = player.transform.position;
+            Vector3 dirToTarget = targetPos - playerPos;
+            dirToTarget.y = 0; // 2D flat for accurate compass
+
+            float dist = dirToTarget.magnitude;
+            m_DistanceLabel.text = $"{Mathf.RoundToInt(dist)}m";
+
+            var cam = Camera.main;
+            if (cam != null)
+            {
+                Vector3 camForward = cam.transform.forward;
+                camForward.y = 0;
+                if (camForward.sqrMagnitude > 0.001f && dirToTarget.sqrMagnitude > 0.001f)
+                {
+                    float angle = Vector3.SignedAngle(camForward, dirToTarget, Vector3.up);
+                    m_DirectionArrow.transform.rotation = Quaternion.Euler(0, 0, -angle);
+                }
+            }
+        }
+        else
+        {
+            m_DistanceLabel.text = "";
+            m_DirectionArrow.text = "★";
+            m_DirectionArrow.transform.rotation = Quaternion.identity;
         }
     }
     
@@ -239,13 +285,6 @@ private void Update()
             {
                 m_QuestTrackerRoot = questTrackerUIDocument.rootVisualElement;
                 BuildQuestTrackerUI();
-
-                // Sau khi build xong, ẩn nó đi luôn
-                if (m_QuestTrackerContainer != null)
-                {
-                    m_QuestTrackerContainer.style.display = DisplayStyle.None;
-                    m_IsTrackerVisible = false;
-                }
             }
         }
         public void RefreshQuestUI()
@@ -295,15 +334,46 @@ private void Update()
             m_QuestTrackerContainer.style.borderLeftColor = new Color(0.95f, 0.75f, 0.2f, 0.5f);
             m_QuestTrackerContainer.style.borderRightColor = new Color(0.95f, 0.75f, 0.2f, 0.5f);
 
+            // Title row to hold both Title and Pointer
+            var titleRow = new VisualElement();
+            titleRow.style.flexDirection = FlexDirection.Row;
+            titleRow.style.alignItems = Align.Center;
+            titleRow.style.justifyContent = Justify.SpaceBetween;
+
             // Title
             m_QuestTitleLabel = new Label("Sứ Mệnh Thánh Gióng");
             m_QuestTitleLabel.style.fontSize = 16;
             m_QuestTitleLabel.style.color = new Color(0.95f, 0.75f, 0.2f);
             m_QuestTitleLabel.style.unityFontStyleAndWeight = FontStyle.Bold;
             m_QuestTitleLabel.style.marginBottom = 5;
-            m_QuestTrackerContainer.Add(m_QuestTitleLabel);
 
-            // Current step instruction
+            // Pointer container (la bàn chỉ hướng)
+            var pointerContainer = new VisualElement();
+            pointerContainer.style.flexDirection = FlexDirection.Row;
+            pointerContainer.style.alignItems = Align.Center;
+
+            m_DistanceLabel = new Label("");
+            m_DistanceLabel.style.fontSize = 14;
+            m_DistanceLabel.style.color = new Color(0.6f, 1f, 0.6f); // Xanh nhạt
+            m_DistanceLabel.style.marginRight = 8;
+            m_DistanceLabel.style.unityFontStyleAndWeight = FontStyle.Bold;
+
+            m_DirectionArrow = new Label("▲");
+            m_DirectionArrow.style.fontSize = 20;
+            m_DirectionArrow.style.color = new Color(0.95f, 0.75f, 0.2f); // Vàng
+            m_DirectionArrow.style.unityFontStyleAndWeight = FontStyle.Bold;
+            // Xoay quanh tâm
+            m_DirectionArrow.style.transformOrigin = new TransformOrigin(Length.Percent(50), Length.Percent(50));
+
+            pointerContainer.Add(m_DistanceLabel);
+            pointerContainer.Add(m_DirectionArrow);
+
+            titleRow.Add(m_QuestTitleLabel);
+            titleRow.Add(pointerContainer);
+
+            m_QuestTrackerContainer.Add(titleRow);
+
+            // Current step instruction (luôn hiện)
             m_QuestStepLabel = new Label("");
             m_QuestStepLabel.style.fontSize = 13;
             m_QuestStepLabel.style.color = new Color(0.5f, 0.85f, 1f);
@@ -312,19 +382,23 @@ private void Update()
             m_QuestStepLabel.style.whiteSpace = WhiteSpace.Normal;
             m_QuestTrackerContainer.Add(m_QuestStepLabel);
 
+            // TẠO CONTAINER CHO LIST NHIỆM VỤ (CHỈ HIỆN KHI BẤM TAB)
+            m_FullDetailsContainer = new VisualElement();
+            m_FullDetailsContainer.style.display = DisplayStyle.None; // Ẩn lúc đầu
+
             // Divider
             var divider = new VisualElement();
             divider.style.height = 1;
             divider.style.backgroundColor = new Color(0.95f, 0.75f, 0.2f, 0.3f);
             divider.style.marginBottom = 8;
-            m_QuestTrackerContainer.Add(divider);
+            m_FullDetailsContainer.Add(divider);
 
             // Progress
             m_QuestProgressLabel = new Label($"Tiến trình: 0/{TotalSteps}");
             m_QuestProgressLabel.style.fontSize = 12;
             m_QuestProgressLabel.style.color = new Color(0.6f, 0.6f, 0.6f);
             m_QuestProgressLabel.style.marginBottom = 8;
-            m_QuestTrackerContainer.Add(m_QuestProgressLabel);
+            m_FullDetailsContainer.Add(m_QuestProgressLabel);
 
             // Step list
             m_StepListContainer = new VisualElement();
@@ -355,7 +429,8 @@ private void Update()
                 m_StepLabels.Add(label);
             }
 
-            m_QuestTrackerContainer.Add(m_StepListContainer);
+            m_FullDetailsContainer.Add(m_StepListContainer);
+            m_QuestTrackerContainer.Add(m_FullDetailsContainer);
             m_QuestTrackerRoot.Add(m_QuestTrackerContainer);
 
             // Set initial state

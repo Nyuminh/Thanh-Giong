@@ -197,7 +197,7 @@ namespace Blocks.Gameplay.Core
                     PlayerPrefs.SetFloat("SavedMaxHealth", maxHealth);
                 }
 
-                Debug.Log($"[PauseMenu] Đã lưu game: Scene={currentScene}, Pos={pos}");
+               // Debug.Log($"[PauseMenu] Đã lưu game: Scene={currentScene}, Pos={pos}");
             }
             else
             {

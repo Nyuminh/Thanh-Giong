@@ -81,9 +81,9 @@ namespace Blocks.Gameplay.Core
 
         private void Update()
         {
-            // Nhấn ESC để toggle pause menu (dùng New Input System)
+            // Nhấn ENTER để toggle pause menu (dùng New Input System)
             var keyboard = UnityEngine.InputSystem.Keyboard.current;
-            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame)
+            if (keyboard != null && keyboard.enterKey.wasPressedThisFrame)
             {
                 // Không cho pause ở scene menu/intro/loading
                 if (IsInGameplayScene())

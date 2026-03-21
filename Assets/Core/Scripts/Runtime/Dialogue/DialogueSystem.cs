@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using System.Collections;
@@ -70,6 +70,9 @@ namespace Blocks.Gameplay.Core
         private bool m_IsTyping;
         private bool m_SkipRequested;
         private string m_FullCurrentText;
+
+        // Lưu AudioSource đang phát voice hiện tại để có thể dừng khi skip
+        private AudioSource m_CurrentVoiceSource;
 
         // Track which dialogues have been completed
         private readonly HashSet<string> m_CompletedDialogues = new HashSet<string>();
@@ -217,7 +220,10 @@ namespace Blocks.Gameplay.Core
 
             var line = m_CurrentDialogue.lines[m_CurrentLineIndex];
             m_FullCurrentText = line.text;
-            // --- THÊM LOGIC PHÁT VOICE TẠI ĐÂY ---
+            // --- LOGIC PHÁT VOICE ---
+            // Dừng voice câu trước trước khi phát câu mới
+            StopCurrentVoice();
+
             if (line.voiceClip != null)
             {
                 // Tìm Object của người đang nói (NPC hoặc Player) trong Scene
@@ -227,12 +233,15 @@ namespace Blocks.Gameplay.Core
                     AudioSource source = speaker.GetComponent<AudioSource>();
                     if (source != null)
                     {
-                        source.Stop(); // Dừng câu cũ nếu người chơi bấm qua nhanh
-                        source.PlayOneShot(line.voiceClip); // Phát câu mới
+                        // Dùng source.clip + source.Play() thay vì PlayOneShot
+                        // để có thể gọi source.Stop() khi người chơi skip
+                        source.clip = line.voiceClip;
+                        source.Play();
+                        m_CurrentVoiceSource = source; // Lưu lại để dừng khi cần
                     }
                 }
             }
-            // ------------------------------------
+            // ----------------------
             if (useTypewriterEffect)
             {
                 if (m_TypewriterCoroutine != null)
@@ -303,6 +312,18 @@ namespace Blocks.Gameplay.Core
         /// <summary>
         /// Ends the current dialogue session.
         /// </summary>
+        /// <summary>
+        /// Dừng AudioSource đang phát voice hiện tại (nếu có).
+        /// </summary>
+        private void StopCurrentVoice()
+        {
+            if (m_CurrentVoiceSource != null && m_CurrentVoiceSource.isPlaying)
+            {
+                m_CurrentVoiceSource.Stop();
+            }
+            m_CurrentVoiceSource = null;
+        }
+
         private void EndDialogue()
         {
             if (m_TypewriterCoroutine != null)
@@ -310,6 +331,9 @@ namespace Blocks.Gameplay.Core
                 StopCoroutine(m_TypewriterCoroutine);
                 m_TypewriterCoroutine = null;
             }
+
+            // Dừng voice khi dialogue kết thúc
+            StopCurrentVoice();
 
             string npcName = m_CurrentDialogue?.npcName;
 

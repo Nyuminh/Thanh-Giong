@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 219766529}
   - component: {fileID: 219766528}
+  - component: {fileID: 219766530}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -216,6 +217,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &219766530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219766527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &499038861
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -422,7 +452,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: fb61d66d9c2cf444ba9bad01fd4d00b6, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -543,7 +573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 78, y: -582}
+  m_AnchoredPosition: {x: 27, y: -306}
   m_SizeDelta: {x: 863.4667, y: 68.3312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990280489
@@ -771,7 +801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 85, y: -1695}
+  m_AnchoredPosition: {x: 19, y: -1278}
   m_SizeDelta: {x: 1218.0492, y: 277.8116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033308354
@@ -807,7 +837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CORE DEVELOPMENT TEAM\nTeam 2 FGU\n\n3D Design & Environment:\nTr\u1EA7n
+  m_text: "CORE DEVELOPMENT TEAM\nTeam 2 GDC\n\n3D Design & Environment:\nTr\u1EA7n
     H\u1ED3ng D\u01B0\u01A1ng\nNguy\u1EC5n Ph\xFAc L\xE2m\n\nLead Programming & Systems:\n\u0110o\xE0n
     L\xFD H\u1ED3ng Minh\n\u0110\u1ED7 \u0110\xECnh Ph\xFA\n\nSTORY & SCREENPLAY\n\u0110o\xE0n
     L\xFD H\u1ED3ng Minh\n\u0110\u1ED7 \u0110\xECnh Ph\xFA\nTr\u1EA7n H\u1ED3ng D\u01B0\u01A1ng\nNguy\u1EC5n
@@ -844,8 +874,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

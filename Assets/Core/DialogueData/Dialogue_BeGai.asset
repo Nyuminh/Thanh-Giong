@@ -67,4 +67,4 @@ MonoBehaviour:
     isPlayerLine: 0
     voiceClip: {fileID: 8300000, guid: 4c439e15dc2e46a499fc73ab4df6a603, type: 3}
     delayBeforeNext: 0.5
-  playOnce: 1
+  playOnce: 0

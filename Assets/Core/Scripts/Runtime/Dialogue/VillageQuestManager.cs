@@ -51,8 +51,11 @@ namespace Blocks.Gameplay.Core
         private HashSet<string> m_CompletedVillagers = new HashSet<string>();
         private bool m_QuestCompleted;
 
-        // Quest step descriptions
-        private string[] m_StepDescriptions = new string[]
+        // Đăng ký các Item hoặc Target động
+        private Dictionary<int, Transform> m_RegisteredTargets = new Dictionary<int, Transform>();
+
+        // Quest step descriptions chuyển sang List để dễ bề gắn thêm Nhiệm vụ phụ (như lấy Item)
+        private List<string> m_StepDescriptions = new List<string>()
         {
             "Nói chuyện với Mẹ",
             "Nói chuyện với Sứ Giả",
@@ -82,7 +85,7 @@ namespace Blocks.Gameplay.Core
 
         #region Properties
 
-        public int TotalSteps => allVillagers.Count;
+        public int TotalSteps => Mathf.Max(allVillagers.Count, m_StepDescriptions.Count);
         public int CurrentStep => m_CurrentQuestStep;
         public int CompletedCount => m_CompletedVillagers.Count;
         public bool IsQuestCompleted => m_QuestCompleted;
@@ -107,18 +110,26 @@ namespace Blocks.Gameplay.Core
             if (allVillagers.Count == 0)
             {
                 allVillagers.AddRange(FindObjectsOfType<VillagerNPC>());
-                // Sort by questStep
-                allVillagers.Sort((a, b) => a.QuestStep.CompareTo(b.QuestStep));
+                // Sort by the first questStep
+                allVillagers.Sort((a, b) => 
+                {
+                    int stepA = (a.QuestSteps != null && a.QuestSteps.Length > 0) ? a.QuestSteps[0] : 0;
+                    int stepB = (b.QuestSteps != null && b.QuestSteps.Length > 0) ? b.QuestSteps[0] : 0;
+                    return stepA.CompareTo(stepB);
+                });
                 Debug.Log($"[QuestManager] Auto-found {allVillagers.Count} villagers.");
             }
 
             // Update step descriptions from actual villager names
             if (allVillagers.Count > 0)
             {
-                m_StepDescriptions = new string[allVillagers.Count];
+                // Mở rộng danh sách nếu cần thiết
+                while (m_StepDescriptions.Count < allVillagers.Count) m_StepDescriptions.Add("");
+
                 for (int i = 0; i < allVillagers.Count; i++)
                 {
-                    m_StepDescriptions[i] = $"Nói chuyện với {allVillagers[i].VillagerName}";
+                    if (allVillagers[i] != null)
+                        m_StepDescriptions[i] = $"Nói chuyện với {allVillagers[i].VillagerName}";
                 }
             }
 
@@ -153,15 +164,27 @@ namespace Blocks.Gameplay.Core
     {
         if (m_DirectionArrow == null || m_DistanceLabel == null || m_QuestCompleted) return;
 
-        if (m_CurrentQuestStep < allVillagers.Count)
+        if (m_CurrentQuestStep < TotalSteps)
         {
-            var targetNPC = allVillagers[m_CurrentQuestStep];
-            if (targetNPC == null) return;
+            Transform targetTransform = null;
+
+            // Ưu tiên target động (như Con Diều) đã đăng ký
+            if (m_RegisteredTargets.ContainsKey(m_CurrentQuestStep))
+            {
+                targetTransform = m_RegisteredTargets[m_CurrentQuestStep];
+            }
+            // Nếu không thì lấy NPC tĩnh
+            else if (m_CurrentQuestStep < allVillagers.Count && allVillagers[m_CurrentQuestStep] != null)
+            {
+                targetTransform = allVillagers[m_CurrentQuestStep].transform;
+            }
+
+            if (targetTransform == null) return;
 
             var player = GameObject.FindGameObjectWithTag("Player");
             if (player == null) return;
 
-            Vector3 targetPos = targetNPC.transform.position;
+            Vector3 targetPos = targetTransform.position;
             Vector3 playerPos = player.transform.position;
             Vector3 dirToTarget = targetPos - playerPos;
             dirToTarget.y = 0; // 2D flat for accurate compass
@@ -193,6 +216,26 @@ namespace Blocks.Gameplay.Core
 
         #region Public Methods
 
+        public void RegisterQuestTarget(int step, Transform targetTransform, string targetName)
+        {
+            if (!m_RegisteredTargets.ContainsKey(step)) m_RegisteredTargets.Add(step, targetTransform);
+            else m_RegisteredTargets[step] = targetTransform;
+
+            // Đảm bảo list description đủ lớn
+            while(m_StepDescriptions.Count <= step) m_StepDescriptions.Add("");
+            
+            // Ghi đè label hành động cho phù hợp
+            m_StepDescriptions[step] = $"Lấy được {targetName}";
+            
+            // Cập nhật lại UI Tracker vì có sự thay đổi dữ liệu
+            UpdateQuestTrackerUI();
+        }
+
+        public void UpdateTotalSteps(int requiredTotalSteps)
+        {
+            while (m_StepDescriptions.Count < requiredTotalSteps) m_StepDescriptions.Add("Nhiệm vụ mới...");
+        }
+
         /// <summary>
         /// Returns the current quest step index (0-based).
         /// VillagerNPC checks this to know if it should activate.
@@ -206,11 +249,14 @@ namespace Blocks.Gameplay.Core
         /// Called by VillagerNPC when dialogue is completed.
         /// Advances to the next quest step.
         /// </summary>
-        public void OnVillagerDialogueCompleted(string villagerName)
+        public void OnVillagerDialogueCompleted(string villagerName, int completedStep)
         {
             if (m_QuestCompleted) return;
 
-            if (m_CompletedVillagers.Add(villagerName))
+            // Cho phép NPC hoàn thành nhiều bước mà không bị chặn lại bởi tên
+            string stepKey = $"{villagerName}_{completedStep}";
+
+            if (m_CompletedVillagers.Add(stepKey))
             {
                 Debug.Log($"[QuestManager] Step {m_CurrentQuestStep + 1}/{TotalSteps} completed: {villagerName}");
 
@@ -228,7 +274,7 @@ namespace Blocks.Gameplay.Core
                     }
                     else
                     {
-                        string nextStep = m_CurrentQuestStep < m_StepDescriptions.Length
+                        string nextStep = m_CurrentQuestStep < m_StepDescriptions.Count
                             ? m_StepDescriptions[m_CurrentQuestStep]
                             : "???";
                         dialogueUI.ShowQuestNotification(
@@ -403,7 +449,7 @@ namespace Blocks.Gameplay.Core
             // Step list
             m_StepListContainer = new VisualElement();
 
-            for (int i = 0; i < m_StepDescriptions.Length; i++)
+            for (int i = 0; i < m_StepDescriptions.Count; i++)
             {
                 var row = new VisualElement();
                 row.style.flexDirection = FlexDirection.Row;
@@ -447,7 +493,7 @@ namespace Blocks.Gameplay.Core
             // Update current step label
             if (m_QuestStepLabel != null)
             {
-                if (m_CurrentQuestStep < m_StepDescriptions.Length)
+                if (m_CurrentQuestStep < m_StepDescriptions.Count)
                 {
                     m_QuestStepLabel.text = $"► {m_StepDescriptions[m_CurrentQuestStep]}";
                 }

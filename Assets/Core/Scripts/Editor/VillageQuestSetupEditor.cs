@@ -361,15 +361,27 @@ namespace Blocks.Gameplay.Core
                 if (matchedDialogue != null)
                 {
                     so.FindProperty("villagerName").stringValue = matchedDialogue.npcName;
-                    so.FindProperty("dialogueData").objectReferenceValue = matchedDialogue;
+                    var diagArray = so.FindProperty("dialogueDatas");
+                    if (diagArray != null)
+                    {
+                        diagArray.arraySize = 1;
+                        diagArray.GetArrayElementAtIndex(0).objectReferenceValue = matchedDialogue;
+                    }
                 }
                 else
                 {
                     so.FindProperty("villagerName").stringValue = goName;
                 }
 
-                so.FindProperty("questStep").intValue = matchedStep >= 0 ? matchedStep : 99;
-                so.FindProperty("interactionRadius").floatValue = 5f;
+                var stepArray = so.FindProperty("questSteps");
+                if (stepArray != null)
+                {
+                    stepArray.arraySize = 1;
+                    stepArray.GetArrayElementAtIndex(0).intValue = matchedStep >= 0 ? matchedStep : 99;
+                }
+
+                var radiusProp = so.FindProperty("interactionRadius");
+                if (radiusProp != null) radiusProp.floatValue = 5f;
 
                 so.ApplyModifiedProperties();
                 addedVillagerNPCs.Add(villagerNPC);
@@ -378,7 +390,12 @@ namespace Blocks.Gameplay.Core
             }
 
             // Sort by quest step and assign to quest manager
-            addedVillagerNPCs.Sort((a, b) => a.QuestStep.CompareTo(b.QuestStep));
+            addedVillagerNPCs.Sort((a, b) => 
+            {
+                int stepA = (a.QuestSteps != null && a.QuestSteps.Length > 0) ? a.QuestSteps[0] : 0;
+                int stepB = (b.QuestSteps != null && b.QuestSteps.Length > 0) ? b.QuestSteps[0] : 0;
+                return stepA.CompareTo(stepB);
+            });
 
             var questManager = Object.FindObjectOfType<VillageQuestManager>();
             if (questManager != null)

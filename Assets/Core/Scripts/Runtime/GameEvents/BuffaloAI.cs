@@ -32,6 +32,10 @@ public class BuffaloAI : MonoBehaviour
     [Tooltip("Khoảng cách trâu bị văng ra sau khi giằng co thành công 1 nhịp")]
     public float pushbackDistance = 8f;
     private int catchesDone = 0; // Đếm số lần đã tóm trúng
+    
+    [Header("Audio Settings")]
+    [Tooltip("Tiếng Trâu kêu la giằng co phát ra mỗi khi người chơi bấm F tóm được")]
+    public AudioClip catchSound;
 
     [Tooltip("Kéo thả NPC (ví dụ Cậu Bé) vào đây. Khi thu phục xong Trâu sẽ chạy theo NPC này. Nếu để trống sẽ chạy theo Gióng.")]
     public Transform targetToFollow;
@@ -135,6 +139,12 @@ public class BuffaloAI : MonoBehaviour
     {
         catchesDone++;
         HideInteractPrompt();
+
+        // Phát tiếng la lối/kêu của trâu ngay khi người chơi đụng tay
+        if (catchSound != null)
+        {
+            AudioSource.PlayClipAtPoint(catchSound, transform.position);
+        }
 
         if (catchesDone >= totalCatchesRequired)
         {

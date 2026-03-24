@@ -96,8 +96,8 @@ namespace Blocks.Gameplay.Core
             if (m_PlayerInRange)
             {
                 var keyboard = Keyboard.current;
-                // Bấm phím F để nhặt
-                if (keyboard != null && keyboard.fKey.wasPressedThisFrame)
+                // Bấm phím E để nhặt
+                if (keyboard != null && keyboard.eKey.wasPressedThisFrame)
                 {
                     PickUp();
                 }

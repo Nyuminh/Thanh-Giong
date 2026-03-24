@@ -37,6 +37,10 @@ public class BuffaloAI : MonoBehaviour
     [Tooltip("Tiếng Trâu kêu la giằng co phát ra mỗi khi người chơi bấm F tóm được")]
     public AudioClip catchSound;
 
+    [Header("Animation Settings")]
+    [Tooltip("Tên của biễn (Trigger) trong Animator cho cảnh Trâu giãy/chạy hoảng hốt lúc bị bấm F")]
+    public string hitAnimTrigger = "Hit";
+
     [Tooltip("Kéo thả NPC (ví dụ Cậu Bé) vào đây. Khi thu phục xong Trâu sẽ chạy theo NPC này. Nếu để trống sẽ chạy theo Gióng.")]
     public Transform targetToFollow;
 
@@ -47,6 +51,7 @@ public class BuffaloAI : MonoBehaviour
     private Transform player;
     private bool isCaught = false;
     private bool playerInRangeToCatch = false;
+    private bool isBeingPushed = false; // Trạng thái đang bị văng ra xa
 
     void Start()
     {
@@ -79,6 +84,9 @@ public class BuffaloAI : MonoBehaviour
             if (p != null) player = p.transform;
             return;
         }
+
+        // Bỏ qua mọi xử lý AI khi Trâu đang bị văng vật lộn ra xa
+        if (isBeingPushed) return;
 
         if (isCaught)
         {
@@ -124,7 +132,7 @@ public class BuffaloAI : MonoBehaviour
             // AI Di chuyển (Trốn hoặc Đi dạo)
             if (dist <= fleeDetectionRange && canCatch)
             {
-                FleeFromPlayer(); // Thấy tới gần là chạy tốc biến!
+                FleeFromPlayerSmart(); // Gọi thuật toán trốn tường thông minh
             }
             else
             {
@@ -144,6 +152,12 @@ public class BuffaloAI : MonoBehaviour
         if (catchSound != null)
         {
             AudioSource.PlayClipAtPoint(catchSound, transform.position);
+        }
+
+        // Gọi hiệu ứng Animation giãy giụa (kích hoạt Trigger)
+        if (anim != null && !string.IsNullOrEmpty(hitAnimTrigger))
+        {
+            anim.SetTrigger(hitAnimTrigger);
         }
 
         if (catchesDone >= totalCatchesRequired)
@@ -171,30 +185,66 @@ public class BuffaloAI : MonoBehaviour
             // Tìm điểm rớt trên Navmesh để Trâu không lọt vách núi
             if (NavMesh.SamplePosition(pushTargetPos, out hit, 5f, NavMesh.AllAreas))
             {
-                // Ép Trâu bay tức thì tới vị trí lùi lại
-                agent.Warp(hit.position); 
-                
-                // Trâu sẽ tự động nằm trong vùng > catchRadius nhưng có thể <= fleeDetectionRange
-                // nên vòng Update() kế tiếp nó sẽ cắm đầu Flee ngay lập tức!
+                // Ép Trâu bay tức thì tới vị trí lùi lại bằng hiệu ứng trượt
+                StartCoroutine(PushbackRoutine(transform.position, hit.position));
             }
         }
     }
 
-    private void FleeFromPlayer()
+    // Biến cảnh văng Trâu thành "Lướt" mềm mại
+    private System.Collections.IEnumerator PushbackRoutine(Vector3 start, Vector3 end)
     {
+        isBeingPushed = true;
+        agent.enabled = false; // Tắt AI để can thiệp vật lý tay
+
+        float elapsed = 0f;
+        float duration = 0.25f; // Thời gian bật ngửa siêu âm (0.25 giây)
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            // Làm mượt đường trượt bằng hàm Lerp
+            transform.position = Vector3.Lerp(start, end, elapsed / duration);
+            yield return null;
+        }
+
+        transform.position = end;
+        agent.enabled = true; // Quăng ngược lại cho Navmesh kiểm soát
+        isBeingPushed = false;
+    }
+
+    private void FleeFromPlayerSmart()
+    {
+        // Kiểm tra tránh vướng tường thông minh
         agent.speed = fleeSpeed;
         agent.isStopped = false;
 
-        // Sợ Gióng, lấy hướng cắm đầu chạy Ngược Lại với Gióng
-        Vector3 fleeDirection = (transform.position - player.position).normalized;
-        Vector3 newPos = transform.position + fleeDirection * fleeSpeed; // Chạy ra xa thêm
+        Vector3 bestPos = transform.position;
+        float maxDist = -1f;
 
-        NavMeshHit hit;
-        // Quét tìm khu vực an toàn không xuyên tường
-        if (NavMesh.SamplePosition(newPos, out hit, 4f, NavMesh.AllAreas))
+        // Quét 8 hướng xung quanh như Rada tìm lối thoát
+        for (int i = 0; i < 8; i++)
         {
-            agent.SetDestination(hit.position);
+            float angle = i * 45f;
+            Vector3 dir = Quaternion.Euler(0, angle, 0) * Vector3.forward;
+            Vector3 checkPos = transform.position + dir * fleeSpeed;
+
+            NavMeshHit hit;
+            // Nếu hẻm này chui Navmesh được
+            if (NavMesh.SamplePosition(checkPos, out hit, 2f, NavMesh.AllAreas))
+            {
+                // Đo xa cách với Gióng
+                float d = Vector3.Distance(hit.position, player.position);
+                if (d > maxDist)
+                {
+                    maxDist = d;      // Chọn hẻm này làm hẻm tốt nhất vì cách Gióng xa nhất!
+                    bestPos = hit.position;
+                }
+            }
         }
+
+        // Bỏ chạy vào hẻm mới bói được
+        agent.SetDestination(bestPos);
     }
 
     private void FollowTarget()

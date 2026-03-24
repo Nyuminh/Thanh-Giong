@@ -14,54 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
   npcName: "Thanh Ni\xEAn"
   lines:
-  - speakerName: "Thanh Ni\xEAn"
-    text: "N\xE0y, c\u1EADu l\xE0 ai? Tr\xF4ng c\u1EADu c\xF3 v\u1EBB kh\xF4ng ph\u1EA3i
-      ng\u01B0\u1EDDi l\xE0ng n\xE0y..."
-    isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 2f42066b4595bee408a0122a1b25f430, type: 3}
-    delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
-    text: "T\xF4i l\xE0 Gi\xF3ng \u0111\xE2y! "
+    text: "Huynh y\xEAn t\xE2m g\u1EB7t nh\xE9, \u0111\u1EC7 t\xECm th\u1EA5y c\u1EADu
+      nh\xF3c r\u1ED3i, ch\u1EC9 l\xE0 tr\xE2u x\u1ED5ng chu\u1ED3ng th\xF4i, \u0111\u1EC7
+      \u0111\xE3 b\u1EAFt l\u1EA1i v\xE0 b\u1EA3o nh\xF3c v\u1EC1 nh\xE0 r\u1ED3i."
     isPlayerLine: 1
-    voiceClip: {fileID: 8300000, guid: a66e96fe678e8e54fa66a5e047f4064f, type: 3}
+    voiceClip: {fileID: 8300000, guid: cb1312f8003d89a44bdd4d1055fabf39, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Thanh Ni\xEAn"
-    text: "Gi\xF3ng! C\u1EADu to l\u1EDBn qu\xE1, t\xF4i nh\xECn m\xE0 kh\xF4ng nh\u1EADn
-      ra lu\xF4n \u0111\u1EA5y."
+    text: "May qu\xE1, t\u1EA1 \u01A1n tr\u1EDDi \u0111\u1EA5t! \u0110\u1EC7 ra tay
+      gi\xFAp \u0111\u1EE1 th\xEC c\xF2n g\xEC b\u1EB1ng. "
     isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 2127605781a4e94428f98bfdad497ba9, type: 3}
+    voiceClip: {fileID: 8300000, guid: 24ad6e821ba40754291d3ed66fe5c023, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Thanh Ni\xEAn"
-    text: "Anh em trong l\xE0ng \u0111ang \u0111i t\u1EEBng nh\xE0 gom g\u1EA1o,
-      h\xE1i th\xEAm c\u1EA3 c\xE0 ph\xE1o cho c\u1EADu \u0111\xE2y."
+    text: "Ru\u1ED9ng l\xFAa \u1EDF cu\u1ED1i l\xE0ng c\xF3 c\xE1i th\xFAng \u1EDF
+      ngay c\u1EA1nh, huynh \u0111\u1EC7 ta c\xF9ng v\xE0o g\u1EB7t cho xong k\u1EBBo
+      t\u1ED1i."
     isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 4cce922502b0eef4da128b09a06907fc, type: 3}
-    delayBeforeNext: 0.5
-  - speakerName: "Gi\xF3ng"
-    text: "T\xECnh h\xECnh l\u0169 gi\u1EB7c ngo\xE0i kia sao r\u1ED3i huynh?"
-    isPlayerLine: 1
-    voiceClip: {fileID: 8300000, guid: 666d1e7bd878d654582f8ad065342d24, type: 3}
+    voiceClip: {fileID: 8300000, guid: fd9bb2ae3fc18b941877304fff37bcc7, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Thanh Ni\xEAn"
-    text: "B\u1ECDn gi\u1EB7c \xC2n hung h\xE3n l\u1EAFm, nghe n\xF3i ch\xFAng \u0111\xF4ng
-      nh\u01B0 ki\u1EBFn, gi\xE1o m\xE1c s\xE1ng r\u1EF1c c\u1EA3 m\u1ED9t g\xF3c
-      tr\u1EDDi."
+    text: "L\xE1t n\u1EEFa xong vi\u1EC7c, ta s\u1EBD d\u1EE1 ngay hai bao g\u1EA1o
+      to nh\u1EA5t nh\xE0 mang sang cho \u0111\u1EC7. \u0102n th\u1EADt no m\u1EDBi
+      vung \u0111\u01B0\u1EE3c roi s\u1EAFt \u0111\xE1nh gi\u1EB7c \xC2n!"
     isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 9a65d7b4eb8434149a8cc1ae3de373f6, type: 3}
+    voiceClip: {fileID: 8300000, guid: fccd5d004102716448f05bd819fa21c1, type: 3}
     delayBeforeNext: 0.5
-  - speakerName: "Thanh Ni\xEAn"
-    text: "D\xE2n qu\xE2n quanh v\xF9ng kh\xF4ng c\u1EA3n n\u1ED5i. Nh\u01B0ng th\u1EA5y
-      c\u1EADu uy d\u0169ng th\u1EBF n\xE0y, anh em c\u0169ng v\u1EEFng d\u1EA1 ph\u1EA7n
-      n\xE0o."
-    isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 68d446bcb9814bd4694893ae6ad5a105, type: 3}
-    delayBeforeNext: 0.5
-  - speakerName: "Gi\xF3ng"
-    text: "C\u1EA3m \u01A1n c\xE1c huynh \u0111\u1EC7. M\u1ECDi ng\u01B0\u1EDDi c\u1EE9
-      lo s\u01A1 t\xE1n ng\u01B0\u1EDDi gi\xE0 v\xE0 tr\u1EBB em, gia c\u1ED1 l\u1EA1i
-      c\u1ED5ng l\xE0ng. Vi\u1EC7c \u0111\xE1nh gi\u1EB7c c\u1EE9 \u0111\u1EC3 \u0111\u1EC7
-      lo!"
-    isPlayerLine: 1
-    voiceClip: {fileID: 8300000, guid: 9c5f4bb071bc1c74c942d21e90296dee, type: 3}
-    delayBeforeNext: 0.5
-  playOnce: 1
+  playOnce: 0

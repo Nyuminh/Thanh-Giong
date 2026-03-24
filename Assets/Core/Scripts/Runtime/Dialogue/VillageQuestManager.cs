@@ -74,10 +74,15 @@ namespace Blocks.Gameplay.Core
         private Label m_QuestProgressLabel;
         private Label m_DistanceLabel; // Hiển thị khoảng cách
         private Label m_DirectionArrow; // Mũi tên chỉ hướng
-        private VisualElement m_StepListContainer;
+        private ScrollView m_StepListContainer;
         private List<VisualElement> m_StepRows = new List<VisualElement>();
         private List<Label> m_StepIcons = new List<Label>();
         private List<Label> m_StepLabels = new List<Label>();
+
+        // Danh sách nội dung đã bị gộp (dùng cho UI hiện lên)
+        private List<string> m_UIDisplayNames = new List<string>();
+        // Ánh xạ từ dòng UI (chỉ số m_UIDisplayNames) -> Danh sách các Steps bị gộp
+        private List<List<int>> m_UIRowToStepsMap = new List<List<int>>();
 
         private VisualElement m_WinScreenRoot;
 
@@ -133,7 +138,36 @@ namespace Blocks.Gameplay.Core
                 }
             }
 
+            RebuildUIDisplayList();
             StartCoroutine(InitializeUI());
+        }
+
+        private void RebuildUIDisplayList()
+        {
+            m_UIDisplayNames.Clear();
+            m_UIRowToStepsMap.Clear();
+
+            if (m_StepDescriptions.Count == 0) return;
+
+            string currentName = m_StepDescriptions[0];
+            m_UIDisplayNames.Add(currentName);
+            m_UIRowToStepsMap.Add(new List<int> { 0 });
+
+            for (int i = 1; i < m_StepDescriptions.Count; i++)
+            {
+                if (m_StepDescriptions[i] == currentName && !string.IsNullOrEmpty(currentName))
+                {
+                    // Trùng tên với nhiệm vụ ngay trước đó -> Gộp vào 1 Group UI
+                    m_UIRowToStepsMap[m_UIRowToStepsMap.Count - 1].Add(i);
+                }
+                else
+                {
+                    // Nhiệm vụ mới
+                    currentName = m_StepDescriptions[i];
+                    m_UIDisplayNames.Add(currentName);
+                    m_UIRowToStepsMap.Add(new List<int> { i });
+                }
+            }
         }
       
 
@@ -149,6 +183,10 @@ namespace Blocks.Gameplay.Core
             {
                 m_FullDetailsContainer.style.display = DisplayStyle.Flex;
                 UpdateQuestTrackerUI();
+
+                // Bật tự do chuột để cuộn ScrollView
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
         }
         else // Nếu KHÔNG nhấn hoặc THẢ ra
@@ -156,6 +194,10 @@ namespace Blocks.Gameplay.Core
             if (m_FullDetailsContainer != null && m_FullDetailsContainer.style.display == DisplayStyle.Flex)
             {
                 m_FullDetailsContainer.style.display = DisplayStyle.None;
+
+                // Ẩn chuột và khóa nó vào giữa màn hình khi thả phím
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
     }
@@ -225,10 +267,10 @@ namespace Blocks.Gameplay.Core
             while(m_StepDescriptions.Count <= step) m_StepDescriptions.Add("");
             
             // Ghi đè label hành động cho phù hợp
-            m_StepDescriptions[step] = $"Lấy được {targetName}";
+            m_StepDescriptions[step] = $"{targetName}";
             
-            // Cập nhật lại UI Tracker vì có sự thay đổi dữ liệu
-            UpdateQuestTrackerUI();
+            // Rebuild lại danh sách rút gọn và vẽ lại UI
+            RefreshQuestUI();
         }
 
         public void UpdateTotalSteps(int requiredTotalSteps)
@@ -330,7 +372,7 @@ namespace Blocks.Gameplay.Core
             if (questTrackerUIDocument != null)
             {
                 m_QuestTrackerRoot = questTrackerUIDocument.rootVisualElement;
-                BuildQuestTrackerUI();
+                RefreshQuestUI();
             }
         }
         public void RefreshQuestUI()
@@ -348,6 +390,7 @@ namespace Blocks.Gameplay.Core
                 m_StepIcons.Clear();
                 m_StepLabels.Clear();
 
+                RebuildUIDisplayList();
                 BuildQuestTrackerUI();
                 Debug.Log("[QuestManager] HUD nhiệm vụ đã được vẽ lại!");
             }
@@ -446,10 +489,16 @@ namespace Blocks.Gameplay.Core
             m_QuestProgressLabel.style.marginBottom = 8;
             m_FullDetailsContainer.Add(m_QuestProgressLabel);
 
-            // Step list
-            m_StepListContainer = new VisualElement();
+            // Rebuild map groups
+            RebuildUIDisplayList();
 
-            for (int i = 0; i < m_StepDescriptions.Count; i++)
+            // Step list
+            m_StepListContainer = new ScrollView();
+            m_StepListContainer.style.maxHeight = 350; // Cho phép cuộn nếu quá nhiều nhiệm vụ
+            // Cắt nội dung tràn ra ngoài
+            m_StepListContainer.style.overflow = Overflow.Hidden;
+
+            for (int i = 0; i < m_UIDisplayNames.Count; i++)
             {
                 var row = new VisualElement();
                 row.style.flexDirection = FlexDirection.Row;
@@ -462,7 +511,7 @@ namespace Blocks.Gameplay.Core
                 icon.style.marginRight = 8;
                 icon.style.width = 16;
 
-                var label = new Label(m_StepDescriptions[i]);
+                var label = new Label(m_UIDisplayNames[i]);
                 label.style.fontSize = 13;
                 label.style.color = i == 0 ? Color.white : new Color(0.5f, 0.5f, 0.5f);
 
@@ -504,22 +553,39 @@ namespace Blocks.Gameplay.Core
                 }
             }
 
-            // Update step icons and colors
+            // Update step icons and colors (m_StepIcons size == m_UIDisplayNames.Count)
             for (int i = 0; i < m_StepIcons.Count; i++)
             {
-                if (i < m_CurrentQuestStep)
+                if (i >= m_UIRowToStepsMap.Count) continue;
+                
+                var steps = m_UIRowToStepsMap[i];
+                int firstStep = steps[0];
+                int lastStep = steps[steps.Count - 1];
+                int totalInGroup = steps.Count;
+
+                if (m_CurrentQuestStep > lastStep)
                 {
                     // Completed
                     m_StepIcons[i].text = "✓";
                     m_StepIcons[i].style.color = new Color(0.3f, 0.85f, 0.55f);
                     m_StepLabels[i].style.color = new Color(0.3f, 0.85f, 0.55f);
+                    
+                    if (totalInGroup > 1) m_StepLabels[i].text = $"{m_UIDisplayNames[i]} ({totalInGroup}/{totalInGroup})";
+                    else m_StepLabels[i].text = m_UIDisplayNames[i];
                 }
-                else if (i == m_CurrentQuestStep)
+                else if (m_CurrentQuestStep >= firstStep && m_CurrentQuestStep <= lastStep)
                 {
-                    // Current
+                    // Current active group
                     m_StepIcons[i].text = "▸";
                     m_StepIcons[i].style.color = new Color(0.5f, 0.85f, 1f);
                     m_StepLabels[i].style.color = Color.white;
+                    
+                    if (totalInGroup > 1)
+                    {
+                        int completedInGroup = m_CurrentQuestStep - firstStep;
+                        m_StepLabels[i].text = $"{m_UIDisplayNames[i]} ({completedInGroup}/{totalInGroup})";
+                    }
+                    else m_StepLabels[i].text = m_UIDisplayNames[i];
                 }
                 else
                 {
@@ -527,6 +593,9 @@ namespace Blocks.Gameplay.Core
                     m_StepIcons[i].text = "○";
                     m_StepIcons[i].style.color = new Color(0.4f, 0.4f, 0.4f);
                     m_StepLabels[i].style.color = new Color(0.5f, 0.5f, 0.5f);
+                    
+                    if (totalInGroup > 1) m_StepLabels[i].text = $"{m_UIDisplayNames[i]} (0/{totalInGroup})";
+                    else m_StepLabels[i].text = m_UIDisplayNames[i];
                 }
             }
         }

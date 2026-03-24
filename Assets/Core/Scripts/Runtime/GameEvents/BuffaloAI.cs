@@ -25,6 +25,24 @@ public class BuffaloAI : MonoBehaviour
     public float catchRadius = 2.5f;   // Lại gần cỡ 2.5m mới hiện nút F
     public float followDistance = 3.5f;  // Khoảng cách dắt trâu theo sau
     public float followSpeed = 4f;       // Tốc độ trâu lững thững đi theo
+    
+    [Header("Vật Lộn Bắt Trâu (Khó hơn)")]
+    [Tooltip("Số lần phải bấm F mới thu phục được (VD: 5 lần là 20% máu/lần)")]
+    public int totalCatchesRequired = 5;
+    [Tooltip("Khoảng cách trâu bị văng ra sau khi giằng co thành công 1 nhịp")]
+    public float pushbackDistance = 8f;
+    private int catchesDone = 0; // Đếm số lần đã tóm trúng
+    
+    [Header("Audio Settings")]
+    [Tooltip("Tiếng Trâu kêu la giằng co phát ra mỗi khi người chơi bấm F tóm được")]
+    public AudioClip catchSound;
+
+    [Header("Animation Settings")]
+    [Tooltip("Tên của biễn (Trigger) trong Animator cho cảnh Trâu giãy/chạy hoảng hốt lúc bị bấm F")]
+    public string hitAnimTrigger = "Hit";
+
+    [Tooltip("Kéo thả NPC (ví dụ Cậu Bé) vào đây. Khi thu phục xong Trâu sẽ chạy theo NPC này. Nếu để trống sẽ chạy theo Gióng.")]
+    public Transform targetToFollow;
 
     private NavMeshAgent agent;
     private Animator anim;
@@ -33,6 +51,7 @@ public class BuffaloAI : MonoBehaviour
     private Transform player;
     private bool isCaught = false;
     private bool playerInRangeToCatch = false;
+    private bool isBeingPushed = false; // Trạng thái đang bị văng ra xa
 
     void Start()
     {
@@ -66,10 +85,13 @@ public class BuffaloAI : MonoBehaviour
             return;
         }
 
+        // Bỏ qua mọi xử lý AI khi Trâu đang bị văng vật lộn ra xa
+        if (isBeingPushed) return;
+
         if (isCaught)
         {
-            // Trạng thái đã bị thuần phục: Đi theo Gióng
-            FollowPlayer();
+            // Trạng thái đã bị thuần phục: Đi theo mục tiêu (NPC hoặc Gióng)
+            FollowTarget();
         }
         else
         {
@@ -110,7 +132,7 @@ public class BuffaloAI : MonoBehaviour
             // AI Di chuyển (Trốn hoặc Đi dạo)
             if (dist <= fleeDetectionRange && canCatch)
             {
-                FleeFromPlayer(); // Thấy tới gần là chạy tốc biến!
+                FleeFromPlayerSmart(); // Gọi thuật toán trốn tường thông minh
             }
             else
             {
@@ -123,45 +145,122 @@ public class BuffaloAI : MonoBehaviour
 
     private void CatchBuffalo()
     {
-        isCaught = true;
+        catchesDone++;
         HideInteractPrompt();
-        
-        Debug.Log($"[BuffaloAI] Đã tóm được {buffaloName}");
 
-        // Cập nhật quest trên quản lý nhiệm vụ (Qua bước tiếp theo)
-        if (catchQuestStep >= 0 && VillageQuestManager.Instance != null)
+        // Phát tiếng la lối/kêu của trâu ngay khi người chơi đụng tay
+        if (catchSound != null)
         {
-            VillageQuestManager.Instance.OnVillagerDialogueCompleted(buffaloName, catchQuestStep);
+            AudioSource.PlayClipAtPoint(catchSound, transform.position);
+        }
+
+        // Gọi hiệu ứng Animation giãy giụa (kích hoạt Trigger)
+        if (anim != null && !string.IsNullOrEmpty(hitAnimTrigger))
+        {
+            anim.SetTrigger(hitAnimTrigger);
+        }
+
+        if (catchesDone >= totalCatchesRequired)
+        {
+            // NHÁT CHÓT: HOÀN TOÀN THU PHỤC
+            isCaught = true;
+            Debug.Log($"[BuffaloAI] Đã thu phục được {buffaloName}");
+
+            // Gửi tín hiệu hoàn thành bước Quest
+            if (catchQuestStep >= 0 && VillageQuestManager.Instance != null)
+            {
+                VillageQuestManager.Instance.OnVillagerDialogueCompleted(buffaloName, catchQuestStep);
+            }
+        }
+        else
+        {
+            // VẬT LỘN: TRÂU VẪN CÒN SỨC, GIẰNG RA XA
+            Debug.Log($"[BuffaloAI] Đã tóm {catchesDone}/{totalCatchesRequired}. Trâu vùng vẫy văng ra xa!");
+            
+            // Tính hướng đẩy văng (Hướng từ Gióng đâm thẳng qua Trâu)
+            Vector3 pushDirection = (transform.position - player.position).normalized;
+            Vector3 pushTargetPos = transform.position + pushDirection * pushbackDistance;
+
+            NavMeshHit hit;
+            // Tìm điểm rớt trên Navmesh để Trâu không lọt vách núi
+            if (NavMesh.SamplePosition(pushTargetPos, out hit, 5f, NavMesh.AllAreas))
+            {
+                // Ép Trâu bay tức thì tới vị trí lùi lại bằng hiệu ứng trượt
+                StartCoroutine(PushbackRoutine(transform.position, hit.position));
+            }
         }
     }
 
-    private void FleeFromPlayer()
+    // Biến cảnh văng Trâu thành "Lướt" mềm mại
+    private System.Collections.IEnumerator PushbackRoutine(Vector3 start, Vector3 end)
     {
+        isBeingPushed = true;
+        agent.enabled = false; // Tắt AI để can thiệp vật lý tay
+
+        float elapsed = 0f;
+        float duration = 0.25f; // Thời gian bật ngửa siêu âm (0.25 giây)
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            // Làm mượt đường trượt bằng hàm Lerp
+            transform.position = Vector3.Lerp(start, end, elapsed / duration);
+            yield return null;
+        }
+
+        transform.position = end;
+        agent.enabled = true; // Quăng ngược lại cho Navmesh kiểm soát
+        isBeingPushed = false;
+    }
+
+    private void FleeFromPlayerSmart()
+    {
+        // Kiểm tra tránh vướng tường thông minh
         agent.speed = fleeSpeed;
         agent.isStopped = false;
 
-        // Sợ Gióng, lấy hướng cắm đầu chạy Ngược Lại với Gióng
-        Vector3 fleeDirection = (transform.position - player.position).normalized;
-        Vector3 newPos = transform.position + fleeDirection * fleeSpeed; // Chạy ra xa thêm
+        Vector3 bestPos = transform.position;
+        float maxDist = -1f;
 
-        NavMeshHit hit;
-        // Quét tìm khu vực an toàn không xuyên tường
-        if (NavMesh.SamplePosition(newPos, out hit, 4f, NavMesh.AllAreas))
+        // Quét 8 hướng xung quanh như Rada tìm lối thoát
+        for (int i = 0; i < 8; i++)
         {
-            agent.SetDestination(hit.position);
+            float angle = i * 45f;
+            Vector3 dir = Quaternion.Euler(0, angle, 0) * Vector3.forward;
+            Vector3 checkPos = transform.position + dir * fleeSpeed;
+
+            NavMeshHit hit;
+            // Nếu hẻm này chui Navmesh được
+            if (NavMesh.SamplePosition(checkPos, out hit, 2f, NavMesh.AllAreas))
+            {
+                // Đo xa cách với Gióng
+                float d = Vector3.Distance(hit.position, player.position);
+                if (d > maxDist)
+                {
+                    maxDist = d;      // Chọn hẻm này làm hẻm tốt nhất vì cách Gióng xa nhất!
+                    bestPos = hit.position;
+                }
+            }
         }
+
+        // Bỏ chạy vào hẻm mới bói được
+        agent.SetDestination(bestPos);
     }
 
-    private void FollowPlayer()
+    private void FollowTarget()
     {
+        // Ưu tiên target NPC trước, nếu không truyền gì thì mới chọn Player
+        Transform target = (targetToFollow != null) ? targetToFollow : player;
+        if (target == null) return;
+
         agent.speed = followSpeed;
-        float distance = Vector3.Distance(transform.position, player.position);
+        float distance = Vector3.Distance(transform.position, target.position);
         
-        // Gióng đi xa mới chạy bước theo
+        // Mục tiêu đi xa mới chạy bước theo
         if (distance > followDistance)
         {
             agent.isStopped = false;
-            agent.SetDestination(player.position);
+            agent.SetDestination(target.position);
         }
         else
         {
@@ -169,7 +268,7 @@ public class BuffaloAI : MonoBehaviour
             agent.isStopped = true;
             
             // Xoay đầu về hướng người chủ
-            Vector3 dir = (player.position - transform.position).normalized;
+            Vector3 dir = (target.position - transform.position).normalized;
             dir.y = 0;
             if (dir != Vector3.zero)
             {
@@ -220,7 +319,15 @@ public class BuffaloAI : MonoBehaviour
         var dialogueUI = Object.FindObjectOfType<DialogueUI>();
         if (dialogueUI != null)
         {
-            dialogueUI.ShowInteractPrompt($"Nhấn F để dắt {buffaloName}");
+            if (totalCatchesRequired > 1)
+            {
+                int healthPercent = 100 - (catchesDone * 100 / totalCatchesRequired);
+                dialogueUI.ShowInteractPrompt($"Nhấn F vật lộn trâu (Máu: {healthPercent}%)");
+            }
+            else
+            {
+                dialogueUI.ShowInteractPrompt($"Nhấn F để dắt {buffaloName}");
+            }
         }
     }
 

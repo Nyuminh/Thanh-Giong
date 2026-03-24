@@ -12,6 +12,10 @@ namespace Blocks.Gameplay.Core
         [Header("Item Info")]
         [SerializeField] private string itemName = "Con Diều";
         
+        [Header("Audio Settings")]
+        [Tooltip("Âm thanh phát ra khi nhặt (VD: tiếng sột soạt, tiếng nhặt đồ)")]
+        [SerializeField] private AudioClip pickupSound;
+        
         [Header("Quest Step")]
         [Tooltip("Bước đánh dấu lúc cần đi nhặt vật phẩm này")]
         [SerializeField] private int questStep;
@@ -109,6 +113,12 @@ namespace Blocks.Gameplay.Core
             if (questMarker != null) questMarker.SetActive(false);
 
             Debug.Log($"[QuestItem] Đã nhặt: {itemName}");
+
+            // Phát âm thanh nhặt đồ ngay tại vị trí con diều
+            if (pickupSound != null)
+            {
+                AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+            }
 
             // Kích hoạt các sự kiện Unity (Bật/Tắt model)
             OnPickedUp?.Invoke();

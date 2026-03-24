@@ -45,6 +45,10 @@ namespace Blocks.Gameplay.Core
         [Tooltip("Reference to the DialogueUI for showing notifications.")]
         [SerializeField] private DialogueUI dialogueUI;
 
+        [Header("Quest Hint Settings")]
+        [Tooltip("Only show action key hint when player is this close to current target.")]
+        [SerializeField] private float interactionHintDistance = 8f;
+
         // Internal tracking
         private bool m_IsTrackerVisible = false;
         private int m_CurrentQuestStep = 0;
@@ -175,6 +179,7 @@ namespace Blocks.Gameplay.Core
     {
         // Cập nhật la bàn / chỉ đường
         UpdateNavigationArrow();
+        UpdateCurrentStepLabel();
 
         // Kiểm tra nếu phím Tab đang được GIỮ (Hold)
         if (Keyboard.current != null && Keyboard.current.tabKey.isPressed)
@@ -208,18 +213,7 @@ namespace Blocks.Gameplay.Core
 
         if (m_CurrentQuestStep < TotalSteps)
         {
-            Transform targetTransform = null;
-
-            // Ưu tiên target động (như Con Diều) đã đăng ký
-            if (m_RegisteredTargets.ContainsKey(m_CurrentQuestStep))
-            {
-                targetTransform = m_RegisteredTargets[m_CurrentQuestStep];
-            }
-            // Nếu không thì lấy NPC tĩnh
-            else if (m_CurrentQuestStep < allVillagers.Count && allVillagers[m_CurrentQuestStep] != null)
-            {
-                targetTransform = allVillagers[m_CurrentQuestStep].transform;
-            }
+            Transform targetTransform = GetCurrentTargetTransform();
 
             if (targetTransform == null) return;
 
@@ -253,6 +247,66 @@ namespace Blocks.Gameplay.Core
             m_DirectionArrow.transform.rotation = Quaternion.identity;
         }
     }
+    
+        private Transform GetCurrentTargetTransform()
+        {
+            if (m_RegisteredTargets.ContainsKey(m_CurrentQuestStep))
+            {
+                return m_RegisteredTargets[m_CurrentQuestStep];
+            }
+
+            if (m_CurrentQuestStep < allVillagers.Count && allVillagers[m_CurrentQuestStep] != null)
+            {
+                return allVillagers[m_CurrentQuestStep].transform;
+            }
+
+            return null;
+        }
+
+        private bool IsDialogueStep(int step)
+        {
+            foreach (var villager in allVillagers)
+            {
+                if (villager == null || villager.QuestSteps == null) continue;
+                foreach (int villagerStep in villager.QuestSteps)
+                {
+                    if (villagerStep == step) return true;
+                }
+            }
+            return false;
+        }
+
+        private void UpdateCurrentStepLabel()
+        {
+            if (m_QuestStepLabel == null) return;
+
+            if (m_CurrentQuestStep < m_StepDescriptions.Count)
+            {
+                string baseText = $"► {m_StepDescriptions[m_CurrentQuestStep]}";
+                string hintText = string.Empty;
+
+                var player = GameObject.FindGameObjectWithTag("Player");
+                var targetTransform = GetCurrentTargetTransform();
+                if (player != null && targetTransform != null)
+                {
+                    float distance = Vector3.Distance(player.transform.position, targetTransform.position);
+                    if (distance <= interactionHintDistance)
+                    {
+                        hintText = IsDialogueStep(m_CurrentQuestStep)
+                            ? "\nNhấn E để nói chuyện"
+                            : "\nNhấn F để làm nhiệm vụ";
+                    }
+                }
+
+                m_QuestStepLabel.text = baseText + hintText;
+                m_QuestStepLabel.style.color = new Color(0.5f, 0.85f, 1f);
+            }
+            else
+            {
+                m_QuestStepLabel.text = "★ Chuẩn bị biến hình!";
+                m_QuestStepLabel.style.color = new Color(0.95f, 0.75f, 0.2f);
+            }
+        }
     
         #endregion
 
@@ -607,19 +661,8 @@ namespace Blocks.Gameplay.Core
                 m_QuestProgressLabel.text = $"Tiến trình: {CompletedCount}/{TotalSteps}";
             }
 
-            // Update current step label
-            if (m_QuestStepLabel != null)
-            {
-                if (m_CurrentQuestStep < m_StepDescriptions.Count)
-                {
-                    m_QuestStepLabel.text = $"► {m_StepDescriptions[m_CurrentQuestStep]}";
-                }
-                else
-                {
-                    m_QuestStepLabel.text = "★ Chuẩn bị biến hình!";
-                    m_QuestStepLabel.style.color = new Color(0.95f, 0.75f, 0.2f);
-                }
-            }
+            // Update current step label (with contextual E/F hint)
+            UpdateCurrentStepLabel();
 
             // Update step icons and colors (m_StepIcons size == m_UIDisplayNames.Count)
             for (int i = 0; i < m_StepIcons.Count; i++)

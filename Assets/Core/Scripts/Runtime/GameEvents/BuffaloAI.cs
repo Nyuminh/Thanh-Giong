@@ -31,7 +31,14 @@ public class BuffaloAI : MonoBehaviour
     public int totalCatchesRequired = 5;
     [Tooltip("Khoảng cách trâu bị văng ra sau khi giằng co thành công 1 nhịp")]
     public float pushbackDistance = 8f;
-    private int catchesDone = 0; // Đếm số lần đã tóm trúng
+    private int catchesDone = 0;
+
+    /// <summary>Remaining HP as 0..1 ratio (1 = full, 0 = caught).</summary>
+    public float HealthRatio =>
+        1f - (float)catchesDone / Mathf.Max(1, totalCatchesRequired);
+
+    /// <summary>True after the buffalo has been fully tamed.</summary>
+    public bool IsCaught => isCaught;
     
     [Header("Audio Settings")]
     [Tooltip("Tiếng Trâu kêu la giằng co phát ra mỗi khi người chơi bấm F tóm được")]

@@ -37,6 +37,31 @@ namespace Blocks.Gameplay.Core
         private bool m_PlayerInRange;
         private Transform m_PlayerTransform;
 
+        public int QuestStep => questStep;
+
+        public void FastForward(GameObject player)
+        {
+            if (m_HasInteracted) return;
+            m_HasInteracted = true;
+            if (questMarker != null) questMarker.SetActive(false);
+            
+            OnPickedUp?.Invoke();
+
+            if (!string.IsNullOrEmpty(playerEquipObjectName) && player != null)
+            {
+                Transform[] allChildren = player.GetComponentsInChildren<Transform>(true);
+                foreach (var child in allChildren)
+                {
+                    if (child.name == playerEquipObjectName)
+                    {
+                        child.gameObject.SetActive(true);
+                        break;
+                    }
+                }
+            }
+            this.enabled = false;
+        }
+
         private void Start()
         {
             if (questMarker != null) questMarker.SetActive(false);

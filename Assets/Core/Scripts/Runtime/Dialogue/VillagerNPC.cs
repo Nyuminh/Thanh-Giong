@@ -46,6 +46,8 @@ namespace Blocks.Gameplay.Core
         private Transform m_PlayerTransform;
         private GameObject m_PlayerGameObject;
 
+        private System.Collections.Generic.HashSet<int> m_FastForwardedSteps = new System.Collections.Generic.HashSet<int>();
+
         #endregion
 
         #region Properties
@@ -53,6 +55,41 @@ namespace Blocks.Gameplay.Core
         public string VillagerName => villagerName;
         public bool HasInteracted => m_HasInteracted;
         public int[] QuestSteps => questSteps;
+
+        public void FastForward(int step, GameObject player)
+        {
+            if (m_FastForwardedSteps.Contains(step)) return;
+
+            for (int i = 0; i < questSteps.Length; i++)
+            {
+                if (questSteps[i] == step)
+                {
+                    if (onStepCompleted != null && i < onStepCompleted.Length)
+                    {
+                        onStepCompleted[i]?.Invoke();
+                    }
+
+                    if (hidePlayerEquipNames != null && i < hidePlayerEquipNames.Length)
+                    {
+                        string objName = hidePlayerEquipNames[i];
+                        if (!string.IsNullOrEmpty(objName) && player != null)
+                        {
+                            Transform[] allChildren = player.GetComponentsInChildren<Transform>(true);
+                            foreach (var child in allChildren)
+                            {
+                                if (child.name == objName)
+                                {
+                                    child.gameObject.SetActive(false);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    m_FastForwardedSteps.Add(step);
+                    break;
+                }
+            }
+        }
 
         #endregion
 

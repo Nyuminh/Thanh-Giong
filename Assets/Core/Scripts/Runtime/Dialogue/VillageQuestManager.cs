@@ -338,6 +338,74 @@ namespace Blocks.Gameplay.Core
 
         #endregion
 
+        #region Save / Load
+
+        public void SaveQuestProgress()
+        {
+            PlayerPrefs.SetInt("SavedQuestStep", m_CurrentQuestStep);
+            PlayerPrefs.SetString("SavedCompletedVillagers", string.Join(",", m_CompletedVillagers));
+            PlayerPrefs.SetInt("SavedQuestCompleted", m_QuestCompleted ? 1 : 0);
+            PlayerPrefs.Save();
+            Debug.Log($"[QuestManager] Saved quest progress. Step: {m_CurrentQuestStep}");
+        }
+
+        public void LoadQuestProgress()
+        {
+            if (!PlayerPrefs.HasKey("SavedQuestStep")) return;
+
+            m_CurrentQuestStep = PlayerPrefs.GetInt("SavedQuestStep", 0);
+            
+            m_CompletedVillagers.Clear();
+            string completedStr = PlayerPrefs.GetString("SavedCompletedVillagers", "");
+            if (!string.IsNullOrEmpty(completedStr))
+            {
+                var arr = completedStr.Split(',');
+                foreach(var s in arr)
+                {
+                    m_CompletedVillagers.Add(s);
+                }
+            }
+            
+            m_QuestCompleted = PlayerPrefs.GetInt("SavedQuestCompleted", 0) == 1;
+
+            if (m_QuestTrackerRoot != null)
+            {
+                UpdateQuestTrackerUI();
+            }
+
+            Debug.Log($"[QuestManager] Loaded quest progress. Step: {m_CurrentQuestStep}");
+        }
+
+        public void FastForwardQuestsToCurrentStep(GameObject player)
+        {
+            var villagers = FindObjectsOfType<VillagerNPC>(true);
+            var questItems = FindObjectsOfType<QuestItemInteract>(true);
+
+            for (int s = 0; s < m_CurrentQuestStep; s++)
+            {
+                // Gọi Event của QuestItemInteract ở bước 's'
+                foreach (var item in questItems)
+                {
+                    if (item != null && item.QuestStep == s)
+                    {
+                        item.FastForward(player);
+                    }
+                }
+
+                // Gọi Event của VillagerNPC ở bước 's'
+                foreach (var v in villagers)
+                {
+                    if (v != null)
+                    {
+                        v.FastForward(s, player);
+                    }
+                }
+            }
+            Debug.Log($"[QuestManager] Fast-forwarded all quest events up to step {m_CurrentQuestStep}");
+        }
+
+        #endregion
+
         #region Transformation Sequence
 
         /// <summary>

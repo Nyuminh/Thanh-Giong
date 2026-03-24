@@ -209,6 +209,12 @@ namespace Blocks.Gameplay.Core
             PlayerPrefs.SetInt("HasSaveData", 1);
             PlayerPrefs.Save();
 
+            // Lưu quá trình nhiệm vụ nếu đang ở scene Làng
+            if (VillageQuestManager.Instance != null)
+            {
+                VillageQuestManager.Instance.SaveQuestProgress();
+            }
+
             // Hiện thông báo
             ShowSaveStatus("✓ Đã lưu game thành công!");
         }
@@ -371,6 +377,13 @@ namespace Blocks.Gameplay.Core
             {
                 PlayerPrefs.SetInt("NeedRestorePosition", 0);
                 PlayerPrefs.Save();
+                
+                // Restore nhiệm vụ
+                if (VillageQuestManager.Instance != null)
+                {
+                    VillageQuestManager.Instance.LoadQuestProgress();
+                }
+
                 StartCoroutine(RestorePlayerPosition());
             }
         }
@@ -380,19 +393,31 @@ namespace Blocks.Gameplay.Core
         /// </summary>
         private IEnumerator RestorePlayerPosition()
         {
-            // Đợi vài frame cho player spawn
-            for (int i = 0; i < 10; i++)
-            {
-                yield return null;
-            }
-            yield return new WaitForFixedUpdate();
+            float timeout = 5f;
+            GameObject playerObj = null;
 
-            var playerObj = FindLocalPlayer();
+            // Đợi player spawn thay vì chỉ đợi 10 frame do độ trễ của Netcode Multiplayer
+            while (timeout > 0f)
+            {
+                playerObj = FindLocalPlayer();
+                if (playerObj != null) break;
+
+                yield return null;
+                timeout -= Time.deltaTime;
+            }
+
             if (playerObj == null)
             {
                 Debug.LogWarning("[PauseMenu] Không tìm thấy player để restore vị trí.");
                 yield break;
             }
+
+            // Đợi thêm vài frame để GameManager teleport về default spawn point xong, rôi đè lại bằng Saved Pos
+            for(int i = 0; i < 5; i++)
+            {
+                yield return null;
+            }
+            yield return new WaitForFixedUpdate();
 
             // Đọc vị trí đã lưu
             float x = PlayerPrefs.GetFloat("SavedPosX", 0);
@@ -441,6 +466,12 @@ namespace Blocks.Gameplay.Core
             }
 
             Debug.Log($"[PauseMenu] Đã restore vị trí player: {savedPos}");
+
+            // Cập nhật lại các vật thể trong Quest (Con diều, Model trên Player...)
+            if (VillageQuestManager.Instance != null)
+            {
+                VillageQuestManager.Instance.FastForwardQuestsToCurrentStep(playerObj);
+            }
         }
 
         /// <summary>

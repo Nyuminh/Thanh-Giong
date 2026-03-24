@@ -14,22 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
   npcName: "B\xE9 G\xE1i"
   lines:
-  - speakerName: "B\xE9 G\xE1i"
-    text: "Anh Gi\xF3ng \u01A1i! Em mang khoai lang v\xE0 b\u1EAFp ng\xF4 \u0111\u1EBFn
-      cho anh n\xE8!"
-    isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 09789c5614fd0d140bfd11ba64ec12ed, type: 3}
-    delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
-    text: "\u1ED2, c\u1EA3m \u01A1n em! Em mang nhi\u1EC1u qu\xE1!"
+    text: " N\xE0y em g\xE1i, sao l\u1EA1i \u0111\u1EE9ng kh\xF3c n\u1EE9c n\u1EDF
+      \u1EDF \u0111\xE2y th\u1EBF?"
     isPlayerLine: 1
-    voiceClip: {fileID: 8300000, guid: 603c4b7d3022fcc4989d83d2609cf81c, type: 3}
+    voiceClip: {fileID: 8300000, guid: 0ea38643e176e3449acbce23c10d3f08, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "B\xE9 G\xE1i"
-    text: "M\u1EB9 em b\u1EA3o ph\u1EA3i mang th\u1EADt nhi\u1EC1u cho anh \u0103n.
-      Anh \u0103n bao nhi\xEAu c\u0169ng kh\xF4ng \u0111\u1EE7 ph\u1EA3i kh\xF4ng?"
+    text: "Anh Gi\xF3ng \u01A1i... con di\u1EC1u c\u1EE7a em b\u1ECB m\u1EAFc t\xEDt
+      tr\xEAn c\xE0nh c\xE2y r\u1ED3i. Em kh\xF4ng sao l\u1EA5y xu\u1ED1ng \u0111\u01B0\u1EE3c."
     isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 82e3394b575ccd4478d6efa09765b595, type: 3}
+    voiceClip: {fileID: 8300000, guid: 592a6a59e5b16f849931aa5d8ff76415, type: 3}
     delayBeforeNext: 0.5
   - speakerName: "Gi\xF3ng"
     text: "\u0110\xFAng r\u1ED3i! Anh c\u1EA3m \u01A1n em nhi\u1EC1u nha. V\u1EDBi
@@ -37,34 +32,6 @@ MonoBehaviour:
       em quay v\u1EC1 v\u1EDBi m\u1EB9 r\u1ED3i \u0111\u1EBFn n\u01A1i an to\xE0n
       ha."
     isPlayerLine: 1
-    voiceClip: {fileID: 8300000, guid: a384e7edeafb9154f846f7bbbc5ae307, type: 3}
+    voiceClip: {fileID: 8300000, guid: 378dde339ecc6b847bb899827e0f5f6a, type: 3}
     delayBeforeNext: 0.5
-  - speakerName: "B\xE9 G\xE1i"
-    text: "Anh Gi\xF3ng \u01A1i, gi\u1EB7c \xC2n s\u1EAFp \u0111\u1EBFn l\xE0ng m\xECnh
-      ph\u1EA3i kh\xF4ng?"
-    isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 65b14190e62941f48b1242a34ed3c5cc, type: 3}
-    delayBeforeNext: 0.5
-  - speakerName: "B\xE9 G\xE1i"
-    text: "M\u1EB9 em b\u1EA3o ch\xFAng n\xF3 hung d\u1EEF l\u1EAFm, s\u1EBD \u0111\u1ED1t
-      h\u1EBFt nh\xE0 c\u1EEDa, ru\u1ED9ng v\u01B0\u1EDDn... Em s\u1EE3 l\u1EAFm!
-      Ch\xF3 m\u1EF1c nh\xE0 em c\u0169ng ch\u1EA1y \u0111i m\u1EA5t r\u1ED3i."
-    isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 1ef539ac30a000c4990c534c8bb30fa6, type: 3}
-    delayBeforeNext: 0.5
-  - speakerName: "Gi\xF3ng"
-    text: "Em \u0111\u1EEBng s\u1EE3. S\u1EE9 gi\u1EA3 \u0111ang mang v\u0169 kh\xED
-      \u0111\u1EBFn cho anh r\u1ED3i. Kh\u1EAFp ng\u01B0\u1EDDi anh s\u1EBD m\u1EB7c
-      \xE1o gi\xE1p s\u1EAFt, anh s\u1EBD \u0111\u1EE9ng ch\u1EAFn ngang c\u1ED5ng
-      l\xE0ng, kh\xF4ng t\xEAn gi\u1EB7c n\xE0o qua \u0111\u01B0\u1EE3c \u0111\xE2u."
-    isPlayerLine: 1
-    voiceClip: {fileID: 8300000, guid: a5d4b94246786054e9eb6631d770f183, type: 3}
-    delayBeforeNext: 0.5
-  - speakerName: "B\xE9 G\xE1i"
-    text: "V\u1EADy... v\u1EADy anh \u0103n cho th\u1EADt kh\u1ECFe m\u1EA1nh \u0111\u1EC3
-      \u0111u\u1ED5i ng\u01B0\u1EDDi x\u1EA5u \u0111i nh\xE9, \u0111\u1EC3 em c\xF2n
-      \u0111\u01B0\u1EE3c ra \u0111\u1ED3ng vui ch\u01A1i n\u1EEFa nha anh Gi\xF3ng."
-    isPlayerLine: 0
-    voiceClip: {fileID: 8300000, guid: 4c439e15dc2e46a499fc73ab4df6a603, type: 3}
-    delayBeforeNext: 0.5
-  playOnce: 1
+  playOnce: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.Events;
 
 namespace Blocks.Gameplay.Core
 {
@@ -15,11 +16,21 @@ namespace Blocks.Gameplay.Core
 
         [Header("NPC Info")]
         [SerializeField] private string villagerName = "Dân làng";
-        [SerializeField] private DialogueData dialogueData;
 
-        [Header("Quest Step")]
-        [Tooltip("Which quest step this NPC belongs to (0 = first, 1 = second, etc.)")]
-        [SerializeField] private int questStep = 0;
+        [Header("Quest Steps (Mỗi bước = 1 lượt nói chuyện)")]
+        [Tooltip("Cài đặt mảng các bước nhiệm vụ mà NPC này sẽ xuất hiện. VD: Mẹ đứng lấy diều = Bước 4 và Bước 6")]
+        [SerializeField] private int[] questSteps = new int[] { 0 };
+        
+        [Tooltip("Mỗi bước tương ứng với 1 đoạn hội thoại (theo thứ tự mảng questSteps)")]
+        [SerializeField] private DialogueData[] dialogueDatas;
+
+        [Header("Events (Rất quan trọng)")]
+        [Tooltip("Những sự kiện sẽ CHẠY LÊN khi Gióng nói chuyện XONG với NPC (mỗi phần tử tương ứng với questSteps ở trên). VD: Lúc Gióng trả diều, bạn kéo model diều trên tay Gióng vào đây và SetActive(false).")]
+        public UnityEvent[] onStepCompleted;
+
+        [Header("Player Equipment (Dành cho Player sinh ra lúc Play)")]
+        [Tooltip("Nếu Gióng được sinh ra lúc Play, gõ tên Con Diều đang ĐƯỢC BẬT trên người vào đây (mỗi phần tử tương ứng với questSteps). Script sẽ TỰ TÌM bằng tên và TẮT nó đi.")]
+        public string[] hidePlayerEquipNames;
 
         [Header("Interaction Settings")]
         [SerializeField] private float interactionRadius = 5f;
@@ -35,13 +46,50 @@ namespace Blocks.Gameplay.Core
         private Transform m_PlayerTransform;
         private GameObject m_PlayerGameObject;
 
+        private System.Collections.Generic.HashSet<int> m_FastForwardedSteps = new System.Collections.Generic.HashSet<int>();
+
         #endregion
 
         #region Properties
 
         public string VillagerName => villagerName;
         public bool HasInteracted => m_HasInteracted;
-        public int QuestStep => questStep;
+        public int[] QuestSteps => questSteps;
+
+        public void FastForward(int step, GameObject player)
+        {
+            if (m_FastForwardedSteps.Contains(step)) return;
+
+            for (int i = 0; i < questSteps.Length; i++)
+            {
+                if (questSteps[i] == step)
+                {
+                    if (onStepCompleted != null && i < onStepCompleted.Length)
+                    {
+                        onStepCompleted[i]?.Invoke();
+                    }
+
+                    if (hidePlayerEquipNames != null && i < hidePlayerEquipNames.Length)
+                    {
+                        string objName = hidePlayerEquipNames[i];
+                        if (!string.IsNullOrEmpty(objName) && player != null)
+                        {
+                            Transform[] allChildren = player.GetComponentsInChildren<Transform>(true);
+                            foreach (var child in allChildren)
+                            {
+                                if (child.name == objName)
+                                {
+                                    child.gameObject.SetActive(false);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    m_FastForwardedSteps.Add(step);
+                    break;
+                }
+            }
+        }
 
         #endregion
 
@@ -55,12 +103,23 @@ namespace Blocks.Gameplay.Core
 
         private void Update()
         {
-            if (m_HasInteracted || m_IsInDialogue) return;
+            if (m_IsInDialogue) return;
 
             // Check if this NPC's quest step is the current step
             if (VillageQuestManager.Instance == null) return;
             int currentStep = VillageQuestManager.Instance.GetCurrentQuestStep();
-            if (currentStep == questStep)
+
+            bool isMyTurn = false;
+            foreach (int step in questSteps)
+            {
+                if (step == currentStep)
+                {
+                    isMyTurn = true;
+                    break;
+                }
+            }
+
+            if (isMyTurn)
             {
                 if (questMarker != null && !questMarker.activeSelf)
                     questMarker.SetActive(true);
@@ -70,7 +129,7 @@ namespace Blocks.Gameplay.Core
                 if (questMarker != null && questMarker.activeSelf)
                     questMarker.SetActive(false);
             }
-            if (currentStep != questStep)
+            if (!isMyTurn)
             {
                 // Not our turn
                 if (m_PlayerInRange)
@@ -168,8 +227,31 @@ namespace Blocks.Gameplay.Core
 
         private IEnumerator DialogueSequence(GameObject player)
         {
-            if (DialogueSystem.Instance == null || dialogueData == null) yield break;
+            if (DialogueSystem.Instance == null) yield break;
             if (DialogueSystem.Instance.IsDialoguePlaying) yield break;
+
+            // Tìm Data hội thoại phù hợp với step hiện tại
+            int currentStep = VillageQuestManager.Instance.GetCurrentQuestStep();
+            int phaseIndex = -1;
+            DialogueData currentDialogue = null;
+            
+            for (int i = 0; i < questSteps.Length; i++)
+            {
+                if (questSteps[i] == currentStep)
+                {
+                    phaseIndex = i;
+                    if (dialogueDatas != null && i < dialogueDatas.Length)
+                        currentDialogue = dialogueDatas[i];
+                    break;
+                }
+            }
+
+            if (currentDialogue == null)
+            {
+                Debug.LogWarning($"[VillagerNPC] Không có DialogueData cho step {currentStep}");
+                yield break;
+            }
+
             AudioSource audio = GetComponent<AudioSource>();
             if (BGMManager.Instance != null) BGMManager.Instance.LowerBGM();
             if (audio != null && audio.isPlaying)
@@ -182,11 +264,11 @@ namespace Blocks.Gameplay.Core
             // Hide E prompt
             HideInteractPrompt();
 
-            Debug.Log($"[VillagerNPC] Starting dialogue step {questStep}: {villagerName}");
+            Debug.Log($"[VillagerNPC] Starting dialogue step {currentStep}: {villagerName}");
 
             // Start dialogue - DON'T disable player movement
             bool dialogueComplete = false;
-            DialogueSystem.Instance.StartDialogue(dialogueData, () =>
+            DialogueSystem.Instance.StartDialogue(currentDialogue, () =>
             {
                 dialogueComplete = true;
             });
@@ -197,21 +279,42 @@ namespace Blocks.Gameplay.Core
                 yield return null;
             }
 
-            // Mark completed
-            m_HasInteracted = true;
             m_IsInDialogue = false;
             m_PlayerInRange = false;
+
+            // Kích hoạt sự kiện Unity khi NPC nói xong
+            if (onStepCompleted != null && phaseIndex >= 0 && phaseIndex < onStepCompleted.Length)
+            {
+                onStepCompleted[phaseIndex]?.Invoke();
+            }
+
+            // Tính năng TẮT model trên người Gióng dựa theo tên cho Player sinh ra lúc Play
+            if (hidePlayerEquipNames != null && phaseIndex >= 0 && phaseIndex < hidePlayerEquipNames.Length)
+            {
+                string objName = hidePlayerEquipNames[phaseIndex];
+                if (!string.IsNullOrEmpty(objName) && player != null)
+                {
+                    Transform[] allChildren = player.GetComponentsInChildren<Transform>(true);
+                    foreach (var child in allChildren)
+                    {
+                        if (child.name == objName)
+                        {
+                            child.gameObject.SetActive(false);
+                            Debug.Log($"[VillagerNPC] Đã TẮT {objName} trên người Gióng bằng tên.");
+                            break;
+                        }
+                    }
+                }
+            }
 
             // Update visuals
             if (questMarker != null) questMarker.SetActive(false);
             if (completedMarker != null) completedMarker.SetActive(true);
 
-            Debug.Log($"[VillagerNPC] Completed step {questStep}: {villagerName}");
-
             // Notify quest manager
             if (VillageQuestManager.Instance != null)
             {
-                VillageQuestManager.Instance.OnVillagerDialogueCompleted(villagerName);
+                VillageQuestManager.Instance.OnVillagerDialogueCompleted(villagerName, currentStep);
             }
         }
 

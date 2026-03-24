@@ -106,7 +106,7 @@ namespace Blocks.Gameplay.Core
             // Notify quest manager
             if (VillageQuestManager.Instance != null)
             {
-                VillageQuestManager.Instance.OnVillagerDialogueCompleted(villagerName);
+                VillageQuestManager.Instance.OnVillagerDialogueCompleted(villagerName, VillageQuestManager.Instance.GetCurrentQuestStep());
             }
         }
 

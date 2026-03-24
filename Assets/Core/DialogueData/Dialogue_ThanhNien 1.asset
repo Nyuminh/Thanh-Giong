@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ca0117a1b6e3543bef1aafb3cfcec5, type: 3}
+  m_Name: Dialogue_ThanhNien 1
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
+  npcName: "Thanh Ni\xEAn"
+  lines:
+  - speakerName: "Gi\xF3ng"
+    text: "Huynh y\xEAn t\xE2m g\u1EB7t nh\xE9, \u0111\u1EC7 t\xECm th\u1EA5y c\u1EADu
+      nh\xF3c r\u1ED3i, ch\u1EC9 l\xE0 tr\xE2u x\u1ED5ng chu\u1ED3ng th\xF4i, \u0111\u1EC7
+      \u0111\xE3 b\u1EAFt l\u1EA1i v\xE0 b\u1EA3o nh\xF3c v\u1EC1 nh\xE0 r\u1ED3i."
+    isPlayerLine: 1
+    voiceClip: {fileID: 8300000, guid: cb1312f8003d89a44bdd4d1055fabf39, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "Thanh Ni\xEAn"
+    text: "May qu\xE1, t\u1EA1 \u01A1n tr\u1EDDi \u0111\u1EA5t! \u0110\u1EC7 ra tay
+      gi\xFAp \u0111\u1EE1 th\xEC c\xF2n g\xEC b\u1EB1ng. "
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: 24ad6e821ba40754291d3ed66fe5c023, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "Thanh Ni\xEAn"
+    text: "Ru\u1ED9ng l\xFAa \u1EDF cu\u1ED1i l\xE0ng c\xF3 c\xE1i th\xFAng \u1EDF
+      ngay c\u1EA1nh, huynh \u0111\u1EC7 ta c\xF9ng v\xE0o g\u1EB7t cho xong k\u1EBBo
+      t\u1ED1i."
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: fd9bb2ae3fc18b941877304fff37bcc7, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "Thanh Ni\xEAn"
+    text: "L\xE1t n\u1EEFa xong vi\u1EC7c, ta s\u1EBD d\u1EE1 ngay hai bao g\u1EA1o
+      to nh\u1EA5t nh\xE0 mang sang cho \u0111\u1EC7. \u0102n th\u1EADt no m\u1EDBi
+      vung \u0111\u01B0\u1EE3c roi s\u1EAFt \u0111\xE1nh gi\u1EB7c \xC2n!"
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: fccd5d004102716448f05bd819fa21c1, type: 3}
+    delayBeforeNext: 0.5
+  playOnce: 0

@@ -166,9 +166,9 @@ namespace Blocks.Gameplay.Core
             IsDialoguePlaying = true;
             CurrentNPCName = dialogueData.npcName;
 
-            // Lock cursor for dialogue
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            // XÓA: Không cần hiện chuột lúc hội thoại nữa (theo feedback)
+            // Cursor.lockState = CursorLockMode.None;
+            // Cursor.visible = true;
 
             OnDialogueStarted?.Invoke(dialogueData.npcName);
 

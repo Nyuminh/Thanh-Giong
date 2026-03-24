@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ca0117a1b6e3543bef1aafb3cfcec5, type: 3}
+  m_Name: Dialogue_BeTrai 1
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
+  npcName: "B\xE9 Trai"
+  lines:
+  - speakerName: "Gi\xF3ng"
+    text: "Tr\xE2u c\u1EE7a nh\xF3c \u0111\xE2y, l\u1EA7n sau \u0111i ch\u0103n tr\xE2u
+      th\xEC ch\xFA \xFD nh\xE9, s\u1EAFp c\xF3 gi\u1EB7c lo\u1EA1n r\u1ED3i \u0111\u1EEBng
+      \u0111i ch\u01A1i xa."
+    isPlayerLine: 1
+    voiceClip: {fileID: 8300000, guid: d8cf862acfd2c8241881996d172fc5bd, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 Trai"
+    text: "Tuy\u1EC7t v\u1EDDi! Anh Gi\xF3ng kh\u1ECFe nh\u01B0 th\u1EA7n v\u1EADy,
+      con tr\xE2u n\xE0y b\u01B0\u1EDBng l\u1EAFm m\xE0 anh l\xF9a \u0111\u01B0\u1EE3c
+      n\xF3 ngoan ngo\xE3n v\u1EC1 \u0111\xE2y. Em c\u1EA3m \u01A1n anh nhi\u1EC1u
+      l\u1EAFm!"
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: 25ff7198aba0ce14c804a487a91397cd, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 Trai"
+    text: "Anh m\xE0 \u0111\xE1nh gi\u1EB7c ch\u1EAFc ch\u1EAFn gi\u1EB7c s\u1EBD
+      s\u1EE3 khi\u1EBFp v\xEDa! "
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: e655a2b982c68ba49931102e10591113, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "B\xE9 Trai"
+    text: "Em s\u1EBD v\u1EC1 k\xEAu b\u1ED1 m\u1EB9 v\xE1c h\u1EBFt g\u1EA1o v\xE0
+      c\xE0 ph\xE1o \u1EDF nh\xE0 sang cho anh \u0103n \u0111\u1EC3 l\u1EA5y s\u1EE9c
+      ra tr\u1EADn!"
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: 50c61ab3138233a49bd4116df898f504, type: 3}
+    delayBeforeNext: 0.5
+  playOnce: 0

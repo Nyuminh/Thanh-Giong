@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ca0117a1b6e3543bef1aafb3cfcec5, type: 3}
+  m_Name: Dialogue_GiaLang 1
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::Blocks.Gameplay.Core.DialogueData
+  npcName: "Gi\xE0 L\xE0ng"
+  lines:
+  - speakerName: "Gi\xF3ng"
+    text: "Th\u01B0a Gi\xE0 L\xE0ng, to\xE0n b\u1ED9 l\xFAa \u1EDF b\xE3i cu\u1ED1i
+      l\xE0ng ch\xE1u v\xE0 anh Thanh Ni\xEAn \u0111\xE3 g\u1EB7t xong v\xE0 mang
+      \u0111\u1EBFn \u0111\xE2y r\u1ED3i \u1EA1."
+    isPlayerLine: 1
+    voiceClip: {fileID: 8300000, guid: 1770a9a321599f84588b7f34cc381e38, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "Ch\xE1u l\xE0m vi\u1EC7c tho\u1EAFt c\xE1i b\u1EB1ng tr\u0103m b\u1EB1ng
+      ng\xE0n ng\u01B0\u1EDDi th\u01B0\u1EDDng. L\xE0ng Ph\xF9 \u0110\u1ED5ng ta
+      v\xF4 c\xF9ng bi\u1EBFt \u01A1n ch\xE1u."
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: c2bfe15f94ab6794db5988509ad6f5f7, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "To\xE0n b\u1ED9 s\u1ED1 l\xFAa g\u1EA1o n\xE0y, ta \u0111\xE3 g\u1ECDi
+      b\xE0 con ra gi\xE3 g\u1EA1o th\u1ED5i c\u01A1m, mu\u1ED1i th\xEAm nh\u1EEFng
+      v\u1EA1i c\xE0 ph\xE1o to nh\u1EA5t mang ra \u0111\xE2y. Ch\xE1u h\xE3y \u0103n
+      th\u1EADt no \u0111\u1EC3 c\xF3 s\u1EE9c v\xF3c s\xE1nh ngang tr\u1EDDi \u0111\u1EA5t
+      nh\xE9!"
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: a2c2b5c327f3b1a498655078bdc9819d, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Ch\xE1u t\u1EA1 \u01A1n Gi\xE0 L\xE0ng v\xE0 to\xE0n th\u1EC3 b\xE0 con.
+      B\u1EEFa c\u01A1m th\u1EA5m \u0111\u1EABm \xE2n t\xECnh c\u1EE7a x\xF3m l\xE0ng
+      h\xF4m nay, ch\xE1u xin kh\u1EAFc c\u1ED1t ghi t\xE2m. \u0110\u1EA5t n\u01B0\u1EDBc
+      l\xE2m nguy, \u0111\xE2y ch\xEDnh l\xE0 s\u1EE9c m\u1EA1nh \u0111\u1EC3 ch\xE1u
+      \u0111\xE1nh \u0111u\u1ED5i qu\xE2n th\xF9."
+    isPlayerLine: 1
+    voiceClip: {fileID: 8300000, guid: 1ef2ef42becb202459d73b2af6bfe654, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xE0 L\xE0ng"
+    text: "\xC0, s\u1EE9 gi\u1EA3 c\u1EE7a nh\xE0 vua v\u1EEBa b\xE1o tin, ng\u1EF1a
+      s\u1EAFt, gi\xE1p s\u1EAFt v\xE0 roi s\u1EAFt \u0111\xE3 \u0111\u01B0\u1EE3c
+      r\xE8n xong, \u0111ang \u0111\u1EC3 s\u1EB5n \u1EDF ngo\xE0i c\u1ED5ng l\xE0ng
+      ch\u1EDD ch\xE1u \u0111\u1EBFn nh\u1EADn r\u1ED3i \u0111\xF3."
+    isPlayerLine: 0
+    voiceClip: {fileID: 8300000, guid: 971d503b221714440a86b72717b58bd4, type: 3}
+    delayBeforeNext: 0.5
+  - speakerName: "Gi\xF3ng"
+    text: "Gi\xE0 L\xE0ng v\xE0 b\xE0 con h\xE3y y\xEAn t\xE2m \u1EDF l\u1EA1i tr\xFA
+      \u1EA9n. Ch\xE1u xin ph\xE9p b\xE1i bi\u1EC7t x\xF3m l\xE0ng \u0111\u1EC3 ra
+      c\u1ED5ng nh\u1EADn binh kh\xED. Ch\xE1u h\u1EE9a s\u1EBD qu\xE9t s\u1EA1ch
+      gi\u1EB7c \xC2n, tr\u1EA3 l\u1EA1i b\xECnh y\xEAn cho qu\xEA h\u01B0\u01A1ng!"
+    isPlayerLine: 1
+    voiceClip: {fileID: 8300000, guid: 652d15927d46238458a39fbf6f511209, type: 3}
+    delayBeforeNext: 0.5
+  playOnce: 0

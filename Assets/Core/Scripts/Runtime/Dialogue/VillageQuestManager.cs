@@ -236,7 +236,7 @@ namespace Blocks.Gameplay.Core
                 if (camForward.sqrMagnitude > 0.001f && dirToTarget.sqrMagnitude > 0.001f)
                 {
                     float angle = Vector3.SignedAngle(camForward, dirToTarget, Vector3.up);
-                    m_DirectionArrow.transform.rotation = Quaternion.Euler(0, 0, -angle);
+                    m_DirectionArrow.transform.rotation = Quaternion.Euler(0, 0, angle);
                 }
             }
         }
@@ -282,7 +282,7 @@ namespace Blocks.Gameplay.Core
 
             if (m_CurrentQuestStep < m_StepDescriptions.Count)
             {
-                string baseText = $"► {m_StepDescriptions[m_CurrentQuestStep]}";
+                string baseText = $"➜ {m_StepDescriptions[m_CurrentQuestStep]}";
                 string hintText = string.Empty;
 
                 var player = GameObject.FindGameObjectWithTag("Player");
@@ -569,10 +569,16 @@ namespace Blocks.Gameplay.Core
             m_DistanceLabel.style.marginRight = 8;
             m_DistanceLabel.style.unityFontStyleAndWeight = FontStyle.Bold;
 
-            m_DirectionArrow = new Label("▲");
-            m_DirectionArrow.style.fontSize = 20;
+            m_DirectionArrow = new Label("⬆");
+            m_DirectionArrow.style.fontSize = 24;
             m_DirectionArrow.style.color = new Color(0.95f, 0.75f, 0.2f); // Vàng
             m_DirectionArrow.style.unityFontStyleAndWeight = FontStyle.Bold;
+            // Thêm bóng cho rõ nét
+            m_DirectionArrow.style.textShadow = new StyleTextShadow(new TextShadow { 
+                offset = new Vector2(1, 1), 
+                color = Color.black, 
+                blurRadius = 1 
+            });
             // Xoay quanh tâm
             m_DirectionArrow.style.transformOrigin = new TransformOrigin(Length.Percent(50), Length.Percent(50));
 
@@ -627,7 +633,7 @@ namespace Blocks.Gameplay.Core
                 row.style.alignItems = Align.Center;
                 row.style.marginBottom = 4;
 
-                var icon = new Label(i == 0 ? "▸" : "○");
+                var icon = new Label(i == 0 ? "➜" : "○");
                 icon.style.fontSize = 12;
                 icon.style.color = i == 0 ? new Color(0.5f, 0.85f, 1f) : new Color(0.4f, 0.4f, 0.4f);
                 icon.style.marginRight = 8;
@@ -687,7 +693,7 @@ namespace Blocks.Gameplay.Core
                 else if (m_CurrentQuestStep >= firstStep && m_CurrentQuestStep <= lastStep)
                 {
                     // Current active group
-                    m_StepIcons[i].text = "▸";
+                    m_StepIcons[i].text = "➜";
                     m_StepIcons[i].style.color = new Color(0.5f, 0.85f, 1f);
                     m_StepLabels[i].style.color = Color.white;
                     

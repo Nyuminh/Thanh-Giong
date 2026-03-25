@@ -434,13 +434,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Blocks.Gameplay.Core::PlayerCombat
   attackRange: 2.5
-  damageAmount: 34
+  damageAmount: 35
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
   attackAudioSource: {fileID: -8167680573215555392}
   attackSound: {fileID: 8300000, guid: 06df0bd0e2ad0794994f329b0e39da94, type: 3}
-  weaponTrail: {fileID: 0}
+  weaponTrail: {fileID: 1426484507507617450}
   comboCount: 0
   lastClickTime: 0
   comboDelay: 1
@@ -626,7 +626,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f78c82ccf74ca9946972bfa2a5e197f0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5012014074137871160}
+      addedObject: {fileID: 1426484507507617450}
   m_SourcePrefab: {fileID: 100100000, guid: f78c82ccf74ca9946972bfa2a5e197f0, type: 3}
 --- !u!4 &111459578631309349 stripped
 Transform:
@@ -638,7 +638,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f78c82ccf74ca9946972bfa2a5e197f0, type: 3}
   m_PrefabInstance: {fileID: 432700260102385614}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5012014074137871160
+--- !u!114 &1426484507507617450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -654,9 +654,9 @@ MonoBehaviour:
   createIfMissing: 1
   defaultPlayDuration: 0.35
   tipOffset: {x: 0, y: 0, z: 1.2}
-  trailTime: 0.5
+  trailTime: 0.25
   startWidth: 0.12
-  endWidth: 0.05
+  endWidth: 0.02
   trailColor: {r: 1, g: 0.92, b: 0.65, a: 0.85}
   trailColorEnd: {r: 1, g: 0.9, b: 0.5, a: 0}
 --- !u!1001 &911147796710848660

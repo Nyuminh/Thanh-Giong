@@ -1,4 +1,4 @@
-﻿using Blocks.Gameplay.Core;
+using Blocks.Gameplay.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,11 +19,31 @@ public class GeneralEnemyAI : MonoBehaviour
     private GeneralHitReceiver hitReceiver; // Thêm biến để tham chiếu trạng thái sống/chết
     public AudioSource enemyAudioSource; // Kéo AudioSource của tướng địch vào đây
     public AudioClip attackSound;
+
+    [Header("Weapon Trail")]
+    [Tooltip("Optional: child with WeaponTrailEffect on weapon blade. Auto-found if unset.")]
+    [SerializeField] private WeaponTrailEffect weaponTrail;
+
+    [Header("Attack Timing")]
+    [Tooltip("Thời gian chờ từ lúc bắt đầu đánh tới lúc gây sát thương (khớp animation).")]
+    [SerializeField] private float enemyHitDelay = 0.12f;
+
+    private bool m_HitScheduled;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         hitReceiver = GetComponent<GeneralHitReceiver>(); // Lấy component nhận sát thương
+        if (weaponTrail == null)
+            weaponTrail = GetComponentInChildren<WeaponTrailEffect>(true);
+        if (weaponTrail == null)
+        {
+            var go = new GameObject("WeaponTrail");
+            go.transform.SetParent(transform, false);
+            go.transform.localPosition = new Vector3(0f, 1f, 0.55f);
+            weaponTrail = go.AddComponent<WeaponTrailEffect>();
+        }
     }
 
     void Update()
@@ -81,9 +101,24 @@ public class GeneralEnemyAI : MonoBehaviour
 
         if (Time.time >= nextAttackTime)
         {
-            DealDamage();
             nextAttackTime = Time.time + attackRate;
+
+            // Tránh tạo nhiều coroutine gây sát thương chồng lên nhau.
+            if (!m_HitScheduled)
+            {
+                m_HitScheduled = true;
+                if (weaponTrail != null)
+                    weaponTrail.Play();
+                StartCoroutine(EnemyHitRoutine());
+            }
         }
+    }
+
+    private System.Collections.IEnumerator EnemyHitRoutine()
+    {
+        yield return new WaitForSeconds(Mathf.Max(0f, enemyHitDelay));
+        DealDamage();
+        m_HitScheduled = false;
     }
 
     void DealDamage()
@@ -105,6 +140,10 @@ public class GeneralEnemyAI : MonoBehaviour
                 impactForce = transform.forward * 5f
             };
             hittable.OnHit(info);
+
+            Vector3 bloodPos = player.position + Vector3.up;
+            Vector3 bloodDir = (player.position - transform.position).normalized;
+            HitBloodVFX.Spawn(bloodPos, bloodDir);
         }
     }
 

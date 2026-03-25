@@ -438,8 +438,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   alertRange: 10
   attackRange: 2.5
+  finishZone: {fileID: 0}
   damageAmount: 15
   attackRate: 1.5
+  combatMusic: {fileID: 0}
+  enemyAudioSource: {fileID: 0}
+  attackSound: {fileID: 0}
+  weaponTrail: {fileID: 0}
 --- !u!114 &7147902971672485656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,10 +591,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7120993385342881108, guid: 90e49dcb8d4095d499a8c16d9fd770a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5202122703491565908}
   m_SourcePrefab: {fileID: 100100000, guid: 90e49dcb8d4095d499a8c16d9fd770a4, type: 3}
 --- !u!4 &3951694926182785537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7609123412529944558, guid: 90e49dcb8d4095d499a8c16d9fd770a4, type: 3}
   m_PrefabInstance: {fileID: 6867484708257805807}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4439684147612940475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7120993385342881108, guid: 90e49dcb8d4095d499a8c16d9fd770a4, type: 3}
+  m_PrefabInstance: {fileID: 6867484708257805807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5202122703491565908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4439684147612940475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3e2d1c9b0a4f8e7d6c5b4a39281706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Blocks.Gameplay.Core::WeaponTrailEffect
+  trails: []
+  createIfMissing: 1
+  defaultPlayDuration: 0.35
+  trailTime: 0.25
+  startWidth: 0.12
+  endWidth: 0.02
+  trailColor: {r: 1, g: 0.92, b: 0.65, a: 0.85}
+  trailColorEnd: {r: 1, g: 0.9, b: 0.5, a: 0}

@@ -1449,6 +1449,7 @@ MonoBehaviour:
   questTrackerUIDocument: {fileID: 1205794378}
   winScreenUIDocument: {fileID: 941400139}
   dialogueUI: {fileID: 688952438}
+  interactionHintDistance: 8
 --- !u!4 &71624190
 Transform:
   m_ObjectHideFlags: 0
@@ -22250,7 +22251,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.018
       inSlope: 0
       outSlope: 0
       tangentMode: 0
